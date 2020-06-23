@@ -15,9 +15,9 @@
 |-|-|-|-|
 | id | INT | PRIMARY KEY, NOT NULL, UNSIGNED, AUTO_INCREMENT | number id |
 | type | VARCHAR(255) | NOT NULL | homePageMessage/CGV/CGU/legalMention... |
-| title | VARCHAR(255) | NULL | homePageMessage's title |
-| content | TEXT | NULL | homePageMessage's content |
-| image | BLOB | NULL | homePageMessage's Image |
+| title | VARCHAR(255) | NULL | page's title |
+| content | TEXT | NULL | page's content |
+| image | BLOB | NULL | page's Image |
 | created_at | TIMESTAMP | NOT NULL, DEFAULT CURRENT_TIMESTAMP, | created date |
 | updated_at | TIMESTAMP | NULL | created upDate |
 
@@ -27,16 +27,18 @@
 |name|Type| Specificités |Description|
 |-|-|-|-|
 | id | INT | PRIMARY KEY, NOT NULL, UNSIGNED, AUTO_INCREMENT | number id |
+| marketable | BOOL | NOT NULL, default(0) | is marketable ? (default false) |
 | title | VARCHAR(255) | NOT NULL | homePageMessage's title |
 | shortDescription | TEXT | NOT NULL | homePageMessage's content |
 | description | TEXT | NOT NULL | homePageMessage's content |
 | bio | BOOL | NOT NULL, default 0 | product is bio ? (default false) |
-| origineId | INT, UNSIGNED | NOT NULL | origine's id |
+| origineId | INT, UNSIGNED | NOT NULL | contact's id |
 | price | NUMBER | NOT NULL, UNSIGNED | product's price |
 | availability | BOOL | NOT NULL, default 1 | product's availability |
 | image | BLOB | NULL | homePageMessage's Image |
 | created_at | TIMESTAMP | NOT NULL, DEFAULT CURRENT_TIMESTAMP, | created date |
 | updated_at | TIMESTAMP | NULL | created upDate |
+
 
 ## Table many to many between recipe & product
 
@@ -44,6 +46,7 @@
 |-|-|-|-|
 | productId | INT | NOT NULL, UNSIGNED, AUTO_INCREMENT | user's foreign key |
 | recipeId | INT | NOT NULL, UNSIGNED, AUTO_INCREMENT | recipe's foreign key |
+
 
 ## recipe (`recipe`)
 
@@ -56,6 +59,17 @@
 | indicativePrice | INT | NOT NULL | recipe indicative price |
 | difficulty | INT | NOT NULL | recipe difficulty |
 | saison | VARCHAR | NULL | recipe saison |
+| created_at | TIMESTAMP | NOT NULL, DEFAULT CURRENT_TIMESTAMP, | created date |
+| updated_at | TIMESTAMP | NULL | created upDate |
+
+
+## steps (`steps`)
+
+|name|Type| Specificités |Description|
+|-|-|-|-|
+| id | INT | PRIMARY KEY, NOT NULL, UNSIGNED, AUTO_INCREMENT | number id |
+| recipeId | NOT NULL, UNSIGNED | recipe foreign key's ID |
+| step | TEXT | NOT NULL | step for recipe |
 | created_at | TIMESTAMP | NOT NULL, DEFAULT CURRENT_TIMESTAMP, | created date |
 | updated_at | TIMESTAMP | NULL | created upDate |
 
@@ -78,10 +92,13 @@
 |name|Type| Specificités |Description|
 |-|-|-|-|
 | id | INT | PRIMARY KEY, NOT NULL, UNSIGNED, AUTO_INCREMENT | number id |
-| custermer | BOOL | NOT NULL | is a custemer or a producter ?|
+| costumer | BOOL | NOT NULL | is a costumer or a producter ?|
 | name | VARCHAR(255) | NOT NULL | contact's name |
 | firstName | VARCHAR(255) | NOT NULL |contact's firstName |
 | adress | TEXT | NOT NULL | contact's adress |
+| city | TEXT | NOT NULL | contact's city |
+| country | TEXT | NOT NULL | contact's country |
+| departement | TEXT | NOT NULL | contact's french departement |
 | phone | VARCHAR(255) | NOT NULL | contact's phone |
 | mail | VARCHAR(255) | NULL | contact's mail |
 | mute | BOOL | NOT NULL, default(0) | contact is ban ? (default false) |
@@ -100,11 +117,11 @@
 | created_at | TIMESTAMP | NOT NULL, DEFAULT CURRENT_TIMESTAMP, | created date |
 | updated_at | TIMESTAMP | NULL | created upDate |
 
-## messageStatu (`messageStatu`)
+## messageStatus (`messageStatus`)
 
 |name|Type| Specificités |Description|
 |-|-|-|-|
 | id | INT | PRIMARY KEY, NOT NULL, UNSIGNED, AUTO_INCREMENT | number id |
-| statu | VARCHAR(255) | NOT NULL | unOpen, open, treat ...etc... |
+| status | VARCHAR(255) | NOT NULL | unOpen, open, treat ...etc... |
 | created_at | TIMESTAMP | NOT NULL, DEFAULT CURRENT_TIMESTAMP, | created date |
 | updated_at | TIMESTAMP | NULL | created upDate |

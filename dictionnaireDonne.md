@@ -1,14 +1,5 @@
 # Dictionnaire de donnée
 
-## demo (`demo`)
-
-|name|Type| Specificités |Description|
-|-|-|-|-|
-| id | INT | PRIMARY KEY, NOT NULL, UNSIGNED, AUTO_INCREMENT | number id |
-|  |  |  |  |
-| created_at | TIMESTAMP | NOT NULL, DEFAULT CURRENT_TIMESTAMP, | created date |
-| updated_at | TIMESTAMP | NULL | created upDate |
-
 ## datasPages (`datasPages`)
 
 |name|Type| Specificités |Description|

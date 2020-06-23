@@ -1,0 +1,27 @@
+admin has, 0N MESSAGE, 11 USER
+have in his cart, 0N PRODUCT, 0N USER
+PRODUCT: id, marketable, title, shortDescription, description, bio, price, availability, image, created_at, updated_at
+:
+DATAPAGE: id, type, title, content, image, created_at, updated_at
+:
+
+MESSAGE: id, title, content, created_at, updated_at
+USER: id, name, firstName, adress, country, phone, mail, mute, created_at, updated_at
+produce by, 11 USER, 1N PRODUCT
+compose, 0N RECIPE, 1N PRODUCT
+have, 1N STEP, 11 RECIPE
+STEP: id, stepContent, created_at, updated_at
+
+have one, 11 MESSAGESTATUS, 0N MESSAGE
+come from, 11 CITY, 0N USER
+is in favorite, 0N RECIPE, 0N USER
+RECIPE: id, title, shortDescription, description, saison, created_at, updated_at
+levelDifficulty, 11 DIFFICULTY, 0N RECIPE
+:
+
+MESSAGESTATUS: id, status
+CITY: id, name, departement, created_at, updated_at
+INDICATIVEPRICE: id, level
+has, 0N RECIPE, 11 INDICATIVEPRICE
+DIFFICULTY: id, level
+DATE: id, date, startHour, endHour, created_at, updated_at

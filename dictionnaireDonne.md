@@ -30,12 +30,27 @@
 | created_at | TIMESTAMP | NOT NULL, DEFAULT CURRENT_TIMESTAMP, | created date |
 | updated_at | TIMESTAMP | NULL | created upDate |
 
+## Table many to many between recipe & contact
+
+|name|Type|Specifications|Description|
+|-|-|-|-|
+| contactId | INT | NOT NULL, UNSIGNED, AUTO_INCREMENT | user's foreign key |
+| productId | INT | NOT NULL, UNSIGNED, AUTO_INCREMENT | product's foreign 
+
 
 ## Table many to many between recipe & product
 
 |name|Type|Specifications|Description|
 |-|-|-|-|
-| productId | INT | NOT NULL, UNSIGNED, AUTO_INCREMENT | user's foreign key |
+| productId | INT | NOT NULL, UNSIGNED, AUTO_INCREMENT | product's foreign key |
+| recipeId | INT | NOT NULL, UNSIGNED, AUTO_INCREMENT | recipe's foreign key |
+
+
+## Table many to many between recipe & contact
+
+|name|Type|Specifications|Description|
+|-|-|-|-|
+| contactId | INT | NOT NULL, UNSIGNED, AUTO_INCREMENT | user's foreign key |
 | recipeId | INT | NOT NULL, UNSIGNED, AUTO_INCREMENT | recipe's foreign key |
 
 
@@ -93,7 +108,8 @@
 | mail | VARCHAR(255) | NULL | contact's mail |
 | mute | BOOL | NOT NULL, default(0) | contact is ban ? (default false) |
 | created_at | TIMESTAMP | NOT NULL, DEFAULT CURRENT_TIMESTAMP, | created date |
-| updated_at | TIMESTAMP | NULL | created upDate |s
+| updated_at | TIMESTAMP | NULL | created upDate |
+
 
 ## message (`contact`)
 

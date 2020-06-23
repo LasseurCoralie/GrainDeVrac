@@ -87,14 +87,13 @@
 | name | VARCHAR(255) | NOT NULL | contact's name |
 | firstName | VARCHAR(255) | NOT NULL |contact's firstName |
 | adress | TEXT | NOT NULL | contact's adress |
-| city | TEXT | NOT NULL | contact's city |
+| cityID | INT | NOT NULL | city foreigner's key |
 | country | TEXT | NOT NULL | contact's country |
-| departement | TEXT | NOT NULL | contact's french departement |
 | phone | VARCHAR(255) | NOT NULL | contact's phone |
 | mail | VARCHAR(255) | NULL | contact's mail |
 | mute | BOOL | NOT NULL, default(0) | contact is ban ? (default false) |
 | created_at | TIMESTAMP | NOT NULL, DEFAULT CURRENT_TIMESTAMP, | created date |
-| updated_at | TIMESTAMP | NULL | created upDate |
+| updated_at | TIMESTAMP | NULL | created upDate |s
 
 ## message (`contact`)
 
@@ -114,5 +113,29 @@
 |-|-|-|-|
 | id | INT | PRIMARY KEY, NOT NULL, UNSIGNED, AUTO_INCREMENT | number id |
 | status | VARCHAR(255) | NOT NULL | unOpen, open, treat ...etc... |
+| created_at | TIMESTAMP | NOT NULL, DEFAULT CURRENT_TIMESTAMP, | created date |
+| updated_at | TIMESTAMP | NULL | created upDate |
+
+
+## dates
+
+|name|Type| Specificités |Description|
+|-|-|-|-|
+| id | INT | PRIMARY KEY, NOT NULL, UNSIGNED, AUTO_INCREMENT | number id |
+| date | TIMESTAMP | NOT NULL, UNSIGNED | evenement's date |
+| startHour | INT | NOT NULL, UNSIGNED | firt hour |
+| endHour | INT | NOT NULL, UNSIGNED | last hour |
+| cityId | INT | NOT NULL, UNSIGNED | City's id where the evenement gone's |
+| created_at | TIMESTAMP | NOT NULL, DEFAULT CURRENT_TIMESTAMP, | created date |
+| updated_at | TIMESTAMP | NULL | created upDate |
+
+
+## city
+
+|name|Type| Specificités |Description|
+|-|-|-|-|
+| id | INT | PRIMARY KEY, NOT NULL, UNSIGNED, AUTO_INCREMENT | number id |
+| name | VARCHAR(255) | NOT NULL | name of city |
+| departement | VARCHAR(255) | NOT NULL, UNSIGNED | number (VAR CHAR because of 02) of the french departement |
 | created_at | TIMESTAMP | NOT NULL, DEFAULT CURRENT_TIMESTAMP, | created date |
 | updated_at | TIMESTAMP | NULL | created upDate |

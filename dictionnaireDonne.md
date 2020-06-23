@@ -2,7 +2,7 @@
 
 ## datasPages (`datasPages`)
 
-|name|Type| Specificités |Description|
+|name|Type| Specificitys |Description|
 |-|-|-|-|
 | id | INT | PRIMARY KEY, NOT NULL, UNSIGNED, AUTO_INCREMENT | number id |
 | type | VARCHAR(255) | NOT NULL | homePageMessage/CGV/CGU/legalMention... |
@@ -15,7 +15,7 @@
 
 ## product (`product`)
 
-|name|Type| Specificités |Description|
+|name|Type| Specificitys |Description|
 |-|-|-|-|
 | id | INT | PRIMARY KEY, NOT NULL, UNSIGNED, AUTO_INCREMENT | number id |
 | marketable | BOOL | NOT NULL, default(0) | is marketable ? (default false) |
@@ -41,7 +41,7 @@
 
 ## recipe (`recipe`)
 
-|name|Type| Specificités |Description|
+|name|Type| Specificitys |Description|
 |-|-|-|-|
 | id | INT | PRIMARY KEY, NOT NULL, UNSIGNED, AUTO_INCREMENT | number id |
 | title | VARCHAR(255) | NOT NULL | homePageMessage's title |
@@ -56,7 +56,7 @@
 
 ## steps (`steps`)
 
-|name|Type| Specificités |Description|
+|name|Type| Specificitys |Description|
 |-|-|-|-|
 | id | INT | PRIMARY KEY, NOT NULL, UNSIGNED, AUTO_INCREMENT | number id |
 | recipeId | NOT NULL, UNSIGNED | recipe foreign key's ID |
@@ -66,21 +66,21 @@
 
 ## difficulty (`difficulty`)
 
-|name|Type| Specificités |Description|
+|name|Type| Specificitys |Description|
 |-|-|-|-|
 | id | INT | PRIMARY KEY, NOT NULL, UNSIGNED, AUTO_INCREMENT | number id |
 | difficultyLevel | VARCHAR(255) | NOT NULL | difficulty's level |
 
 ## indicativePrice (`indicativePrice`)
 
-|name|Type| Specificités |Description|
+|name|Type| Specificitys |Description|
 |-|-|-|-|
 | id | INT | PRIMARY KEY, NOT NULL, UNSIGNED, AUTO_INCREMENT | number id |
 | indicativePrice | VARCHAR(255) | NOT NULL | indicative price's level |
 
 ## contact (`contact`)
 
-|name|Type| Specificités |Description|
+|name|Type| Specificitys |Description|
 |-|-|-|-|
 | id | INT | PRIMARY KEY, NOT NULL, UNSIGNED, AUTO_INCREMENT | number id |
 | costumer | BOOL | NOT NULL | is a costumer or a producter ?|
@@ -98,7 +98,7 @@
 
 ## message (`contact`)
 
-|name|Type| Specificités |Description|
+|name|Type| Specificitys |Description|
 |-|-|-|-|
 | id | INT | PRIMARY KEY, NOT NULL, UNSIGNED, AUTO_INCREMENT | number id |
 | title | VARCHAR(255) | NOT NULL | message's title |
@@ -110,7 +110,7 @@
 
 ## messageStatus (`messageStatus`)
 
-|name|Type| Specificités |Description|
+|name|Type| Specificitys |Description|
 |-|-|-|-|
 | id | INT | PRIMARY KEY, NOT NULL, UNSIGNED, AUTO_INCREMENT | number id |
 | status | VARCHAR(255) | NOT NULL | unOpen, open, treat ...etc... |

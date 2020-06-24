@@ -1,27 +1,27 @@
-admin has, 11 MESSAGE, 0N USER
-has in his cart, 0N PRODUCT, 0N USER
-PRODUCT: id, marketable, title, shortDescription, description, bio, price, availability, image, created_at, updated_at
-:
-DATAPAGE: id, type, title, content, image, created_at, updated_at
-:
-
-MESSAGE: id, title, content, created_at, updated_at
-USER: id, name, firstName, adress, country, phone, mail, mute, created_at, updated_at
-is produced by, 1N USER, 11 PRODUCT
-is composed , 1N RECIPE, 0N PRODUCT
-has many, 1N STEP, 11 RECIPE
-STEP: id, stepContent, created_at, updated_at
-
-has one, 0N MESSAGESTATUS, 11 MESSAGE
-come from, 0N CITY, 11 USER
-is in favorite, 0N RECIPE, 0N USER
-RECIPE: id, title, shortDescription, description, saison, created_at, updated_at
-has a level Difficulty, 0N DIFFICULTY, 11 RECIPE
-:
+DATE: id, date, startHour, endHour, created_at, updated_at
+event, 11 DATE, 0N CITY
+ROLE: id, role
+INDICATIVEPRICE: id, indicativePrice
+has, 11 RECIPE, 0N INDICATIVEPRICE
+DIFFICULTY: id, level
 
 MESSAGESTATUS: id, status
 CITY: id, name, departement, created_at, updated_at
-INDICATIVEPRICE: id, level
-has, 11 RECIPE, 0N INDICATIVEPRICE
-DIFFICULTY: id, level
-DATE: id, date, startHour, endHour, created_at, updated_at
+is, 0N ROLE, 11 USER
+is in favorite, 0N RECIPE, 0N USER
+RECIPE: id, title, shortDescription, description, saison, created_at, updated_at
+has a level Difficulty, 0N DIFFICULTY, 11 RECIPE
+
+has one, 0N MESSAGESTATUS, 11 MESSAGE
+come from, 0N CITY, 11 USER
+USER: id, name, firstName, adress, country, phone, mail, mute, created_at, updated_at
+has in his cart, 0N PRODUCT, 0N USER
+is composed , 1N RECIPE, 0N PRODUCT
+has many, 11 STEP, 1N RECIPE
+
+MESSAGE: id, title, content, created_at, updated_at
+admin has, 11 MESSAGE, 0N USER
+is produced by, 0N USER, 11 PRODUCT
+PRODUCT: id, marketable, title, shortDescription, description, bio, price, availability, image, created_at, updated_at
+DATAPAGE: id, type, title, content, image, created_at, updated_at
+STEP: id, stepContent, created_at, updated_at

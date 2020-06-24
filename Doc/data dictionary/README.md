@@ -9,7 +9,7 @@
 | id | INT | PRIMARY KEY, NOT NULL, UNSIGNED, AUTO_INCREMENT | number id |
 | roleId | INT | NOT NULL, UNSIGNED | user role |
 | name | VARCHAR(255) | NOT NULL | contact's name |
-| firstName | VARCHAR(255) | NOT NULL |contact's firstName |
+| firstName | VARCHAR(255) | NOT NULL | contact's firstName |
 | adress | TEXT | NOT NULL | contact's adress |
 | cityID | INT | NOT NULL | city foreigner's key |
 | country | TEXT | NOT NULL | contact's country |
@@ -25,6 +25,7 @@
 |name|Type| Specificitys |Description|
 |-|-|-|-|
 | id | INT | PRIMARY KEY, NOT NULL, UNSIGNED, AUTO_INCREMENT | number id |
+| producerId | INT | NOT NULL, UNSIGNED | user (producer) key's ID |
 | marketable | BOOL | NOT NULL, default(0) | is marketable ? (default false) |
 | title | VARCHAR(255) | NOT NULL | homePageMessage's title |
 | shortDescription | TEXT | NOT NULL | homePageMessage's content |
@@ -37,6 +38,13 @@
 | created_at | TIMESTAMP | NOT NULL, DEFAULT CURRENT_TIMESTAMP, | created date |
 | updated_at | TIMESTAMP | NULL | created upDate |
 
+## highlighted ('highlighted')
+
+|name|Type| Specificitys |Description|
+|-|-|-|-|
+| id | INT | PRIMARY KEY, NOT NULL, UNSIGNED, AUTO_INCREMENT | number id |
+| productId | INT | NOT NULL, UNSIGNED | product highlighted id |
+
 
 ## recipe (`recipe`)
 
@@ -48,12 +56,13 @@
 | description | TEXT | NOT NULL | homePageMessage's content |
 | indicativePriceId | INT | NOT NULL | recipe indicative price |
 | difficultyId | INT | NOT NULL | recipe difficulty |
+| stepId | INT | NOT NULL | step id  |
 | saison | VARCHAR | NULL | recipe saison |
 | created_at | TIMESTAMP | NOT NULL, DEFAULT CURRENT_TIMESTAMP, | created date |
 | updated_at | TIMESTAMP | NULL | created upDate |
 
 
-## datasPages (`datasPages`)
+## datasPage (`datasPage`)
 
 |name|Type| Specificitys |Description|
 |-|-|-|-|
@@ -66,7 +75,7 @@
 | updated_at | TIMESTAMP | NULL | created upDate |
 
 
-## steps (`steps`)
+## step (`step`)
 
 |name|Type| Specificitys |Description|
 |-|-|-|-|
@@ -122,7 +131,7 @@
 | status | VARCHAR(255) | NOT NULL | unOpen, open, treat ...etc... |
 
 
-## dates (`dates`)
+## date (`date`)
 
 |name|Type| Specificités |Description|
 |-|-|-|-|

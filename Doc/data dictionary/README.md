@@ -11,7 +11,7 @@
 | name | VARCHAR(255) | NOT NULL | contact's name |
 | firstName | VARCHAR(255) | NOT NULL | contact's firstName |
 | adress | TEXT | NOT NULL | contact's adress |
-| cityID | INT | NOT NULL | city foreigner's key |
+| cityID | INT | NOT NULL, UNSIGNED | city foreigner's key |
 | country | TEXT | NOT NULL | contact's country |
 | phone | VARCHAR(255) | NOT NULL | contact's phone |
 | mail | VARCHAR(255) | NULL | contact's mail |
@@ -28,11 +28,11 @@
 | producerId | INT | NOT NULL, UNSIGNED | user (producer) key's ID |
 | marketable | BOOL | NOT NULL, default(0) | is marketable ? (default false) |
 | title | VARCHAR(255) | NOT NULL | homePageMessage's title |
-| shortDescription | TEXT | NOT NULL | homePageMessage's content |
-| description | TEXT | NOT NULL | homePageMessage's content |
-| bio | BOOL | NOT NULL, default 0 | product is bio ? (default false) |
-| origineId | INT, UNSIGNED | NOT NULL | contact's id |
-| price | NUMBER | NOT NULL, UNSIGNED | product's price |
+| shortDescription | TEXT | NULL | homePageMessage's content |
+| description | TEXT | NULL | homePageMessage's content |
+| bio | BOOL | NULL, default 0 | product is bio ? (default false) |
+| origineId | INT, UNSIGNED | NULL | contact's id |
+| price | NUMBER | NULL, UNSIGNED | product's price |
 | availability | BOOL | NOT NULL, default 1 | product's availability |
 | image | BLOB | NULL | homePageMessage's Image |
 | created_at | TIMESTAMP | NOT NULL, DEFAULT CURRENT_TIMESTAMP, | created date |

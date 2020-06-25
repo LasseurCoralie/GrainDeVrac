@@ -1,15 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.0.1
+-- version 4.6.6deb5
 -- https://www.phpmyadmin.net/
 --
--- Hôte : localhost
--- Généré le :  jeu. 25 juin 2020 à 14:26
--- Version du serveur :  10.3.16-MariaDB
--- Version de PHP :  7.3.6
+-- Client :  localhost:3306
+-- Généré le :  Jeu 25 Juin 2020 à 15:01
+-- Version du serveur :  5.7.30-0ubuntu0.18.04.1
+-- Version de PHP :  7.2.24-0ubuntu0.18.04.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
-START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -32,12 +30,12 @@ CREATE TABLE `city` (
   `id` int(11) NOT NULL,
   `name` varchar(255) NOT NULL,
   `departement` varchar(255) NOT NULL,
-  `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Déchargement des données de la table `city`
+-- Contenu de la table `city`
 --
 
 INSERT INTO `city` (`id`, `name`, `departement`, `created_at`, `updated_at`) VALUES
@@ -53,9 +51,9 @@ CREATE TABLE `datasPage` (
   `id` int(11) NOT NULL,
   `type` varchar(255) NOT NULL,
   `title` varchar(255) DEFAULT NULL,
-  `content` text DEFAULT NULL,
-  `image` blob DEFAULT NULL,
-  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `content` text,
+  `image` blob,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -67,7 +65,7 @@ CREATE TABLE `datasPage` (
 
 CREATE TABLE `date` (
   `id` int(11) NOT NULL,
-  `date` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `startHour` float NOT NULL,
   `endHour` float NOT NULL,
   `cityId` int(11) NOT NULL,
@@ -76,7 +74,7 @@ CREATE TABLE `date` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Déchargement des données de la table `date`
+-- Contenu de la table `date`
 --
 
 INSERT INTO `date` (`id`, `date`, `startHour`, `endHour`, `cityId`, `created_at`, `updated_at`) VALUES
@@ -96,6 +94,15 @@ CREATE TABLE `difficulty` (
   `difficultyLevel` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Contenu de la table `difficulty`
+--
+
+INSERT INTO `difficulty` (`id`, `difficultyLevel`) VALUES
+(1, 'easy'),
+(2, 'medium'),
+(3, 'hardcore');
+
 -- --------------------------------------------------------
 
 --
@@ -108,7 +115,7 @@ CREATE TABLE `highlighted` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Déchargement des données de la table `highlighted`
+-- Contenu de la table `highlighted`
 --
 
 INSERT INTO `highlighted` (`id`, `productId`) VALUES
@@ -125,6 +132,15 @@ CREATE TABLE `indicativePrice` (
   `indicativePrice` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Contenu de la table `indicativePrice`
+--
+
+INSERT INTO `indicativePrice` (`id`, `indicativePrice`) VALUES
+(1, 'low'),
+(2, 'medium'),
+(3, 'expensive');
+
 -- --------------------------------------------------------
 
 --
@@ -137,7 +153,7 @@ CREATE TABLE `message` (
   `content` text NOT NULL,
   `forwarderId` int(10) UNSIGNED NOT NULL,
   `statusId` int(10) UNSIGNED NOT NULL,
-  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -161,20 +177,20 @@ CREATE TABLE `messageStatus` (
 CREATE TABLE `product` (
   `id` int(10) UNSIGNED NOT NULL,
   `producerId` int(11) NOT NULL,
-  `marketable` tinyint(4) NOT NULL DEFAULT 1,
+  `marketable` tinyint(4) NOT NULL DEFAULT '1',
   `title` varchar(255) NOT NULL,
   `shortDescription` text NOT NULL,
   `description` text NOT NULL,
-  `bio` tinyint(4) NOT NULL DEFAULT 0,
+  `bio` tinyint(4) NOT NULL DEFAULT '0',
   `price` float(10,2) UNSIGNED NOT NULL,
-  `availability` tinyint(4) NOT NULL DEFAULT 1,
-  `image` blob DEFAULT NULL,
-  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `availability` tinyint(4) NOT NULL DEFAULT '1',
+  `image` blob,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Déchargement des données de la table `product`
+-- Contenu de la table `product`
 --
 
 INSERT INTO `product` (`id`, `producerId`, `marketable`, `title`, `shortDescription`, `description`, `bio`, `price`, `availability`, `image`, `created_at`, `updated_at`) VALUES
@@ -193,10 +209,9 @@ CREATE TABLE `recipe` (
   `description` text NOT NULL,
   `indicativePriceId` int(10) UNSIGNED NOT NULL,
   `difficultyId` int(10) UNSIGNED NOT NULL,
-  `stepId` int(10) UNSIGNED NOT NULL,
   `saison` varchar(255) DEFAULT NULL,
-  `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
-  `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00'
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `updated_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -235,12 +250,26 @@ CREATE TABLE `role` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Déchargement des données de la table `role`
+-- Contenu de la table `role`
 --
 
 INSERT INTO `role` (`id`, `role`) VALUES
 (1, 'producer'),
 (2, 'customer');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `step`
+--
+
+CREATE TABLE `step` (
+  `id` int(11) NOT NULL,
+  `recipeId` int(10) UNSIGNED NOT NULL,
+  `stepContent` text NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -258,13 +287,13 @@ CREATE TABLE `user` (
   `country` text NOT NULL,
   `phone` varchar(255) NOT NULL,
   `mail` varchar(255) NOT NULL,
-  `mute` tinyint(4) NOT NULL DEFAULT 0,
-  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `mute` tinyint(4) NOT NULL DEFAULT '0',
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `update_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Déchargement des données de la table `user`
+-- Contenu de la table `user`
 --
 
 INSERT INTO `user` (`id`, `roleId`, `name`, `firstName`, `adress`, `cityId`, `country`, `phone`, `mail`, `mute`, `created_at`, `update_at`) VALUES
@@ -283,7 +312,7 @@ CREATE TABLE `userXproduct` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Index pour les tables déchargées
+-- Index pour les tables exportées
 --
 
 --
@@ -365,6 +394,12 @@ ALTER TABLE `role`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Index pour la table `step`
+--
+ALTER TABLE `step`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Index pour la table `user`
 --
 ALTER TABLE `user`
@@ -377,7 +412,7 @@ ALTER TABLE `userXproduct`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT pour les tables déchargées
+-- AUTO_INCREMENT pour les tables exportées
 --
 
 --
@@ -385,80 +420,41 @@ ALTER TABLE `userXproduct`
 --
 ALTER TABLE `city`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
 --
 -- AUTO_INCREMENT pour la table `datasPage`
 --
 ALTER TABLE `datasPage`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
 --
 -- AUTO_INCREMENT pour la table `date`
 --
 ALTER TABLE `date`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
-
 --
 -- AUTO_INCREMENT pour la table `difficulty`
 --
 ALTER TABLE `difficulty`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT pour la table `highlighted`
 --
 ALTER TABLE `highlighted`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
 --
 -- AUTO_INCREMENT pour la table `message`
 --
 ALTER TABLE `message`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
-
 --
 -- AUTO_INCREMENT pour la table `messageStatus`
 --
 ALTER TABLE `messageStatus`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
 --
--- AUTO_INCREMENT pour la table `product`
+-- AUTO_INCREMENT pour la table `step`
 --
-ALTER TABLE `product`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
---
--- AUTO_INCREMENT pour la table `recipeXproduct`
---
-ALTER TABLE `recipeXproduct`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT pour la table `recipeXuser`
---
-ALTER TABLE `recipeXuser`
+ALTER TABLE `step`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT pour la table `role`
---
-ALTER TABLE `role`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
---
--- AUTO_INCREMENT pour la table `user`
---
-ALTER TABLE `user`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
---
--- AUTO_INCREMENT pour la table `userXproduct`
---
-ALTER TABLE `userXproduct`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-COMMIT;
-
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

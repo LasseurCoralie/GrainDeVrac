@@ -148,7 +148,7 @@
 |name|Type| Specificités |Description|
 |-|-|-|-|
 | id | INT | PRIMARY KEY, NOT NULL, UNSIGNED, AUTO_INCREMENT | number id |
-| name | VARCHAR(255) | NOT NULL | name of city |
+| city | VARCHAR(255) | NOT NULL | name of city |
 | departement | VARCHAR(255) | NOT NULL, UNSIGNED | number (VAR CHAR because of 02) of the french departement |
 | created_at | TIMESTAMP | NOT NULL, DEFAULT CURRENT_TIMESTAMP, | created date |
 | updated_at | TIMESTAMP | NULL | created upDate |

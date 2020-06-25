@@ -6,7 +6,7 @@ has, 11 RECIPE, 0N INDICATIVEPRICE
 DIFFICULTY: id, level
 
 MESSAGESTATUS: id, status
-CITY: id, name, departement, created_at, updated_at
+CITY: id, city, departement, created_at, updated_at
 is, 0N ROLE, 11 USER
 is in favorite, 0N RECIPE, 0N USER
 RECIPE: id, title, shortDescription, description, saison, created_at, updated_at

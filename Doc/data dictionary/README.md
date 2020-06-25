@@ -31,7 +31,6 @@
 | shortDescription | TEXT | NULL | homePageMessage's content |
 | description | TEXT | NULL | homePageMessage's content |
 | bio | BOOL | NULL, default 0 | product is bio ? (default false) |
-| origineId | INT, UNSIGNED | NULL | contact's id |
 | price | NUMBER | NULL, UNSIGNED | product's price |
 | availability | BOOL | NOT NULL, default 1 | product's availability |
 | image | BLOB | NULL | homePageMessage's Image |

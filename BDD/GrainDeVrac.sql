@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : localhost
--- Généré le :  mer. 24 juin 2020 à 15:24
+-- Généré le :  jeu. 25 juin 2020 à 14:01
 -- Version du serveur :  10.3.16-MariaDB
 -- Version de PHP :  7.3.6
 
@@ -36,6 +36,13 @@ CREATE TABLE `city` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Déchargement des données de la table `city`
+--
+
+INSERT INTO `city` (`id`, `name`, `departement`, `created_at`, `updated_at`) VALUES
+(1, 'Paris', '75', '2020-06-25 07:56:16', NULL);
+
 -- --------------------------------------------------------
 
 --
@@ -61,12 +68,22 @@ CREATE TABLE `datasPage` (
 CREATE TABLE `date` (
   `id` int(11) NOT NULL,
   `date` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
-  `startHour` int(11) NOT NULL,
-  `endHour` int(11) NOT NULL,
+  `startHour` float NOT NULL,
+  `endHour` float NOT NULL,
   `cityId` int(11) NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Déchargement des données de la table `date`
+--
+
+INSERT INTO `date` (`id`, `date`, `startHour`, `endHour`, `cityId`, `created_at`, `updated_at`) VALUES
+(1, '2020-06-20 22:00:00', 7.5, 22, 1, '0000-00-00 00:00:00', NULL),
+(2, '2020-06-18 22:00:00', 5, 11, 1, '0000-00-00 00:00:00', NULL),
+(3, '2020-06-22 22:00:00', 7, 11, 1, '0000-00-00 00:00:00', NULL),
+(4, '2020-06-26 22:00:00', 4, 6, 1, '0000-00-00 00:00:00', NULL);
 
 -- --------------------------------------------------------
 
@@ -89,6 +106,13 @@ CREATE TABLE `highlighted` (
   `id` int(11) NOT NULL,
   `productId` int(10) UNSIGNED NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Déchargement des données de la table `highlighted`
+--
+
+INSERT INTO `highlighted` (`id`, `productId`) VALUES
+(1, 1);
 
 -- --------------------------------------------------------
 
@@ -137,18 +161,24 @@ CREATE TABLE `messageStatus` (
 CREATE TABLE `product` (
   `id` int(10) UNSIGNED NOT NULL,
   `producerId` int(11) NOT NULL,
-  `marketable` tinyint(4) NOT NULL,
+  `marketable` tinyint(4) NOT NULL DEFAULT 1,
   `title` varchar(255) NOT NULL,
   `shortDescription` text NOT NULL,
   `description` text NOT NULL,
-  `bio` tinyint(4) NOT NULL,
-  `origineId` int(10) UNSIGNED NOT NULL,
-  `price` decimal(10,0) UNSIGNED NOT NULL,
-  `availability` tinyint(4) NOT NULL,
-  `image` blob NOT NULL,
+  `bio` tinyint(4) NOT NULL DEFAULT 0,
+  `price` float(10,2) UNSIGNED NOT NULL,
+  `availability` tinyint(4) NOT NULL DEFAULT 1,
+  `image` blob DEFAULT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
   `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Déchargement des données de la table `product`
+--
+
+INSERT INTO `product` (`id`, `producerId`, `marketable`, `title`, `shortDescription`, `description`, `bio`, `price`, `availability`, `image`, `created_at`, `updated_at`) VALUES
+(1, 1, 1, 'Letnille', 'Des lentilles', 'Ce sont de super bonne lentilles', 0, 0.50, 1, NULL, '2020-06-25 08:08:42', '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -204,6 +234,14 @@ CREATE TABLE `role` (
   `role` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Déchargement des données de la table `role`
+--
+
+INSERT INTO `role` (`id`, `role`) VALUES
+(1, 'producer'),
+(2, 'customer');
+
 -- --------------------------------------------------------
 
 --
@@ -220,10 +258,17 @@ CREATE TABLE `user` (
   `country` text NOT NULL,
   `phone` varchar(255) NOT NULL,
   `mail` varchar(255) NOT NULL,
-  `mute` tinyint(4) NOT NULL,
+  `mute` tinyint(4) NOT NULL DEFAULT 0,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
   `update_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Déchargement des données de la table `user`
+--
+
+INSERT INTO `user` (`id`, `roleId`, `name`, `firstName`, `adress`, `cityId`, `country`, `phone`, `mail`, `mute`, `created_at`, `update_at`) VALUES
+(1, 1, 'Barbier', 'Jean-Paul', '4 rue des peupliers', 1, 'France', '01020304045', 'JP@barbier.com', 0, '2020-06-25 07:57:20', NULL);
 
 -- --------------------------------------------------------
 
@@ -339,7 +384,7 @@ ALTER TABLE `userXproduct`
 -- AUTO_INCREMENT pour la table `city`
 --
 ALTER TABLE `city`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT pour la table `datasPage`
@@ -351,7 +396,7 @@ ALTER TABLE `datasPage`
 -- AUTO_INCREMENT pour la table `date`
 --
 ALTER TABLE `date`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT pour la table `difficulty`
@@ -363,7 +408,7 @@ ALTER TABLE `difficulty`
 -- AUTO_INCREMENT pour la table `highlighted`
 --
 ALTER TABLE `highlighted`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT pour la table `message`
@@ -381,7 +426,7 @@ ALTER TABLE `messageStatus`
 -- AUTO_INCREMENT pour la table `product`
 --
 ALTER TABLE `product`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT pour la table `recipeXproduct`
@@ -399,13 +444,13 @@ ALTER TABLE `recipeXuser`
 -- AUTO_INCREMENT pour la table `role`
 --
 ALTER TABLE `role`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT pour la table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT pour la table `userXproduct`

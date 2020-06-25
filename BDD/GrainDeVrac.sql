@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : localhost
--- Généré le :  jeu. 25 juin 2020 à 14:01
+-- Généré le :  jeu. 25 juin 2020 à 14:26
 -- Version du serveur :  10.3.16-MariaDB
 -- Version de PHP :  7.3.6
 
@@ -55,7 +55,7 @@ CREATE TABLE `datasPage` (
   `title` varchar(255) DEFAULT NULL,
   `content` text DEFAULT NULL,
   `image` blob DEFAULT NULL,
-  `created_at` int(11) NOT NULL DEFAULT current_timestamp(),
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
   `updated_at` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 

@@ -1,7 +1,26 @@
 <nav>
-    <ul>
-        <li><a href='/' class="{% if current_menu is defined and current_menu == 'home'%}menu_active{% endif %}">Home</a></li>
-        <li><a href='/demo' class="{% if current_menu is defined and current_menu == 'demo'%}menu_active{% endif %}">Demo</a></li>
+    <div class="linkList">
+        <div class="linkListWrapper">
+            <ul>
+                <li><a href='/home' class="{% if current_subMenu is defined and current_subMenu == 'home'%}menu_active{% endif %}">Home Page</a></li>
+                <li><a href='/home/calendrier' class="{% if current_subMenu is defined and current_subMenu == 'calendar'%}menu_active{% endif %}">Calendriers</a></li>
+                <li><a href='/home/catalogue' class="{% if current_subMenu is defined and current_subMenu == 'catalog'%}menu_active{% endif %}">Catalogue</a></li>
+                <li><a href='/home/liste-des-recettes' class="{% if current_subMenu is defined and current_subMenu == 'recipes'%}menu_active{% endif %}">Liste des recettes</a></li>
+                <li><a href='/home/qui-sommes-nous' class="{% if current_subMenu is defined and current_subMenu == 'about'%}menu_active{% endif %}">Qui sommes-nous</a></li>
+                <li><a href='/home/mentions-legales' class="{% if current_subMenu is defined and current_subMenu == 'cgv'%}menu_active{% endif %}">Mentions Légales</a></li>
+            </ul>
+        </div>
+    </div>
 
+    <ul class="iconWrapper">
+        {# <li><a href='/' class="{% if current_menu is defined and current_menu == 'home'%}menu_active{% endif %}">Home</a></li>
+        <li><a href='/demo' class="{% if current_menu is defined and current_menu == 'demo'%}menu_active{% endif %}">Demo</a></li> #}
+        <li class="{% if current_menu is defined and current_menu == 'home'%}iconActive{% endif %}"><a href='/home'><img src="{{ asset('assets/icons/Icon-globe.svg')}}" alt="icone home"></a></li>
+        <li class="{% if current_menu is defined and current_menu == 'custumers'%}iconActive{% endif %}"><a href='/clients'><img src="{{ asset('assets/icons/Icon-value.svg')}}" alt="icone mes clients"></a></li>
+        <li class="{% if current_menu is defined and current_menu == 'producers'%}iconActive{% endif %}"><a href='/producteurs'><img src="{{ asset('assets/icons/Icon-shop.svg')}}" alt="icone mes producteur"></a></li>
+        <li class="{% if current_menu is defined and current_menu == 'mailler'%}iconActive{% endif %}"><a href='/mes-messages'><img src="{{ asset('assets/icons/Icon-chat.svg')}}" alt="icone messagerie"></a></li>
+        <li class="{% if current_menu is defined and current_menu == 'myProfil'%}iconActive{% endif %}"><a href='/mon-compte'><img src="{{ asset('assets/icons/Icon-woman.svg')}}" alt="icone mon compte"></a></li>
+        <li><a href='/'><img src="{{ asset('assets/icons/Icon-logout.svg')}}" alt="icone logout"></a></li>
     </ul>
 </nav>
+

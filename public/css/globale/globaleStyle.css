@@ -1,36 +1,85 @@
 body {
     font-size: 16px;
-    font-family: 'Lato', sans-serif;
-
+    font-family: 'Oswald', sans-serif;
+    background-color: rgb(232, 232, 239);
+    min-height: 100vh;
 }
 
 h1 + h2 {
+    font-family: 'Lato', sans-serif;
+    font-weight: 700;
+}
+
+header {
+    padding: 32px;
+    background-color: white;
+}
+
+header h1 {
     font-family: 'Oswald', sans-serif;
+    font-size: 44px;
+    text-transform: uppercase;
+    font-weight: 550;
+    color: rgb(103,73, 255);
 }
 
 nav {
     text-decoration: underline;
-    padding: 2em;
     width: 100vw;
-    background-color: #555;
+    background-color: white;
     position: absolute;
     bottom: 0;
 }
 
-nav ul {
+nav .iconWrapper {
+    padding: 32px;
+    display: flex;
+    justify-content: space-between;
+}
+
+nav .iconWrapper li {
+    position:relative;
+}
+
+nav .iconWrapper li a img {
+    height: 35px;
+}
+
+.iconActive::before {
+    position: absolute;
+    content:"";
+    width: 12px;
+    height: 12px;
+    border-left:solid 2px rgb(103,73, 255);
+    border-top:solid 2px rgb(103,73, 255);
+    transform: rotateZ(45deg);
+    left:33%;
+    top: -28px;
+}
+
+nav .linkList {
+    padding: 0 32px;
+}
+
+nav .linkList .linkListWrapper ul {
     display: flex;
 }
 
-nav ul li {
-    padding-right: 1em;
+nav .linkList .linkListWrapper {
+    padding: 16px 0;
+    white-space: nowrap;
+    overflow: auto;
+    border-bottom: 2px black solid;
+}
+
+nav .linkList .linkListWrapper ul li{
+    padding-left: 32px;
+}
+
+nav .linkList .linkListWrapper ul li:first-child{
+    padding-left: 0;
 }
 
 .menu_active {
-    font-weight: bold;
-}
-
-h1 {
-    font-size: 2em;
-    margin: 1em;
-    font-weight: bold;
+    color: rgb(103,73, 255);
 }

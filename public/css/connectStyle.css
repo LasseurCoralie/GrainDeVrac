@@ -1,55 +1,76 @@
-.wrapper {
+body {
     min-height: 100vh;
-    text-align: center;
     display: flex;
-    flex-direction: column;
+    justify-content: center;
     align-items: center;
+    font-family: 'Lato', sans-serif;
+    font-size: 16px;
+}
+.wrapper {
+    margin: 64px;
+    text-align: center;
 }
 
 h2 {
-    margin-top: 5vh;
-    font-size: 2em;
+    margin: 64px 0 32px;
+    font-size: 24px;
     text-transform: uppercase;
+    font-weight: 700;
+    color:rgb(22,14,45);
 }
 
 img {
-    width: 55vw;
-    margin-top: 15vh;
+    width: 50%;
 }
 
 form {
-    margin-top: 5vh;
     display: flex;
     justify-content: center;
-    font-size: 2em;
+    font-size: 16px;
+    flex-direction: column;
 }
 
 label {
+    color:rgb(22,14,45);
+    font-family: 'Lato', sans-serif;
+    font-size: 16px;
+    margin: 32px 0 16px;
     text-align: left;
-    display:flex;
-    flex-direction: column;
-    width: 80vw;
-    margin-top: 1vh;
+    width: 100%;
+    cursor: default;
 }
 
 input {
-    font-size: 1em;
-    margin-top: 1vh;
-    padding: 1.5vh;
+    /* margin-top: 16px; */
+    font-family: 'Lato', sans-serif;
+    font-size: 16px;
+    padding: 1em;
     border-radius: 3px;
     border:none;
-    background-color: blueviolet;
+    color: rgb(72,69,102);
+    background-color: rgb(225, 219, 255);
 }
 
 input[type=submit]{
-    background-color: green;
-    margin-top: 5vh;
+    background-color: rgb(103,73,255);
     color: white;
     text-transform: uppercase;
+    font-family: 'Oswald', sans-serif;
+    font-size: 16px;
+}
+
+input[type=submit]:hover {
+    background-color: rgb(238,123,0);
+    cursor: pointer;
 }
 
 a{
-    margin-top: 1vh;
+    margin-top: 16px;
     text-align: center;
     text-decoration: underline;
+    margin-bottom: 64px;
+}
+
+.wrong{
+    background-color: rgb(239,123,97);
 }

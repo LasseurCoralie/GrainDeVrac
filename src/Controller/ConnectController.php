@@ -11,11 +11,26 @@ use Twig\Environment;
 class ConnectController extends AbstractController
 {
     /**
-     * @Route("/connexion", name="connexion")
+     * @Route("/", name="connexion")
+     * @return Response
      */
 
     public function index(): Response
     {
         return $this->render('pages/connect/connect.html.twig');
+    }
+
+    /**
+     * @Route("/mon-compte", name="myProfil")
+     * @return Response
+    */
+    
+    public function myProfil(): Response
+    {
+        return $this->render('pages/backOffice/backOffice.html.twig', [
+            'current_menu' => 'myProfil',
+            'current_subMenu' => 'myProfil',
+            'title' => 'Mon profile',
+        ]);
     }
 }

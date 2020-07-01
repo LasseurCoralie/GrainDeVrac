@@ -1,0 +1,36 @@
+body {
+    font-size: 16px;
+    font-family: 'Lato', sans-serif;
+
+}
+
+h1 + h2 {
+    font-family: 'Oswald', sans-serif;
+}
+
+nav {
+    text-decoration: underline;
+    padding: 2em;
+    width: 100vw;
+    background-color: #555;
+    position: absolute;
+    bottom: 0;
+}
+
+nav ul {
+    display: flex;
+}
+
+nav ul li {
+    padding-right: 1em;
+}
+
+.menu_active {
+    font-weight: bold;
+}
+
+h1 {
+    font-size: 2em;
+    margin: 1em;
+    font-weight: bold;
+}

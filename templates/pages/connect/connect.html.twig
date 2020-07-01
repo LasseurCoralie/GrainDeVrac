@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block title 'Grain de Vrac - Admin - Connexion' %}
+{% block stylesheets %} <link rel="stylesheet" href="{{ asset('css/connectStyle.css') }}" /> {% endblock %}
+
+{% block body%}
+
+    <div class="wrapper">
+        <img src="{{ asset('assets/grainDeVrac_logoCouleurs.svg')}}" alt="logo Grain de vrac - Par Coralie Lasseur">
+
+        <h2>Connexion</h2>
+
+        <form>
+            <label>Adresse e-mail
+                <input type="email" placeholder="entrez votre addresse e-mail"></input>
+            <label>
+            <label>Mot de passe
+                <input type="password" placeholder="entrez votre mot de passe"></input>
+            <label>
+
+            <a href="/mot-de-passe-oublie">mot de passe oublié ?</a>
+
+            <input type="submit" value="Me connecter" />
+        </form>
+    </div>
+
+{% endblock %}

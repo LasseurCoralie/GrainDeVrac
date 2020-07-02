@@ -19,8 +19,8 @@ class MaillerController extends AbstractController
     public function index(): Response
     {
         return $this->render('pages/backOffice/backOffice.html.twig', [
-            'current_menu' => 'mailler',
-            'current_subMenu' => 'mailler',
+            'current_menu' => 'mes-messages',
+            'current_subMenu' => '',
             'title' => 'Messagerie'
         ]);
     }

@@ -19,8 +19,8 @@ class ProducersController extends AbstractController
     public function index(): Response
     {
         return $this->render('pages/backOffice/backOffice.html.twig', [
-            'current_menu' => 'producers',
-            'current_subMenu' => 'producers',
+            'current_menu' => 'producteurs',
+            'current_subMenu' => '',
             'title' => 'Liste des producteurs'
         ]);
     }

@@ -18,7 +18,7 @@ class HomeController extends AbstractController
     {
         return $this->render('pages/backOffice/backOffice.html.twig', [
             'current_menu' => 'home',
-            'current_subMenu' => 'home',
+            'current_subMenu' => '',
             'title' => 'home page',
         ]);
     }
@@ -75,7 +75,7 @@ class HomeController extends AbstractController
        return $this->render('pages/backOffice/backOffice.html.twig', [
            'current_menu' => 'home',
            'current_subMenu' => 'about',
-           'title' => 'Qui sommes nous',
+           'title' => 'Qui sommes-nous',
        ]);
     }
 

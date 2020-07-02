@@ -19,8 +19,8 @@ class ClientsController extends AbstractController
     public function index(): Response
     {
         return $this->render('pages/backOffice/backOffice.html.twig', [
-            'current_menu' => 'custumers',
-            'current_subMenu' => 'custumers',
+            'current_menu' => 'clients',
+            'current_subMenu' => '',
             'title' => 'Liste des clients',
         ]);
     }

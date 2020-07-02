@@ -28,8 +28,8 @@ class ConnectController extends AbstractController
     public function myProfil(): Response
     {
         return $this->render('pages/backOffice/backOffice.html.twig', [
-            'current_menu' => 'myProfil',
-            'current_subMenu' => 'myProfil',
+            'current_menu' => 'mon-compte',
+            'current_subMenu' => '',
             'title' => 'Mon profile',
         ]);
     }

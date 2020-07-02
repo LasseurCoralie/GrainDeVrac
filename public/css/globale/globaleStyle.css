@@ -2,7 +2,7 @@ body {
     font-size: 16px;
     font-family: 'Oswald', sans-serif;
     background-color: rgb(232, 232, 239);
-    min-height: 100vh;
+    height: 100vh;
 }
 
 h1 + h2 {
@@ -43,6 +43,7 @@ nav .iconWrapper li {
 
 nav .iconWrapper li a img {
     height: 35px;
+    fill:
 }
 
 .iconActive::before {

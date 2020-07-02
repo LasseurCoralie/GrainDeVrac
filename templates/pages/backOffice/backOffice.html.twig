@@ -9,7 +9,7 @@
 
 {% block body%}
 
-    {% include "components/navBar.html.twig" %}
+    {% include "nav/navBar.html.twig" %}
 
     <header>
         <h1>{% if title is defined%}{{title}}{% endif %}</h1>
@@ -17,24 +17,10 @@
     <div class="headerMarge"></div>
 
     <main>
-        <div class="infoWrapper">
-
-            <h2>Slogan</h2>
-            <div class="inputArea">
-                <label for="slogan">Modifier le contenu du slogan</label>
-                <textarea rows="5" id="slogan" name="slogan"> </textarea>
-            </div>
-
-            <h2>Information spéciale</h2>
-            <div class="inputArea">
-                <label for="infpSpe">Modifier le contenu de l'information spéciale</label>
-                <textarea rows="5" id="infpSpe" name="infpSpe"> </textarea>
-            </div>
-
-            <input type="submit" value="Modifier le contenu">
-
-        </div>
-
+       {% if page is defined%} {% include "main/" ~ page ~ ".html.twig" %} 
+       {% else %}
+       <h2>Fonctionalité à venir lors d'une prochaine version</h2>
+       {% endif %}
     </main>
 
 {% endblock %}

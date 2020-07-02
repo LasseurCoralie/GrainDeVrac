@@ -94,14 +94,14 @@ main {
     overflow: auto;
 }
 
-.infoWrapper {
+.bigForm {
     padding: 32px 16px;
     width: 100%;
     background-color: white;
     border-radius: 3px;
 }
 
-.infoWrapper h2 {
+.bigForm h2 {
     font-family: Oswald, sans-serif;
     font-size: 32px;
     margin-bottom: 16px;
@@ -128,9 +128,62 @@ main {
     
 }
 
+.inputArea .typeInput {
+    font-family: lato, sans-serif;
+    font-size: 16px;
+    border:none;
+    color: rgb(72, 69, 102);
+    background-color: rgb(225, 219, 255);
+    margin:auto;
+    margin-bottom: 32px;
+    border-radius: 3px;
+    width: 100%;
+    /* resize: vertical; */
+    padding: 16px;
+    
+}
+
 .inputArea{
     font-family: lato, sans-serif;
     font-size: 16px;
     display: flex;
     flex-direction: column;
+}
+
+.card {
+    background-color: white;
+    margin-top: 32px;
+    padding: 16px;
+    border-radius: 3px;
+}
+
+.calendarCard .calendarCardContent{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 16px;
+}
+
+.calendarCard .calendarCardContent:last-child{
+    margin-bottom: 0px;
+}
+
+.calendarCard .action div {
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.calendarCard .times {
+    font-weight: 700;
+}
+
+.calendarCard .method {
+    font-weight: 400;
+}
+
+.calendarCard .action .modify {
+    color: rgb(103,73, 255);
+}
+
+.calendarCard .action .delete {
+    color: rgb(238, 123, 0);
 }

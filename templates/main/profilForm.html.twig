@@ -1,0 +1,17 @@
+ <form method="POST" action="{{action}}" class="bigForm">
+
+    <h2>Mes Information personnelles</h2>
+
+
+    {% for form in forms %}
+
+        <div class="inputArea">
+            <label for={{form.name}}>{{form.label}}</label>
+            <input class="typeInput" type="{{form.type}}" name="{{form.name}}" id="{{form.name}}" value="{{form.content}}">
+        </div>
+
+    {% endfor %}
+
+    <input type="submit" value="Modifier le contenu">
+
+</form>

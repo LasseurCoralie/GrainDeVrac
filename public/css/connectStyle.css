@@ -32,6 +32,7 @@ header {
 
 main {
     margin: 64px;
+    border-radius: 3px;
 }
 
 h2 {
@@ -77,18 +78,6 @@ input {
     background-color: rgb(225, 219, 255);
 }
 
-input[type=submit]{
-    background-color: rgb(103,73,255);
-    color: white;
-    text-transform: uppercase;
-    font-family: 'Oswald', sans-serif;
-    font-size: 16px;
-}
-
-input[type=submit]:hover {
-    background-color: rgb(238,123,0);
-    cursor: pointer;
-}
 
 main form a{
     margin-top: 16px;

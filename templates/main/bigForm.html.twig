@@ -1,0 +1,16 @@
+ <form method="POST" action="{{action}}" class="bigForm">
+
+    {% for form in forms %}
+
+        <h2>{{form.title}}</h2>
+
+        <div class="inputArea">
+            <label for={{form.name}}>{{form.label}}</label>
+            <textarea rows="5" name="{{form.name}}" id="{{form.name}}"> {{form.content}} </textarea>
+        </div>
+
+    {% endfor %}
+
+    <input type="submit" value="Modifier le contenu">
+
+</form>

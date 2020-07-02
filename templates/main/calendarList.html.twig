@@ -1,0 +1,20 @@
+<input type="submit" value="{{button}}">
+
+{% for form in forms %}
+
+    <div class="card calendarCard">
+        <div class="calendarCardContent times">
+            <div>{{form.date}}</div>
+            <div>{{form.horraireMin}} h - {{form.horraireMax}} h </div>
+        </div>
+        <div class="calendarCardContent method">
+            <div>{{form.mode}}</div>
+            <div>{{form.target}}</div>
+        </div>
+        <div class="calendarCardContent action">
+            <div class="modify">modifier</div>
+            <div class="delete">supprimer</div>
+        </div>
+    </div>
+
+{% endfor %}

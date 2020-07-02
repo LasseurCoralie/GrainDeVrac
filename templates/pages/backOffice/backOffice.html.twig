@@ -5,7 +5,7 @@
     {% if title is defined %} {{title}} {% endif %}
 {% endblock %}
 
-{% block stylesheets %} <link rel="stylesheet" href="{{ asset('css/homeStyle.css') }}" /> {% endblock %}
+{% block stylesheets %} <link rel="stylesheet" href="{{ asset('css/backOfficeStyle.css') }}" /> {% endblock %}
 
 {% block body%}
 
@@ -14,7 +14,27 @@
     <header>
         <h1>{% if title is defined%}{{title}}{% endif %}</h1>
     </header>
+    <div class="headerMarge"></div>
 
-    {# TODO: inclure le main ici #}
+    <main>
+        <div class="infoWrapper">
+
+            <h2>Slogan</h2>
+            <div class="inputArea">
+                <label for="slogan">Modifier le contenu du slogan</label>
+                <textarea rows="5" id="slogan" name="slogan"> </textarea>
+            </div>
+
+            <h2>Information spéciale</h2>
+            <div class="inputArea">
+                <label for="infpSpe">Modifier le contenu de l'information spéciale</label>
+                <textarea rows="5" id="infpSpe" name="infpSpe"> </textarea>
+            </div>
+
+            <input type="submit" value="Modifier le contenu">
+
+        </div>
+
+    </main>
 
 {% endblock %}

@@ -113,10 +113,52 @@ class HomeController extends AbstractController
 
     public function catalog(): Response
     {
+
+        $forms = [
+            [
+                'name' => 'noix'
+            ],
+            [
+                'name' => 'poids'
+            ],
+            [
+                'name' => 'Graine'
+            ],
+            [
+                'name' => 'Haricots'
+            ],
+            [
+                'name' => 'Semoule'
+            ],
+            [
+                'name' => 'noix'
+            ],
+            [
+                'name' => 'poids'
+            ],
+            [
+                'name' => 'Graine'
+            ],
+            [
+                'name' => 'Haricots'
+            ],
+            [
+                'name' => 'Semoule'
+            ],
+
+        ];
+
        return $this->render('pages/backOffice/backOffice.html.twig', [
            'current_menu' => 'home',
            'current_subMenu' => 'catalog',
            'title' => 'Catalogue',
+           'forms' => $forms,
+           'page' => 'littleCard',
+           'button' => 'Ajouter un nouveau produit',
+           'actions' => [
+               'modify' => 'modifier',
+               'delete' => 'supprimer'
+           ]
        ]);
     }
 

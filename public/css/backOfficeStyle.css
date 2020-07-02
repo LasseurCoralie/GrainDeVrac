@@ -167,7 +167,7 @@ main {
     margin-bottom: 0px;
 }
 
-.calendarCard .action div {
+.card .action div {
     cursor: pointer;
     text-decoration: underline;
 }
@@ -180,10 +180,23 @@ main {
     font-weight: 400;
 }
 
-.calendarCard .action .modify {
+.card .action .modify {
     color: rgb(103,73, 255);
 }
 
-.calendarCard .action .delete {
+.card .action .delete {
     color: rgb(238, 123, 0);
+}
+
+.cardWrapper {
+    display: flex;
+    justify-content: space-between;
+}
+
+.cardWrapper .action {
+    display: flex;
+}
+
+.cardWrapper .action div {
+    margin-left: 34px;
 }

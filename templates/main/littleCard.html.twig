@@ -4,7 +4,7 @@
 
     <div class="card">
         <div class="cardWrapper">
-            {{form.firstName}} {{form.name}}
+            {% if from.firstName is defined %}{{form.firstName}} {% endif %} {{form.name}}
             <div class="action">
                 <div class="modify">{{actions.modify}}</div>
                 <div class="delete">{{actions.delete}}</div>

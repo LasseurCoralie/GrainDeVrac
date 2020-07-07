@@ -5,11 +5,21 @@ namespace App\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Form\Extension\Core\Type\DateType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
+use App\Entity\DatasPage;
 
 use Twig\Environment;
 
 class HomeController extends AbstractController
 {
+
+    public function __construct(ObjectManager $em)
+    {
+        $this->em = $em;
+    }
+
     /**
      * @Route("/home", name="home")
      */
@@ -17,29 +27,46 @@ class HomeController extends AbstractController
     public function index(): Response
     {
 
-        $forms = [
-            [
-                'name' => 'slogan',
-                'title' => 'slogan',
-                'label' => 'Modifier le contenu du slogan',
-                'content' => 'je suis le slogan',
-            ],
-            [ 
-                'name' => 'info',
-                'title' => 'Information spéciale',
-                'label' => 'Modifier le contenu de l\'information spéciale',
-                'content' => 'je suis l\'information spéciale',
-            ]
-            ];
+        // A ne surtout pas décommenté: Sert a créer les données par défault pour datasPages
+        // $datas_page = new DatasPage();
+        // $datas_page->setType('infoSpe')
+        //     ->setContent('Je suis l\'info spéciale');
+
+        // $em = $this->getDoctrine()->getManager();
+        // $em->persist($datas_page);
+        // $em->flush();
+
+        // $task = new Task();
+        // $task->setTask('rewrite the slogan');
+        // $task->setTask('rewrite the infoSpe');
+
+        // $form = $this->createFormBuilder($task)
+        //     ->add('task', )
+
+        $repository = $this->getDoctrine()->getRepository(DatasPage::class);
+        
+        $datas_page[] = $repository->findBy(['type' => 'slogan'])[0];
+        $datas_page[] = $repository->findBy(['type' => 'infoSpe'])[0];
+
 
         return $this->render('pages/backOffice/backOffice.html.twig', [
             'current_menu' => 'home',
             'current_subMenu' => '',
             'title' => 'home page',
             'page' => 'bigForm',
-            'forms' => $forms,
-            'action' => '/home'
+            'forms' => $datas_page,
+            'action' => '/home/modifySloganInfoSpe'
         ]);
+    }
+
+    /**
+     * @Route("/home/modifySloganInfoSpe", name="modifySloganAndInfoSpe" ) 
+    */
+
+    public function UpdateSloganInfoSpe() {
+        
+
+        return $this->index();
     }
 
     /**

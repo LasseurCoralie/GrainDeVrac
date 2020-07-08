@@ -94,19 +94,54 @@ main {
     overflow: auto;
 }
 
-.bigForm {
+/* .bigForm {
     padding: 32px 16px;
     width: 100%;
     background-color: white;
     border-radius: 3px;
     margin-bottom: 20vh;
-}
+} */
 
 .bigForm h2 {
     font-family: Oswald, sans-serif;
     font-size: 32px;
     margin-bottom: 16px;
     text-transform: uppercase;
+}
+
+.bigForm label {
+    font-family: Oswald, sans-serif;
+    font-size: 16px;
+    margin-bottom: 16px;
+    text-transform: uppercase;
+}
+
+.bigForm textarea {
+    font-family: lato, sans-serif;
+    font-size: 16px;
+    border:none;
+    color: rgb(72, 69, 102);
+    background-color: rgb(225, 219, 255);
+    margin:auto;
+    margin-bottom: 32px;
+    border-radius: 3px;
+    width: 100%;
+    /* resize: vertical; */
+    resize: none;
+    padding: 16px;
+}
+
+.bigForm form {
+    padding: 32px 16px;
+    width: 100%;
+    background-color: white;
+    border-radius: 3px;
+    margin-bottom: 32px;
+}
+
+.bigForm form div > div {
+    display: flex;
+    flex-direction: column;
 }
 
 .inputArea label {

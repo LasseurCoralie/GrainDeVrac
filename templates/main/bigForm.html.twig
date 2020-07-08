@@ -1,8 +1,25 @@
- <form method="POST" action="{{action}}" class="bigForm">
 
+<div class="bigForm">
+    {{ form_start(formulair1) }}
+        <h2>{{forms[0].title}}</h2>
+        {{ form_widget(formulair1) }}
+        <input type="submit" value="Modifier le contenu">
+    {{ form_end(formulair1) }}
+
+    {% if formulair2 is defined %}
+        {{ form_start(formulair2) }}
+            <h2>{{forms[1].title}}</h2>
+            {{ form_widget(formulair2)}}
+            <input type="submit" value="Modifier le contenu">
+        {{ form_end(formulair2) }}
+    {% endif %}
+
+</div>
+
+
+
+{# <form method="POST" action="{{action}}" class="bigForm">
     {% for form in forms %}
-
-        <h2>{{form.title}}</h2>
 
         <div class="inputArea">
             <label for={{form.type}}>{{form.title}}</label>
@@ -10,7 +27,15 @@
         </div>
 
     {% endfor %}
+</form> #}
 
+{# <form name="data_home_page" method="post">
+    <div id="data_home_page">
+        <div>
+            <label for="data_home_page_content">Content</label>
+            <textarea id="data_home_page_content" name="data_home_page[content]">Je suis le slogan</textarea>
+        </div>
+        <input type="hidden" id="data_home_page__token" name="data_home_page[_token]" value="tgxezrwNDzVY__rKkfd8_2vsh0HON2bCUVaWP4tGXlc" />
+    </div>
     <input type="submit" value="Modifier le contenu">
-
-</form>
+</form> #}

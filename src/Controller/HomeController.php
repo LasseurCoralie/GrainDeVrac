@@ -5,21 +5,21 @@ namespace App\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-use Symfony\Component\Form\Extension\Core\Type\DateType;
-use Symfony\Component\Form\Extension\Core\Type\SubmitType;
-use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\HttpFoundation\Request;
 use App\Entity\DatasPage;
-
+use App\Form\DataHomePageType;
 use Twig\Environment;
 
 class HomeController extends AbstractController
 {
 
+
     /**
      * @Route("/home", name="home")
+     * @param Request $request
      */
 
-    public function index(): Response
+    public function index(Request $request): Response
     {
 
         // A ne surtout pas décommenté: Sert a créer les données par défault pour datasPages
@@ -38,13 +38,31 @@ class HomeController extends AbstractController
         // $form = $this->createFormBuilder($task)
         //     ->add('task', )
 
+        $em = $this->getDoctrine()->getManager();
+
         $repository = $this->getDoctrine()->getRepository(DatasPage::class);
         
         $datas_page[] = $repository->findBy(['type' => 'slogan'])[0];
         $datas_page[] = $repository->findBy(['type' => 'infoSpe'])[0];
 
+        $formulair1 = $this->createForm(DataHomePageType::class, $datas_page[0]);
+        $formulair2 = $this->createForm(DataHomePageType::class, $datas_page[1]);
+
+        $formulair1->handleRequest($request);
+
+        if ($formulair1->isSubmitted() && $formulair1->isValid()) {
+            $em->flush();
+        }
+
+        $formulair2->handleRequest($request);
+
+        if ($formulair2->isSubmitted() && $formulair2->isValid()) {
+            $em->flush();
+        }
 
         return $this->render('pages/backOffice/backOffice.html.twig', [
+            'formulair1' => $formulair1->createView(),
+            'formulair2' => $formulair2->createView(),
             'current_menu' => 'home',
             'current_subMenu' => '',
             'title' => 'home page',
@@ -52,16 +70,6 @@ class HomeController extends AbstractController
             'forms' => $datas_page,
             'action' => '/home/modifySloganInfoSpe'
         ]);
-    }
-
-    /**
-     * @Route("/home/modifySloganInfoSpe", name="modifySloganAndInfoSpe" ) 
-    */
-
-    public function UpdateSloganInfoSpe() {
-        
-
-        return $this->index();
     }
 
     /**

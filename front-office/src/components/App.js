@@ -1,10 +1,10 @@
 import React from 'react';
+import HomePage from './views/HomePage/HomePage'
 
 const App = () => (
     <div>
-      <h1>HELLO APP</h1>
+      <HomePage />
     </div>
 );
-
 
 export default App;

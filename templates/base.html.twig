@@ -5,11 +5,15 @@
         <title>{% block title %}Grain de Vrac{% endblock %}</title>
         <link rel="stylesheet" href="{{ asset('css/globale/reset.css') }}" />
         <link rel="stylesheet" href="{{ asset('css/globale/globaleStyle.css') }}" />
+        <link rel="stylesheet" href="{{ asset('css/globale/nav.css') }}" />
         <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Oswald:wght@500&display=swap" rel="stylesheet">  
         {% block stylesheets %}{% endblock %}
     </head>
     <body>
-        {% block body %}{% endblock %}
+        {% block navBar %}{% endblock %}
+        {% block bodyTitle %}{% endblock %}
+        {% block body %}
+        {% endblock %}
             <script src="{{ asset('script/app.js') }}"></script>
         {% block javascripts %}{% endblock %}
     </body>

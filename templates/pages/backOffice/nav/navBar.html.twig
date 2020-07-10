@@ -2,7 +2,7 @@
 	<div class="linkList">
 		<div class="linkListWrapper">
 			<ul>
-				{% include "nav/nav_" ~ current_menu ~ "_SubMenu.html.twig" %}
+				{% if current_menu is defined %} {% include "pages/backOffice/nav/nav_" ~ current_menu ~ "_SubMenu.html.twig" %} {% endif %}
 			</ul>
 		</div>
 	</div>
@@ -13,23 +13,23 @@
 				<img src="{{ asset('assets/icons/Icon-globe.svg')}}" alt="icone home">
 			</a>
 		</li>
-		<li class="{% if current_menu is defined and current_menu == 'clients'%}iconActive{% endif %}">
+		<li class="{% if current_menu is defined and current_menu == 'customers'%}iconActive{% endif %}">
 			<a href='/clients'>
                 <img src="{{ asset('assets/icons/Icon-value.svg')}}" alt="icone mes clients">
             </a>
 		</li>
-		<li class="{% if current_menu is defined and current_menu == 'producteurs'%}iconActive{% endif %}">
+		<li class="{% if current_menu is defined and current_menu == 'producer'%}iconActive{% endif %}">
 			<a href='/producteurs'>
                 <img src="{{ asset('assets/icons/Icon-shop.svg')}}" alt="icone mes producteur">
             </a>
 		</li>
-		<li class="{% if current_menu is defined and current_menu == 'mes-messages'%}iconActive{% endif %}">
-			<a href='/mes-messages'>
+		<li class="{% if current_menu is defined and current_menu == 'contact'%}iconActive{% endif %}">
+			<a href='/messagerie'>
                 <img src="{{ asset('assets/icons/Icon-chat.svg')}}" alt="icone messagerie">
             </a>
 		</li>
-		<li class="{% if current_menu is defined and current_menu == 'mon-compte'%}iconActive{% endif %}">
-			<a href='/mon-compte'>
+		<li class="{% if current_menu is defined and current_menu == 'profil'%}iconActive{% endif %}">
+			<a href='/mon-profil'>
                 <img src="{{ asset('assets/icons/Icon-woman.svg')}}" alt="icone mon compte">
             </a>
 		</li>

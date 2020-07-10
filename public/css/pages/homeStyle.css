@@ -1,0 +1,25 @@
+.main {
+    margin: 32px;
+    height: 50vh;
+    overflow: auto;
+}
+
+.formCard {
+    background: white;
+    padding: 34px;
+    border-radius: 3px;
+    margin-bottom: 34px;
+}
+
+.formCard h2 {
+    font-size: 32px;
+    margin-bottom: 16px;
+    text-transform: uppercase;
+}
+
+.formCard .content {
+    padding: 16px;
+    margin-bottom: 16px;
+    background-color: rgb(225, 219, 255);
+    border-radius: 3px;
+}

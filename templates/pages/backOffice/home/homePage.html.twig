@@ -1,1 +1,14 @@
 {% extends 'pages/backOffice/templateBackOffice.html.twig' %}
+
+{% block body %}
+    <div class="main">
+
+        {% for data in datas %}
+            <div class="formCard">
+                <h2>{{data.title}}</h2>
+                <div class="content">{{data.content}}</div>
+                <a href="{{ path('home.homepage.edit', {id: data.id}) }}"><button>editer</button><a/>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}

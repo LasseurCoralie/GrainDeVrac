@@ -1,8 +1,14 @@
 .main {
     margin: 32px;
-    height: 50vh;
     overflow: auto;
+    height: 60vh;
+    padding-bottom: 110px;
 }
+
+.main div:nth-last-child(0n+2) {
+    margin-bottom: 110px;
+}
+
 
 .formCard {
     background: white;

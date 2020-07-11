@@ -36,13 +36,13 @@ class User
     private $adress;
 
     /**
-     * @ORM\ManyToOne(targetEntity=city::class, inversedBy="users")
+     * @ORM\ManyToOne(targetEntity=City::class, inversedBy="users")
      * @ORM\JoinColumn(nullable=false)
      */
     private $city;
 
     /**
-     * @ORM\ManyToOne(targetEntity=role::class, inversedBy="users")
+     * @ORM\ManyToOne(targetEntity=Role::class, inversedBy="users")
      * @ORM\JoinColumn(nullable=false)
      */
     private $role;
@@ -73,7 +73,7 @@ class User
     private $products;
 
     /**
-     * @ORM\ManyToMany(targetEntity=recipe::class, inversedBy="usersFavorites")
+     * @ORM\ManyToMany(targetEntity=Recipe::class, inversedBy="usersFavorites")
      */
     private $favoriteRecipe;
 

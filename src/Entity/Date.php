@@ -35,14 +35,31 @@ class Date
     private $endHour;
 
     /**
-     * @ORM\OneToMany(targetEntity=city::class, mappedBy="date")
+     * @ORM\OneToMany(targetEntity=City::class, mappedBy="date")
      */
     private $city;
+
+    /**
+     * @ORM\Column(type="datetime")
+     */
+    private $created_at;
+
+    /**
+     * @ORM\Column(type="datetime", nullable=true)
+     */
+    private $updated_at;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=Mode::class, inversedBy="dates")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $mode;
 
 
     public function __construct()
     {
         $this->city = new ArrayCollection();
+        $this->mode = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -86,6 +103,30 @@ class Date
         return $this;
     }
 
+    public function getCreatedAt(): ?\DateTimeInterface
+    {
+        return $this->created_at;
+    }
+
+    public function setCreatedAt(\DateTimeInterface $created_at): self
+    {
+        $this->created_at = $created_at;
+
+        return $this;
+    }
+
+    public function getUpdatedAt(): ?\DateTimeInterface
+    {
+        return $this->updated_at;
+    }
+
+    public function setUpdatedAt(?\DateTimeInterface $updated_at): self
+    {
+        $this->updated_at = $updated_at;
+
+        return $this;
+    }
+
     /**
      * @return Collection|city[]
      */
@@ -113,6 +154,18 @@ class Date
                 $city->setDate(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getMode(): ?mode
+    {
+        return $this->mode;
+    }
+
+    public function setMode(?mode $mode): self
+    {
+        $this->mode = $mode;
 
         return $this;
     }

@@ -35,13 +35,13 @@ class Recipe
     private $description;
 
     /**
-     * @ORM\ManyToOne(targetEntity=indicativePrice::class, inversedBy="recipes")
+     * @ORM\ManyToOne(targetEntity=IndicativePrice::class, inversedBy="recipes")
      * @ORM\JoinColumn(nullable=false)
      */
     private $indicativePrice;
 
     /**
-     * @ORM\ManyToOne(targetEntity=difficulty::class, inversedBy="recipes")
+     * @ORM\ManyToOne(targetEntity=Difficulty::class, inversedBy="recipes")
      * @ORM\JoinColumn(nullable=false)
      */
     private $difficulty;

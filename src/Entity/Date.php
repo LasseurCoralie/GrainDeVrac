@@ -2,10 +2,11 @@
 
 namespace App\Entity;
 
-use App\Repository\DateRepository;
-use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
+
 use Doctrine\ORM\Mapping as ORM;
+use App\Repository\DateRepository;
+use Doctrine\Common\Collections\Collection;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * @ORM\Entity(repositoryClass=DateRepository::class)
@@ -25,19 +26,14 @@ class Date
     private $date;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="datetime")
      */
     private $startHour;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="datetime")
      */
     private $endHour;
-
-    /**
-     * @ORM\OneToMany(targetEntity=City::class, mappedBy="date")
-     */
-    private $city;
 
     /**
      * @ORM\Column(type="datetime")
@@ -50,16 +46,21 @@ class Date
     private $updated_at;
 
     /**
-     * @ORM\ManyToOne(targetEntity=Mode::class, inversedBy="dates")
+     * @ORM\ManyToOne(targetEntity=Mode::class)
      * @ORM\JoinColumn(nullable=false)
      */
     private $mode;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=City::class)
+     */
+    private $City;
 
 
     public function __construct()
     {
         $this->city = new ArrayCollection();
-        $this->mode = new ArrayCollection();
+        $this->created_at = new \DateTime();
     }
 
     public function getId(): ?int
@@ -79,24 +80,24 @@ class Date
         return $this;
     }
 
-    public function getStartHour(): ?int
+    public function getStartHour(): ?\DateTimeInterface
     {
         return $this->startHour;
     }
 
-    public function setStartHour(int $startHour): self
+    public function setStartHour(\DateTimeInterface $startHour): self
     {
         $this->startHour = $startHour;
 
         return $this;
     }
 
-    public function getEndHour(): ?int
+    public function getEndHour(): ?\DateTimeInterface
     {
         return $this->endHour;
     }
 
-    public function setEndHour(int $endHour): self
+    public function setEndHour(\DateTimeInterface $endHour): self
     {
         $this->endHour = $endHour;
 
@@ -127,36 +128,6 @@ class Date
         return $this;
     }
 
-    /**
-     * @return Collection|city[]
-     */
-    public function getCity(): Collection
-    {
-        return $this->city;
-    }
-
-    public function addCity(city $city): self
-    {
-        if (!$this->city->contains($city)) {
-            $this->city[] = $city;
-            $city->setDate($this);
-        }
-
-        return $this;
-    }
-
-    public function removeCity(city $city): self
-    {
-        if ($this->city->contains($city)) {
-            $this->city->removeElement($city);
-            // set the owning side to null (unless already changed)
-            if ($city->getDate() === $this) {
-                $city->setDate(null);
-            }
-        }
-
-        return $this;
-    }
 
     public function getMode(): ?mode
     {
@@ -166,6 +137,18 @@ class Date
     public function setMode(?mode $mode): self
     {
         $this->mode = $mode;
+
+        return $this;
+    }
+
+    public function getCity(): ?City
+    {
+        return $this->City;
+    }
+
+    public function setCity(?City $City): self
+    {
+        $this->City = $City;
 
         return $this;
     }

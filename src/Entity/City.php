@@ -30,11 +30,6 @@ class City
     private $department;
 
     /**
-     * @ORM\ManyToOne(targetEntity=Date::class, inversedBy="city")
-     */
-    private $date;
-
-    /**
      * @ORM\OneToMany(targetEntity=User::class, mappedBy="city")
      */
     private $users;
@@ -69,18 +64,6 @@ class City
     public function setDepartment(string $department): self
     {
         $this->department = $department;
-
-        return $this;
-    }
-
-    public function getDate(): ?Date
-    {
-        return $this->date;
-    }
-
-    public function setDate(?Date $date): self
-    {
-        $this->date = $date;
 
         return $this;
     }

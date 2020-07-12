@@ -3,13 +3,22 @@
 {% block body %}
     <div class="main">
 
-        <a href="{{ path('calendar.newDate') }}"><button>Ajouter une nouvelle date</button></a>
+        <div class="buttonAddNewDate"><a href="{{ path('calendar.newDate') }}"><button>Ajouter une nouvelle date</button></a></div>
 
         {% for data in datas %}
             <div class="formCard">
-                <h2>{{data.title}}</h2>
-                <div class="content">{{data.content}}</div>
-                <a href="{{ path('home.homepage.edit', {id: data.id}) }}"><button>editer</button><a/>
+                <div class="row dateFormat">
+                    <div>{{ data.date.format('d-m-Y') }}</div>
+                    <div>{{ data.startHour.format('H:i')}} - {{data.endHour.format('H:i')}}</div>
+                </div>
+                <div class="row delivery">
+                    <div>{{data.mode.mode}}</div>
+                    <div>{{data.city.name}}</div>
+                </div>
+                <div class="row action">
+                    <div><a href="">modifier</a></div>
+                    <div><a href="">suprimer</a></div>
+                </div>
             </div>
         {% endfor %}
     </div>

@@ -1,0 +1,12 @@
+{% extends 'pages/backOffice/templateBackOffice.html.twig' %}
+
+{% block body %}
+    <div class="main">
+        <div class="editForm">
+            {{ form_start(form) }}
+                {{ form_widget(form) }}
+                <button type="submit">Valider la nouvelle ville</button>
+            {{ form_end(form) }}
+        </div>
+    </div>
+{% endblock %}

@@ -13,7 +13,29 @@
     margin-bottom: 16px;
 }
 
+.editForm input, .editForm select{
+    border: none;
+    padding: 16px;
+    /* margin-bottom: 16px; */
+    background-color: rgb(225, 219, 255);
+    border-radius: 3px;
+}
+
+.hourSelector > div > div{
+    display: flex;
+    align-items: center;
+}
+
 #calendar_startHour, #calendar_endHour{
     display: flex;
     flex-direction: row;
+}
+
+.button-addCity {
+    width: 50%;
+    margin-bottom: 16px;
+}
+
+.city div{
+    margin: 0, 0, 16px, 0;
 }

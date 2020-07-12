@@ -8,6 +8,7 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 use App\Entity\DatasPage;
+use App\Entity\Mode;
 use App\Form\DataHomePageType;
 
 class Datas_PageController extends AbstractController
@@ -68,11 +69,8 @@ class Datas_PageController extends AbstractController
     public function cgu(Request $request): Response
     {
 
-        // $datas_page = new DatasPage();
-        // $datas_page->setType('cgu')
-        //     ->setContent('Ici, on met les truc chiant mais impératif dont tout le monde s\'en branle sauf Macron')
-        //     ->setTitle('Mentions Légales')
-        //     ->setPage('cgu');
+        // $datas_page = new Mode();
+        // $datas_page->setMode('livraison');
         // $em = $this->getDoctrine()->getManager();
         // $em->persist($datas_page);
         // $em->flush();

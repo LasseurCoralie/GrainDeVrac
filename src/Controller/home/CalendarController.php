@@ -2,6 +2,7 @@
 
 namespace App\Controller\home;
 
+use App\Entity\City;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -9,7 +10,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 use App\Entity\Date;
 use App\Form\CalendarType;
-use App\Repository\ModeRepository;
+use App\Form\CityType;
 
 class CalendarController extends AbstractController
 {
@@ -19,7 +20,7 @@ class CalendarController extends AbstractController
      * @param Request $request
      */
 
-    public function index(Request $request): Response
+    public function index(): Response
     {
 
         $repository = $this->getDoctrine()->getRepository(Date::class);
@@ -42,20 +43,21 @@ class CalendarController extends AbstractController
      * @return \Symfony\Component\HttpFoundation\Response
      */
 
-    public function newDate(): Response
+    public function newDate(Request $request): Response
     {
 
-        
-        $form = $this->createForm(CalendarType::class);
+        $date = new Date();
 
-        // $form->handleRequest($request);
+        $form = $this->createForm(CalendarType::class, $date);
 
-        // if($form->isSubmitted() && $form->isValid()){
-        //     $em = $this->getDoctrine()->getManager();
-        //     $em->persist($date);
-        //     $em->flush();
-        //     return $this->redirectToRoute('calendar');
-        // }
+        $form->handleRequest($request);
+
+        if($form->isSubmitted() && $form->isValid()){
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($date);
+            $em->flush();
+            return $this->redirectToRoute('calendar');
+        }
 
         return $this->render('pages/backOffice/calendar/calendarNewDate.html.twig', [
             // 'datas' => $date,
@@ -66,5 +68,32 @@ class CalendarController extends AbstractController
             'pageStyle' => 'newDateForm',
         ]);
     }
+
+    /**
+     * @Route("/home/calendrier/ajouter-ville", name="calendar.newCity")
+     */
+
+     public function newCity(Request $request): Response
+     {
+
+        $city = new City();
+
+        $form = $this->createForm(CityType::class, $city);
+
+        $form->handleRequest($request);
+
+        if($form->isSubmitted() && $form->isValid()){
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($city);
+            $em->flush();
+            return $this->redirectToRoute("calendar.newDate");
+        }
+
+         return $this->render('pages/backOffice/calendar/calendarNewCity.html.twig', [
+             'form' => $form->createView(),
+             'title' => 'Ajouter une ville',
+             'pageStyle' => 'newDateForm',
+         ]);
+     }
 
 }

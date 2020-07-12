@@ -39,3 +39,21 @@
 .city div{
     margin: 0, 0, 16px, 0;
 }
+
+.button-newCity {
+    background-color: rgb(103,73,255);
+    color: white;
+    text-transform: uppercase;
+    font-family: 'Oswald', sans-serif;
+    font-size: 16px;
+    border:none;
+    padding: 8px;
+    border-radius: 3px;
+    width:30%;
+    text-align: center;
+}
+
+.button-newCity:hover{
+    background-color: rgb(238,123,0);
+    cursor: pointer;
+}

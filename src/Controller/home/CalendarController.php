@@ -69,31 +69,49 @@ class CalendarController extends AbstractController
         ]);
     }
 
-    /**
-     * @Route("/home/calendrier/ajouter-ville", name="calendar.newCity")
+        /**
+     * @Route("/home/calendrier/date/edit/{id}", name="calendar.editDate", methods="POST|GET")
+     * @param Date $date
+     * @return \Symfony\Component\HttpFoundation\Response
      */
 
-     public function newCity(Request $request): Response
-     {
+    public function editDate(Request $request, Date $date): Response
+    {
 
-        $city = new City();
-
-        $form = $this->createForm(CityType::class, $city);
+        $form = $this->createForm(CalendarType::class, $date);
 
         $form->handleRequest($request);
 
         if($form->isSubmitted() && $form->isValid()){
             $em = $this->getDoctrine()->getManager();
-            $em->persist($city);
+            $em->persist($date);
             $em->flush();
-            return $this->redirectToRoute("calendar.newDate");
+            return $this->redirectToRoute('calendar');
         }
 
-         return $this->render('pages/backOffice/calendar/calendarNewCity.html.twig', [
-             'form' => $form->createView(),
-             'title' => 'Ajouter une ville',
-             'pageStyle' => 'newDateForm',
-         ]);
-     }
+        return $this->render('pages/backOffice/calendar/calendarNewDate.html.twig', [
+            'form' => $form->createView(),
+            'current_menu' => 'home',
+            'current_subMenu' => 'calendar',
+            'title' => 'Editer la date',
+            'pageStyle' => 'newDateForm'
+        ]);
+    }
+
+
+    /**
+     * @Route("/home/calendrier/date/edit/{id}", name="calendar.delete", methods="DELETE")
+     * @param Date $date
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
+
+    public function delete(Date $date)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $em->remove($date);
+        $em->flush();
+        
+        return $this->redirectToRoute('calendar');
+    }
 
 }

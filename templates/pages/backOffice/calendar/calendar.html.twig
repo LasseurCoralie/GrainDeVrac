@@ -16,8 +16,13 @@
                     <div>{{data.city.name}}</div>
                 </div>
                 <div class="row action">
-                    <div><a href="">modifier</a></div>
-                    <div><a href="">suprimer</a></div>
+                    <div><a href="{{ path('calendar.editDate', {id: data.id}) }}">modifier</a></div>
+                    <div>
+                        <form action="{{path('calendar.delete', {id: data.id}) }}" method="post">
+                            <input type="hidden" name="_method" value="DELETE">
+                            <button>suprimer</button>
+                        </form>
+                    </div>
                 </div>
             </div>
         {% endfor %}

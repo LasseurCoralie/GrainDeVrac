@@ -42,6 +42,12 @@
     color: rgb(103,73,255);
 }
 
-.action > div:last-child{
+.action button{
+    border:none;
+    padding:0;
+    margin:0;
+    background-color: transparent;
     color:rgb(238,123,0);
+    text-transform: none;
 }
+

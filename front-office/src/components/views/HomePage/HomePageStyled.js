@@ -171,6 +171,19 @@ const HomePageStyled = styled.div`
       }
     }
   }
+
+  section#contact-zn {
+    text-align: center;
+
+    h2 {
+      line-height: 1.2em;
+      margin: 2em 0;
+    }
+
+    p{
+      line-height: 1.6em;
+    }
+  }
 `;
 
 export default HomePageStyled;

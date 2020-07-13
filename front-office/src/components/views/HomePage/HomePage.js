@@ -85,7 +85,11 @@ const HomePage = () => {
         <Button content="Consulter ce produit" />
       </section>
 
-      <section id="contact-zn"></section>
+      <section id="contact-zn">
+        <h2 className="title">Une question ? <br />Un commentaire ? <br />Une suggestion ?</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Exercitationem blanditiis fugit assumenda alias? Iusto ex deleniti optio id accusantium perspiciatis, numquam aut quia. Voluptatem saepe ducimus, exercitationem repellendus dignissimos iusto beatae mollitia provident reprehenderit laborum culpa rem officiis minima. Asperiores!</p>
+        <Button content="Contactez-nous" />
+      </section>
     </HomePageStyled>
   );
 };

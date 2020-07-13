@@ -12,6 +12,7 @@ const HomePageStyled = styled.div`
 
 
     img {
+      margin: -16px;
       max-width: 100vw;
       z-index: -1;
     }
@@ -20,7 +21,6 @@ const HomePageStyled = styled.div`
       text-align: left;
       padding: 1em;
       border: 1px solid ${theme.colors.black};
-      margin: 0 1em;
       margin-top: -5em;
       margin-bottom: 2em;
       background-color: white;
@@ -30,10 +30,8 @@ const HomePageStyled = styled.div`
         display : inline-block;
         position: relative;
         margin: 0;
-        font-family: ${theme.fonts.special};
         text-transform: uppercase;
         font-size: 48px;
-        color: ${theme.colors.black};
 
         :after{
           content: '';
@@ -48,21 +46,9 @@ const HomePageStyled = styled.div`
       }
       
       p {
-        font-family: ${theme.fonts.regular};
         font-size: 24px;
         line-height: 36px;
       }
-    }
-    button {
-      background-color: ${theme.colors.orange};
-      font-family: ${theme.fonts.special};
-      text-transform: uppercase;
-      font-size: 16px;
-      font-weight: bold;
-      border: none;
-      padding: 16px;
-      color: white;
-      border-radius: 8px;
     }
   }
 
@@ -75,12 +61,58 @@ const HomePageStyled = styled.div`
 
     p {
       color: white;
-      font-family: ${theme.fonts.regular};
       font-weight: bold;
       text-transform: uppercase;
       font-size: 16px;
       padding: 1em 3em;
       margin: 0;
+    }
+  }
+
+  section#planning-zn {
+
+    text-align: center;
+    
+    table, th, td {
+      border: 1px solid ${theme.colors.black};
+      border-collapse: collapse;;
+    }
+    
+    table {
+      width: 100%;
+      margin: 2em 0;
+
+      td, th {
+        padding: 8px;
+        text-align: center;
+      }
+      
+      tr.tr-top>th, tr.tr-top>td{
+        border-top: 1px solid white;
+      }
+
+      tr.tr-down>th, tr.tr-down>td{
+        border-bottom: 1px solid white;
+      }
+
+      td.delivery {
+        background-color: ${theme.colors.lightOrange};
+        font-family: ${theme.fonts.special};
+        font-weight: bold;
+      }
+
+      td:first-child, th:first-child {
+        border-left: 1px solid white;
+      }
+
+      td:last-child, th:last-child {
+        border-right: 1px solid white;
+      }
+
+      td>strong.market-place {
+        font-family: ${theme.fonts.special};
+        font-weight: bold;
+      }
     }
   }
 `;

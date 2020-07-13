@@ -70,7 +70,20 @@ const HomePage = () => {
         <Button content="Voir les semaines suivantes"/>
       </section>
 
-      <section id="highlighted-products-zn"></section>
+      <section id="highlighted-products-zn">
+        <h2 className="title">Les produits du mois</h2>
+        <div className="product-zn">
+          <img src={process.env.PUBLIC_URL + '/img/lentilles-corail.jpg'} alt="lentilles corail"/>
+          <div className="txt-zn">
+            <h3 className="product-title">Lentilles corail</h3>
+            <p className="product-content">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quibusdam, voluptates dignissimos! Eum necessitatibus sapiente minima eos error doloremque quod voluptatum!</p>
+            <p className="bio">Bio</p>
+            <p className="origin">Origine : Bidule-Chouette-les-Pins (44)</p>
+            <p className="price">4,50 €/kg</p>
+          </div>
+        </div>
+        <Button content="Consulter ce produit" />
+      </section>
 
       <section id="contact-zn"></section>
     </HomePageStyled>

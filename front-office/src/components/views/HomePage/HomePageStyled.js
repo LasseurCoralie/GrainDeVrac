@@ -115,6 +115,62 @@ const HomePageStyled = styled.div`
       }
     }
   }
+
+  section#highlighted-products-zn {
+    background-color: ${theme.colors.orange};
+    margin: 0;
+    padding: 0 1em;
+    text-align: center;
+
+    h2 {
+      color: white;
+      padding-top: 2em;
+      margin-bottom: 2em;
+      margin-top: 0;
+
+    }
+
+    button {
+      background-color: white;
+      color: ${theme.colors.orange};
+      margin: 2em 0;
+    }
+
+    div.product-zn {
+      max-width: 350px;
+      margin: 0 auto;
+
+      img {
+        border: 1px solid ${theme.colors.black};
+        max-width: 100%;
+        box-sizing: border-box;
+      }
+
+      div.txt-zn {
+        margin: -3em -2em 0;
+        text-align: left;
+        background-color: white;
+        padding: 2em;
+        padding-top: 3em;
+        border: 1px solid ${theme.colors.black};
+      
+        p {
+          margin: 0;
+        }
+
+        p.bio {
+          margin-top: 1em;
+          font-weight: bold;
+        }
+
+        p.price {
+          margin-top: 1em;
+          font-family: ${theme.fonts.special};
+          font-weight: bold;
+        }
+      }
+    }
+  }
 `;
 
 export default HomePageStyled;

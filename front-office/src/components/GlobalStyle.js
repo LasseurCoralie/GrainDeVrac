@@ -9,11 +9,6 @@ const GlobalStyle = createGlobalStyle`
     font-family: ${theme.fonts.regular};
   }
 
-  section {
-    margin-right: 16px;
-    margin-left: 16px;
-  }
-
   h1, h2 {
     font-family: ${theme.fonts.special};
   }

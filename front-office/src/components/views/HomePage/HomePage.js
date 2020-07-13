@@ -2,6 +2,7 @@ import React from 'react';
 
 // == Import Small Compononents
 import Button from '../../small_components/Button/Button';
+import Footer from '../../small_components/Footer/Footer';
 
 // == Import Styled
 import HomePageStyled from './HomePageStyled';
@@ -39,7 +40,7 @@ const HomePage = () => {
           <tr>
             <th>Mardi</th>
             <td><strong className="market-place">Poribersped</strong> <br/> rue des trucs <br/> 5h à 10h</td>
-            <td><strong className="market-place">Poribersped</strong> <br/> rue des trucs <br/> 13h à 17h</td>
+            <td className="today"><strong className="market-place">Poribersped</strong> <br/> rue des trucs <br/> 13h à 17h</td>
           </tr>
           <tr>
             <th>Mercredi</th>
@@ -90,6 +91,8 @@ const HomePage = () => {
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Exercitationem blanditiis fugit assumenda alias? Iusto ex deleniti optio id accusantium perspiciatis, numquam aut quia. Voluptatem saepe ducimus, exercitationem repellendus dignissimos iusto beatae mollitia provident reprehenderit laborum culpa rem officiis minima. Asperiores!</p>
         <Button content="Contactez-nous" />
       </section>
+
+      <Footer />
     </HomePageStyled>
   );
 };

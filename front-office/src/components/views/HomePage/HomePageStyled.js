@@ -13,7 +13,7 @@ const HomePageStyled = styled.div`
 
     img {
       margin: -16px;
-      max-width: 100vw;
+      max-width: 100%;
       z-index: -1;
     }
 
@@ -21,8 +21,7 @@ const HomePageStyled = styled.div`
       text-align: left;
       padding: 1em;
       border: 1px solid ${theme.colors.black};
-      margin-top: -5em;
-      margin-bottom: 2em;
+      margin: -5em 1em 2em;
       background-color: white;
       opacity: .99;
 
@@ -57,7 +56,6 @@ const HomePageStyled = styled.div`
     background-color: ${theme.colors.purple};
     border-top: 1px solid ${theme.colors.black};
     border-bottom: 1px solid ${theme.colors.black};
-    margin: 0;
 
     p {
       color: white;
@@ -65,13 +63,14 @@ const HomePageStyled = styled.div`
       text-transform: uppercase;
       font-size: 16px;
       padding: 1em 3em;
-      margin: 0;
+      margin: 0 1em;
     }
   }
 
   section#planning-zn {
 
     text-align: center;
+    margin: 0 1em 2em;
     
     table, th, td {
       border: 1px solid ${theme.colors.black};
@@ -99,6 +98,10 @@ const HomePageStyled = styled.div`
         background-color: ${theme.colors.lightOrange};
         font-family: ${theme.fonts.special};
         font-weight: bold;
+      }
+
+      td.today {
+        border: 2px solid ${theme.colors.orange}
       }
 
       td:first-child, th:first-child {
@@ -174,6 +177,7 @@ const HomePageStyled = styled.div`
 
   section#contact-zn {
     text-align: center;
+    margin: 0 1em;
 
     h2 {
       line-height: 1.2em;

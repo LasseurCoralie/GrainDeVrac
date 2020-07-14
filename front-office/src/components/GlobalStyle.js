@@ -1,3 +1,9 @@
+// == Import des fichiers pour reset le css 
+// -> yarn add sanitize.css --save
+import 'sanitize.css';
+import 'sanitize.css/forms.css';
+import 'sanitize.css/typography.css';
+
 import { createGlobalStyle } from 'styled-components';
 
 import theme from '../theme/theme';

@@ -29,46 +29,48 @@ const HomePage = () => {
       <section id="planning-zn">
         <h2 className="title">Planning des marchés et des livraisons de la semaine</h2>
         <table>
-          <tr className="tr-top">
-            <td className="cell-left">&nbsp;</td>
-            <th>Matin</th>
-            <th className="cell-right">Après-midi</th>
-          </tr>
-          <tr>
-            <th>Lundi</th>
-            <td><strong className="market-place">Poribersped</strong> <br/> rue des trucs <br/> 6h à 12h</td>
-            <td className="delivery">Livraison</td>
-          </tr>
-          <tr>
-            <th>Mardi</th>
-            <td><strong className="market-place">Poribersped</strong> <br/> rue des trucs <br/> 5h à 10h</td>
-            <td className="today"><strong className="market-place">Poribersped</strong> <br/> rue des trucs <br/> 13h à 17h</td>
-          </tr>
-          <tr>
-            <th>Mercredi</th>
-            <td><strong className="market-place">Poribersped</strong> <br/> rue des trucs <br/> 6h à 12h</td>
-            <td><strong className="market-place">Poribersped</strong> <br/> rue des trucs <br/> 13h à 17h</td>
-          </tr>
-          <tr>
-            <th>Jeudi</th>
-            <td className="delivery">Livraison</td>
-            <td><strong className="market-place">Poribersped</strong> <br/> rue des trucs <br/> 15h à 19h30</td>
-          </tr>
-          <tr>
-            <th>Vendredi</th>
-            <td><strong className="market-place">Poribersped</strong> <br/> rue des trucs <br/> 10h à 13h</td>
-            <td><strong className="market-place">Poribersped</strong> <br/> rue des trucs <br/> 13h30 à 16h</td>
-          </tr>
-          <tr>
-            <th>Samedi</th>
-            <td className="delivery">Livraison</td>
-            <td><strong className="market-place">Poribersped</strong> <br/> rue des trucs <br/> 12h à 17h</td>
-          </tr>
-          <tr className="tr-down">
-            <th className="cell-left">Dimanche</th>
-            <td className="delivery">Livraison</td>
-            <td className="cell-right"><strong className="market-place">Poribersped</strong> <br/> rue des trucs <br/> 14h à 19h</td>
-          </tr>
+          <tbody>
+            <tr className="tr-top">
+              <td className="cell-left">&nbsp;</td>
+              <th>Matin</th>
+              <th className="cell-right">Après-midi</th>
+            </tr>
+            <tr>
+              <th>Lundi</th>
+              <td><strong className="market-place">Poribersped</strong> <br/> rue des trucs <br/> 6h à 12h</td>
+              <td className="delivery">Livraison</td>
+            </tr>
+            <tr>
+              <th>Mardi</th>
+              <td><strong className="market-place">Poribersped</strong> <br/> rue des trucs <br/> 5h à 10h</td>
+              <td className="today"><strong className="market-place">Poribersped</strong> <br/> rue des trucs <br/> 13h à 17h</td>
+            </tr>
+            <tr>
+              <th>Mercredi</th>
+              <td><strong className="market-place">Poribersped</strong> <br/> rue des trucs <br/> 6h à 12h</td>
+              <td><strong className="market-place">Poribersped</strong> <br/> rue des trucs <br/> 13h à 17h</td>
+            </tr>
+            <tr>
+              <th>Jeudi</th>
+              <td className="delivery">Livraison</td>
+              <td><strong className="market-place">Poribersped</strong> <br/> rue des trucs <br/> 15h à 19h30</td>
+            </tr>
+            <tr>
+              <th>Vendredi</th>
+              <td><strong className="market-place">Poribersped</strong> <br/> rue des trucs <br/> 10h à 13h</td>
+              <td><strong className="market-place">Poribersped</strong> <br/> rue des trucs <br/> 13h30 à 16h</td>
+            </tr>
+            <tr>
+              <th>Samedi</th>
+              <td className="delivery">Livraison</td>
+              <td><strong className="market-place">Poribersped</strong> <br/> rue des trucs <br/> 12h à 17h</td>
+            </tr>
+            <tr className="tr-down">
+              <th className="cell-left">Dimanche</th>
+              <td className="delivery">Livraison</td>
+              <td className="cell-right"><strong className="market-place">Poribersped</strong> <br/> rue des trucs <br/> 14h à 19h</td>
+            </tr>
+          </tbody>
         </table>
         <Button content="Voir les semaines suivantes"/>
       </section>

@@ -2,8 +2,22 @@ import styled from 'styled-components';
 import theme from '../../../theme/theme';
 
 const HeaderStyled = styled.header`
+  
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+  div.logo {
+    position: absolute;
+    left: 0;
+  }
 
   div.menu {
+    position: fixed;
+    right: 0;
+    nav.openMenu {
+      display: none;
+    }
 
     button {
       background-color: white;
@@ -18,7 +32,7 @@ const HeaderStyled = styled.header`
           transform: rotate(90deg);
 
           div.square {
-            border: 5px solid white;
+            border: 4px solid white;
           }
         }
       }
@@ -28,16 +42,17 @@ const HeaderStyled = styled.header`
         flex-direction: row;
         flex-wrap: wrap;
         justify-content: space-between;
-        height: 42px;
-        width: 42px;
+        height: 39px;
+        width: 39px;
         transition: .5s;
 
         div.square {
           height: 10px;
           width: 10px;
-          border: 5px solid ${theme.colors.orange};
+          border: 4px solid ${theme.colors.orange};
           border-radius: 7px;
           transition: all .5s;
+          box-sizing: content-box;
         }
       }
     }

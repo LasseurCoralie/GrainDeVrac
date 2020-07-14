@@ -4,21 +4,38 @@ import React from 'react';
 import HeaderStyled from './HeaderStyled';
 
 const Header = () => {
-  const buttonMenu = document.querySelector('.buttonMenu');
-  console.log(buttonMenu);
-  // buttonMenu.addEventListener('click', openMenuMobile);
+  let menuOpen = false;
 
-  // const openMenuMobile = () => {
-  //   console.log('je clique sur le bouton')
-  // }
+  const handleClickMenu = () => {
+    const menuList = document.querySelector('.navMenu');
+    const button = document.querySelector('.buttonMenu');
+    const spanButton = document.querySelector('.squares-menu');
+    const logoImg = document.querySelector('.logo');
+    
+    
+    if(!menuOpen) {
+      menuList.classList = 'navMenu openMenu';
+      button.style.border = '1px solid rgb(238, 123, 0)';
+      spanButton.style.transform = 'rotate(45deg)';
+      logoImg.style.border = '1px solid rgb(238, 123, 0)';
+      menuOpen = true;
+    } 
+    else {
+      menuList.classList = 'navMenu closedMenu';
+      button.style.border = '1px solid rgb(22, 14, 45)';
+      spanButton.style.transform = 'rotate(0deg)';
+      logoImg.style.border = '1px solid rgb(22, 14, 45)';
+      menuOpen = false;
+    }
+  };
 
   return (
   <HeaderStyled>
     <div className="logo">
-      <img src="" alt=""/>
+      <img src={process.env.PUBLIC_URL + '/img/grainDeVrac-logo-blanche-png.png'} alt=""/>
     </div>
     <div className="menu">
-      <button className="buttonMenu" type="button">
+      <button className="buttonMenu" type="button" onClick={handleClickMenu}>
         <span className="squares-menu">
           <div className="square"></div>
           <div className="square"></div>
@@ -26,7 +43,7 @@ const Header = () => {
           <div className="square"></div>
         </span>
       </button>
-      <nav className="openMenu">
+      <nav className="navMenu closedMenu">
         <ul>
           <li><a href="#">accueil</a></li>
           <li><a href="#">catalogue des produits</a></li>

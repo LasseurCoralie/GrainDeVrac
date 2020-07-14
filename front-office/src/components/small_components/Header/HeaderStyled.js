@@ -9,27 +9,72 @@ const HeaderStyled = styled.header`
 
   div.logo {
     position: absolute;
+    z-index: 21;
     left: 0;
+    height: 89px;
+    width: 89px;
+    padding: 5px;
+    text-align: center;
+    background-color: ${theme.colors.orange};
+    border: 1px solid ${theme.colors.black};
+    box-sizing: content-box;
+
+    img {
+      height: 90%;
+    }
   }
 
   div.menu {
+    z-index: 20;
     position: fixed;
     right: 0;
-    nav.openMenu {
+    text-align: right;
+    
+    nav.closedMenu {
       display: none;
     }
 
+    nav.openMenu {
+      display: block;
+      background-color: ${theme.colors.orange};
+      width: 100vw;
+      position: fixed;
+      z-index: 19;
+      left: 0;
+      top: 0;
+      border-bottom: 1px solid ${theme.colors.black};
+
+      ul {
+        text-align: center;
+        margin-top: 2em;
+
+        li {
+          margin: 1em 0;
+          font-size: 1.2em;
+          a {
+            text-decoration: none;
+            color: white;
+
+            :hover {
+              text-decoration: underline;
+            }
+          }
+        }
+      }
+    }
+
+
     button {
-      background-color: white;
+      background-color: ${theme.colors.orange};
       border: 1px solid ${theme.colors.black};
-      padding: 2em;
-      transition: .5s;
+      padding: 1.5em;
+      transition: transform .5s;
+      position: relative;
+      z-index: 20;
 
       :hover {
-        background-color: ${theme.colors.orange};
-
         span.squares-menu {
-          transform: rotate(90deg);
+          transform: rotate(45deg);
 
           div.square {
             border: 4px solid white;
@@ -49,7 +94,7 @@ const HeaderStyled = styled.header`
         div.square {
           height: 10px;
           width: 10px;
-          border: 4px solid ${theme.colors.orange};
+          border: 4px solid white;
           border-radius: 7px;
           transition: all .5s;
           box-sizing: content-box;
@@ -57,6 +102,7 @@ const HeaderStyled = styled.header`
       }
     }
   }
+  
 `;
 
 export default HeaderStyled;

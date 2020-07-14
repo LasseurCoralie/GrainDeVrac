@@ -18,8 +18,9 @@
                 <div class="row action">
                     <div><a href="{{ path('calendar.editDate', {id: data.id}) }}">modifier</a></div>
                     <div>
-                        <form action="{{path('calendar.delete', {id: data.id}) }}" method="post">
+                        <form onsubmit="return confirm('Etes vous sur de supprimer cette date?')" action="{{path('calendar.delete', {id: data.id}) }}" method="post">
                             <input type="hidden" name="_method" value="DELETE">
+                            <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ data.id) }}" >
                             <button>suprimer</button>
                         </form>
                     </div>

@@ -74,3 +74,19 @@ input[type=submit]:hover, button:hover{
     resize: none;
     padding: 16px;
 }
+
+select{
+    border: none;
+    padding: 16px;
+    /* margin-bottom: 16px; */
+    background-color: rgb(225, 219, 255);
+    border-radius: 3px;
+}
+
+input[type=text]{
+    border: none;
+    padding: 16px;
+    /* margin-bottom: 16px; */
+    background-color: rgb(225, 219, 255);
+    border-radius: 3px;
+}

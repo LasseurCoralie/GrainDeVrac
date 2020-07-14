@@ -1,0 +1,42 @@
+{% extends 'pages/backOffice/templateBackOffice.html.twig' %}
+
+{% block body %}
+    <div class="main">
+        <div class="editForm">
+            {{ form_start(form) }}
+
+                <div class="name">
+                    {{ form_row(form.name) }}
+                </div>
+
+                <div class="shortDescription">
+                    {{ form_row(form.shortDescription) }}
+                </div>
+
+                <div class="description">
+                    {{ form_row(form.description) }}
+                </div>
+
+                <div class="image">
+                    {{ form_row(form.image) }}
+                </div>
+
+                <div class="bio">
+                    {{ form_row(form.bio) }}
+                </div>
+
+                <div class="availability">
+                    {{ form_row(form.availability) }}
+                </div>
+
+                <div class="price">
+                    {{ form_row(form.price) }}
+                </div>
+
+
+                {{ form_widget(form) }}
+                <button type="submit">Valider le nouveau produit</button>
+            {{ form_end(form) }}
+        </div>
+    </div>
+{% endblock %}

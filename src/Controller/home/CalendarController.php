@@ -2,7 +2,6 @@
 
 namespace App\Controller\home;
 
-use App\Entity\City;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -10,7 +9,6 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 use App\Entity\Date;
 use App\Form\CalendarType;
-use App\Form\CityType;
 
 class CalendarController extends AbstractController
 {
@@ -105,11 +103,13 @@ class CalendarController extends AbstractController
      * @return \Symfony\Component\HttpFoundation\Response
      */
 
-    public function delete(Date $date)
+    public function delete(Date $date, Request $request)
     {
-        $em = $this->getDoctrine()->getManager();
-        $em->remove($date);
-        $em->flush();
+        if ($this->isCsrfTokenValid('delete'.$date->getId(), $request->get('_token'))) {
+            $em = $this->getDoctrine()->getManager();
+            $em->remove($date);
+            $em->flush();
+        }
         
         return $this->redirectToRoute('calendar');
     }

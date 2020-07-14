@@ -1,6 +1,7 @@
 import React from 'react';
 
 // == Import Small Compononents
+import Header from '../../small_components/Header/Header';
 import Button from '../../small_components/Button/Button';
 import Footer from '../../small_components/Footer/Footer';
 
@@ -10,6 +11,7 @@ import HomePageStyled from './HomePageStyled';
 const HomePage = () => {
   return (
     <HomePageStyled>
+      <Header />
       <section id="intro-zn">
         <img src={process.env.PUBLIC_URL + '/img/grain-de-vrac-broderie-hp.jpg'} alt="broderie du logo Grain de Vrac"/>
         <div className="intro-zn--text-zn">

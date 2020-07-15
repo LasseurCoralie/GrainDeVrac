@@ -1,4 +1,5 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 
 // == Import Style
 import HeaderStyled from './HeaderStyled';
@@ -45,8 +46,8 @@ const Header = () => {
       </button>
       <nav className="navMenu closedMenu">
         <ul>
-          <li><a href="#">accueil</a></li>
-          <li><a href="#">catalogue des produits</a></li>
+          <li><NavLink exact to="/">accueil</NavLink></li>
+          <li><NavLink exact to="/catalogue">catalogue des produits</NavLink></li>
           <li><a href="#">planning</a></li>
           <li><a href="#">qui sommes-nous ?</a></li>
           <li><a href="#">recettes</a></li>

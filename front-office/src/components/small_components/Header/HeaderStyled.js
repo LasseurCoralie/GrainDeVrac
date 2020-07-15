@@ -72,16 +72,6 @@ const HeaderStyled = styled.header`
       position: relative;
       z-index: 20;
 
-      :hover {
-        span.squares-menu {
-          transform: rotate(45deg);
-
-          div.square {
-            border: 4px solid white;
-          }
-        }
-      }
-
       span.squares-menu {
         display: flex;
         flex-direction: row;

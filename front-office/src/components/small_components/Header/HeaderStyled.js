@@ -6,13 +6,14 @@ const HeaderStyled = styled.header`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  background-color: ${theme.colors.orange};
 
   div.logo {
     position: absolute;
     z-index: 21;
     left: 0;
-    height: 89px;
-    width: 89px;
+    height: 77px;
+    width: 77px;
     padding: 5px;
     text-align: center;
     background-color: ${theme.colors.orange};
@@ -63,7 +64,6 @@ const HeaderStyled = styled.header`
       }
     }
 
-
     button {
       background-color: ${theme.colors.orange};
       border: 1px solid ${theme.colors.black};
@@ -76,16 +76,16 @@ const HeaderStyled = styled.header`
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
-        justify-content: space-between;
+        justify-content: space-around;
         height: 39px;
         width: 39px;
         transition: .5s;
 
         div.square {
-          height: 10px;
-          width: 10px;
-          border: 4px solid white;
-          border-radius: 7px;
+          height: 9px;
+          width: 9px;
+          border: 3px solid white;
+          border-radius: 5px;
           transition: all .5s;
           box-sizing: content-box;
         }

@@ -1,5 +1,8 @@
 import React from 'react';
 
+// == Components
+import CartProduct from '../../small_components/CartProduct/CartProduct';
+
 // == Style
 import CatalogStyled from './CatalogStyled';
 
@@ -58,6 +61,38 @@ const Catalog = () => {
           </li>
         </ul>
       </div>
+      <CartProduct 
+        title="Lentilles corail" 
+        price="4,50" 
+        shortDescription="Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur at cumque fugit culpa quasi repellendus. Est beatae qui necessitatibus id?"
+        bio="Bio"
+        origin="Blain (44)"
+        img="lentilles-corail.jpg"
+      />
+      <CartProduct 
+        title="Amande" 
+        price="12,40" 
+        shortDescription="Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur at cumque fugit culpa quasi repellendus. Est beatae qui necessitatibus id?"
+        bio="Bio"
+        origin="Alès"
+        img="almond.jpg"
+      />
+      <CartProduct 
+        title="Rigatoni" 
+        price="2,50" 
+        shortDescription="Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur at cumque fugit culpa quasi repellendus. Est beatae qui necessitatibus id?"
+        bio="Bio"
+        origin="Paris (75)"
+        img="rigatoni.jpg"
+      />
+      <CartProduct 
+        title="Café Arabica" 
+        price="13,40" 
+        shortDescription="Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur at cumque fugit culpa quasi repellendus. Est beatae qui necessitatibus id?"
+        bio="Bio"
+        origin="Colombie"
+        img="coffee.jpg"
+      />
     </CatalogStyled>
   );
 };

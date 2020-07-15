@@ -1,4 +1,5 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 
 // Import componenent
 import Button from '../Button/Button';
@@ -21,7 +22,9 @@ const CartProduct = ({ title, price, shortDescription, bio, origin, img}) => {
         <p className="bio">{bio}</p>
         <p className="origin">Origine : {origin}</p>
       </div>
-      <Button content="Consulter le produit" />
+      <NavLink exact to="/catalogue/product" className="navlink">
+        <Button content="Consulter le produit" />
+      </NavLink>
     </CartProductStyled>
   );
 };

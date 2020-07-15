@@ -6,8 +6,17 @@ const CartProductStyled = styled.div`
   text-align: center;
   margin: 1.2em;
 
-  button {
+  a.navlink, a.navlink>div {
+    display: inline-block;
+    
+  }
+  
+  a.navlink {
     margin: 1em 0 2em;
+
+    button {
+      cursor: pointer;
+    }
   }
 
   div.img {

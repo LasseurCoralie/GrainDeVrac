@@ -1,0 +1,52 @@
+.main {
+    margin: 32px;
+    overflow: auto;
+    height: 60vh;
+    padding-bottom: 110px;
+}
+
+.main > div:last-child {
+    margin-bottom: 110px;
+}
+
+
+.formCard {
+    background: white;
+    padding: 34px;
+    border-radius: 3px;
+    margin-bottom: 34px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+.buttonAddNewDate{
+    margin-bottom: 34px;
+}
+
+.row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 16px;
+    align-items: center;
+}
+
+.row:last-child {
+    margin-bottom: 0;
+}
+
+.action > div:first-child{
+    color: rgb(103,73,255);
+}
+
+.action button{
+    border:none;
+    padding:0;
+    margin:0 0 0 34px;
+    background-color: transparent;
+    color:rgb(238,123,0);
+    text-transform: none;
+}
+

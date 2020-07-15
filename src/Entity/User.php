@@ -2,13 +2,12 @@
 
 namespace App\Entity;
 
-use App\Repository\UserRepository;
-use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\Collection;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
- * @ORM\Entity(repositoryClass=UserRepository::class)
+ * @ORM\Entity(repositoryClass="App\Repository\UserRepository")
  */
 class User
 {
@@ -36,14 +35,13 @@ class User
     private $adress;
 
     /**
-     * @ORM\ManyToOne(targetEntity=City::class, inversedBy="users")
+     * @ORM\ManyToOne(targetEntity=City::class)
      * @ORM\JoinColumn(nullable=false)
      */
     private $city;
 
     /**
-     * @ORM\ManyToOne(targetEntity=Role::class, inversedBy="users")
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\ManyToOne(targetEntity=Role::class)
      */
     private $role;
 
@@ -68,26 +66,20 @@ class User
     private $mute;
 
     /**
-     * @ORM\OneToMany(targetEntity=Product::class, mappedBy="producer", orphanRemoval=true)
-     */
-    private $products;
-
-    /**
      * @ORM\ManyToMany(targetEntity=Recipe::class, inversedBy="usersFavorites")
      */
     private $favoriteRecipe;
 
     /**
-     * @ORM\ManyToMany(targetEntity=product::class, inversedBy="users")
+     * @ORM\ManyToMany(targetEntity=Product::class, inversedBy="users")
      */
     private $productList;
 
     public function __construct()
     {
-        $this->role = new ArrayCollection();
-        $this->products = new ArrayCollection();
         $this->favoriteRecipe = new ArrayCollection();
         $this->productList = new ArrayCollection();
+        $this->mute = $this->setMute(false);
     }
 
     public function getId(): ?int
@@ -144,12 +136,12 @@ class User
         return $this;
     }
 
-    public function getRole(): ?role
+    public function getRole(): ?Role
     {
         return $this->role;
     }
 
-    public function setRole(?role $role): self
+    public function setRole(?Role $role): self
     {
         $this->role = $role;
 
@@ -204,36 +196,6 @@ class User
         return $this;
     }
 
-    /**
-     * @return Collection|Product[]
-     */
-    public function getProducts(): Collection
-    {
-        return $this->products;
-    }
-
-    public function addProduct(Product $product): self
-    {
-        if (!$this->products->contains($product)) {
-            $this->products[] = $product;
-            $product->setProducer($this);
-        }
-
-        return $this;
-    }
-
-    public function removeProduct(Product $product): self
-    {
-        if ($this->products->contains($product)) {
-            $this->products->removeElement($product);
-            // set the owning side to null (unless already changed)
-            if ($product->getProducer() === $this) {
-                $product->setProducer(null);
-            }
-        }
-
-        return $this;
-    }
 
     /**
      * @return Collection|recipe[]

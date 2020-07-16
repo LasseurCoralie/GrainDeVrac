@@ -4,7 +4,7 @@ import theme from '../../../theme/theme';
 const CartProductStyled = styled.div`
   color: ${theme.colors.black};
   text-align: center;
-  margin: 1.2em;
+  margin: 0 1.2em;
 
   a.navlink, a.navlink>div {
     display: inline-block;

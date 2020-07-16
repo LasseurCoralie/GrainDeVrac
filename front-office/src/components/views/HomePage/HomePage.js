@@ -1,4 +1,5 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 
 // == Import Small Compononents
 import Button from '../../small_components/Button/Button';
@@ -15,7 +16,9 @@ const HomePage = () => {
           <h1>Grain de Vrac</h1>
           <p>est une épicerie itinérante de vrac située dans les Landes. Retrouvez-nous sur un marché près de chez vous ou en livraison à votre porte !</p>
         </div>
-        <Button content="En savoir plus"/>
+        <NavLink className="navlink-button" exact to="/qui-sommes-nous">
+          <Button content="En savoir plus" />
+        </NavLink>
           {/* <button className="intro-zn--text-zn--button">En savoir plus !</button>         */}
       </section>
 
@@ -69,7 +72,7 @@ const HomePage = () => {
             </tr>
           </tbody>
         </table>
-        <Button content="Voir les semaines suivantes"/>
+        <Button content="Voir les semaines suivantes" link="/planning" />
       </section>
 
       <section id="highlighted-products-zn">
@@ -84,13 +87,17 @@ const HomePage = () => {
             <p className="price">4,50 €/kg</p>
           </div>
         </div>
-        <Button content="Consulter ce produit" />
+        <NavLink className="navlink-button" exact to="/catalogue/product">
+          <Button content="Consulter ce produit" />
+        </NavLink>
       </section>
 
       <section id="contact-zn">
         <h2 className="title">Une question ? <br />Un commentaire ? <br />Une suggestion ?</h2>
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Exercitationem blanditiis fugit assumenda alias? Iusto ex deleniti optio id accusantium perspiciatis, numquam aut quia. Voluptatem saepe ducimus, exercitationem repellendus dignissimos iusto beatae mollitia provident reprehenderit laborum culpa rem officiis minima. Asperiores!</p>
-        <Button content="Contactez-nous" />
+        <NavLink className="navlink-button" exact to="/contact">
+          <Button content="Contactez-nous" link="/contact" />
+        </NavLink>
       </section>
 
     </HomePageStyled>

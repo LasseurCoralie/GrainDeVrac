@@ -10,7 +10,7 @@ const Footer = () => (
       <div>
         <ul>
           <li><NavLink exact to="/qui-sommes-nous">Qui sommes-nous ?</NavLink></li>
-          <li><a href="#">Contact</a></li>
+          <li><NavLink exact to="/contact">Contact</NavLink></li>
           <li><NavLink exact to="/cgv">CGV - Mentions légales</NavLink></li>
         </ul>
       </div>

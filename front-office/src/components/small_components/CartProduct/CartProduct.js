@@ -22,7 +22,7 @@ const CartProduct = ({ title, price, shortDescription, bio, origin, img}) => {
         <p className="bio">{bio}</p>
         <p className="origin">Origine : {origin}</p>
       </div>
-      <NavLink exact to="/catalogue/product" className="navlink">
+      <NavLink className="navlink-button" exact to="/catalogue/product">
         <Button content="Consulter le produit" />
       </NavLink>
     </CartProductStyled>

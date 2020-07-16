@@ -32,9 +32,11 @@ const Header = () => {
 
   return (
   <HeaderStyled>
-    <div className="logo">
-      <img src={process.env.PUBLIC_URL + '/img/grainDeVrac-logo-blanche-png.png'} alt=""/>
-    </div>
+    <NavLink exact to="/">
+      <div className="logo">
+        <img src={process.env.PUBLIC_URL + '/img/grainDeVrac-logo-blanche-png.png'} alt=""/>
+      </div>
+    </NavLink>
     <div className="menu">
       <button className="buttonMenu" type="button" onClick={handleClickMenu}>
         <span className="squares-menu">

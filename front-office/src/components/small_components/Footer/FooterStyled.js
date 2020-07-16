@@ -6,8 +6,7 @@ const FooterStyled = styled.footer`
   color: white;
   text-align: center;
   font-size: .9em;
-  margin: 2em 0;
-  margin-bottom: 0;
+  margin: 0;
   padding: 1.5em;
   padding-bottom: .5em;
   

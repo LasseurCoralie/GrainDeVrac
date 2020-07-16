@@ -12,6 +12,8 @@ const ButtonStyled = styled.div`
     padding: 16px;
     color: white;
     border-radius: 8px;
+    text-decoration: none;
+    cursor: pointer;
   }
 `;
 

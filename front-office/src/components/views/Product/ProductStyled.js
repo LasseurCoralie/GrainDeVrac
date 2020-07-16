@@ -20,7 +20,7 @@ const ProductStyled = styled.div`
     }
   }
   div.product-zn {
-    margin: 0 1em;
+    margin: 0 1em 3em;
 
     img {
       width: 100%;
@@ -67,6 +67,8 @@ const ProductStyled = styled.div`
       }
 
       div.quantity-zn {
+
+        
         p.txt {
           font-weight: bold;
           margin-top: 0;

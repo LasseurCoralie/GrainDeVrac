@@ -3,13 +3,8 @@ import theme from '../../../theme/theme';
 
 const HomePageStyled = styled.div`
 
-  section {
-    margin-bottom: 2em;
-  }
-
   section#intro-zn {
     text-align: center;
-
 
     img {
       margin: -16px;
@@ -21,7 +16,7 @@ const HomePageStyled = styled.div`
       text-align: left;
       padding: 1em;
       border: 1px solid ${theme.colors.black};
-      margin: -5em 1em 2em;
+      margin: -5em 1em 0;
       background-color: white;
       opacity: .99;
 
@@ -136,7 +131,6 @@ const HomePageStyled = styled.div`
     button {
       background-color: white;
       color: ${theme.colors.orange};
-      margin: 2em 0;
     }
 
     div.product-zn {

@@ -23,15 +23,17 @@ const GlobalStyle = createGlobalStyle`
     color: ${theme.colors.orange};
     text-transform: uppercase;
     font-size: 24px;
+    line-height: 1.2em;
   }
 
-  p.sub-txt {
-    color: ${theme.colors.black};
-    margin: 0 6.5em;
-    font-style: italic;
+  a, button {
+    cursor: pointer;
   }
 
-
+  a.navlink-button {
+    display: inline-block;
+    margin: 2em 0;
+  }
 `;
 
 export default GlobalStyle;

@@ -5,11 +5,6 @@ const CatalogStyled = styled.div`
   text-align: center;
   color: white;
 
-  p.sub-txt {
-    color: ${theme.colors.black};
-    margin: 0 7em;
-  }
-
   div.sort-bar {
     background-color: ${theme.colors.purple};
     padding: .1em;

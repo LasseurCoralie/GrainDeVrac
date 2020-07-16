@@ -25,6 +25,12 @@ const GlobalStyle = createGlobalStyle`
     font-size: 24px;
   }
 
+  p.sub-txt {
+    color: ${theme.colors.black};
+    margin: 0 6.5em;
+    font-style: italic;
+  }
+
 
 `;
 

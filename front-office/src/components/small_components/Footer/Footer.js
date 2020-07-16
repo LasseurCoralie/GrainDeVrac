@@ -11,7 +11,7 @@ const Footer = () => (
         <ul>
           <li><NavLink exact to="/qui-sommes-nous">Qui sommes-nous ?</NavLink></li>
           <li><a href="#">Contact</a></li>
-          <li><a href="#">CGV - Mentions légales</a></li>
+          <li><NavLink exact to="/cgv">CGV - Mentions légales</NavLink></li>
         </ul>
       </div>
 

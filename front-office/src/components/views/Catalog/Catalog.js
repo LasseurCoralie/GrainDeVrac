@@ -2,6 +2,7 @@ import React from 'react';
 
 // == Components
 import CartProduct from '../../small_components/CartProduct/CartProduct';
+import PageTitle from '../../small_components/PageTitle/PageTitle';
 
 // == Style
 import CatalogStyled from './CatalogStyled';
@@ -27,8 +28,7 @@ const Catalog = () => {
 
   return (
     <CatalogStyled>
-      <h2 className="title">Catalogue</h2>
-      <p className="sub-txt">Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit perspiciatis blanditiis iste at, dolorum non.</p>
+      <PageTitle title="Catalogue" content="Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi facilis in vel. Consequuntur, iure consectetur?" />
       <div className="sort-bar">
           <p className="sort-bar--title" onClick={handleClickSortMenu}>Trier les produits</p>
         <ul className="sort-bar--list hidden-list">

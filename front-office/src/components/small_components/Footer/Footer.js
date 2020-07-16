@@ -1,4 +1,5 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 
 // == Import style
 import FooterStyled from './FooterStyled';
@@ -8,7 +9,7 @@ const Footer = () => (
     <div>
       <div>
         <ul>
-          <li><a href="#">Qui sommes-nous ?</a></li>
+          <li><NavLink exact to="/qui-sommes-nous">Qui sommes-nous ?</NavLink></li>
           <li><a href="#">Contact</a></li>
           <li><a href="#">CGV - Mentions légales</a></li>
         </ul>

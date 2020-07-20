@@ -57,3 +57,7 @@
     background-color: rgb(238,123,0);
     cursor: pointer;
 }
+
+.mute{
+    display:none;
+}

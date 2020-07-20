@@ -79,7 +79,6 @@ class User
     {
         $this->favoriteRecipe = new ArrayCollection();
         $this->productList = new ArrayCollection();
-        $this->mute = $this->setMute(false);
     }
 
     public function getId(): ?int

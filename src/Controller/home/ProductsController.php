@@ -20,7 +20,6 @@ class ProductsController extends AbstractController
     public function index(Request $request): Response
     {
 
-        dump("ok");
         $products = $this->findAll();
 
         return $this->render('pages/backOffice/products/products.html.twig', [

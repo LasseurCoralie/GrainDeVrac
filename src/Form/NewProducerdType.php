@@ -5,15 +5,19 @@ namespace App\Form;
 use App\Entity\City;
 use App\Entity\Role;
 use App\Entity\User;
+use Doctrine\ORM\EntityRepository;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 
-class UserType extends AbstractType
+class NewProducerdType extends AbstractType
 {
+
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
+        
         $builder
             ->add('name')
             ->add('firstName')
@@ -25,10 +29,6 @@ class UserType extends AbstractType
                 'class' => City::class,
                 'choice_label' => 'name'
             ])
-            ->add('role', EntityType::class, [
-                'class' => Role::class,
-                'choice_label' => 'role'
-            ])
         ;
     }
 
@@ -37,5 +37,9 @@ class UserType extends AbstractType
         $resolver->setDefaults([
             'data_class' => User::class,
         ]);
+    }
+
+    private function defaultEntity (){
+        
     }
 }

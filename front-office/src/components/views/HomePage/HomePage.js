@@ -12,14 +12,15 @@ const HomePage = () => {
   return (
     <HomePageStyled>
       <section id="intro-zn">
-        <img src={process.env.PUBLIC_URL + '/img/grain-de-vrac-broderie-hp.jpg'} alt="broderie du logo Grain de Vrac"/>
+        {/* <div className="img"></div> */}
+        {/* <img src={process.env.PUBLIC_URL + '/img/grain-de-vrac-broderie-hp.jpg'} alt="broderie du logo Grain de Vrac"/> */}
         <div className="intro-zn--text-zn">
           <h1>Grain de Vrac</h1>
           <p>est une épicerie itinérante de vrac située dans les Landes. Retrouvez-nous sur un marché près de chez vous ou en livraison à votre porte !</p>
+          <NavLink className="navlink-button" exact to="/qui-sommes-nous">
+            <Button content="En savoir plus" />
+          </NavLink>
         </div>
-        <NavLink className="navlink-button" exact to="/qui-sommes-nous">
-          <Button content="En savoir plus" />
-        </NavLink>
           {/* <button className="intro-zn--text-zn--button">En savoir plus !</button>         */}
       </section>
 

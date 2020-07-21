@@ -2,21 +2,22 @@ import styled from 'styled-components';
 import theme from '../../../theme/theme';
 
 const HomePageStyled = styled.div`
-
   section#intro-zn {
     text-align: center;
-
-    img {
-      margin: -16px;
-      max-width: 100%;
-      z-index: -1;
-    }
+    background: url(/img/grain-de-vrac-broderie-hp-mobile.jpg);
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    margin-top: -3em;
+    position: relative;
 
     div.intro-zn--text-zn {
+      position: absolute;
+      bottom: 0;
       text-align: left;
       padding: 1em;
       border: 1px solid ${theme.colors.black};
-      margin: -5em 1em 0;
+      margin: 0 1em 7em;
       background-color: white;
       opacity: .99;
 
@@ -42,6 +43,15 @@ const HomePageStyled = styled.div`
       p {
         font-size: 24px;
         line-height: 36px;
+        margin: 0;
+      }
+
+      a.navlink-button {
+        margin: 0;
+        position: absolute;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        bottom: -7em;
       }
     }
   }
@@ -180,6 +190,29 @@ const HomePageStyled = styled.div`
 
     p{
       line-height: 1.6em;
+    }
+  }
+
+  @media (min-width: 900px) {
+    section#intro-zn {
+      background: url(/img/grain-de-vrac-broderie-hp-desktop.jpg);
+      background-size: cover;
+      background-position: center;
+      height: 80vh;
+      display: flex;
+      align-items: center;
+      justify-content: right;
+
+      div.intro-zn--text-zn {
+        width: 40%;
+        position: relative;
+        margin-right: 2em;
+
+        a.navlink-button {
+          bottom: -8em;
+        }
+      }
+
     }
   }
 `;

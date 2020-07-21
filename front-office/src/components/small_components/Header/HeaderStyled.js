@@ -96,13 +96,13 @@ const HeaderStyled = styled.header`
   // DESKTOP SCREEN
 
   @media (min-width: 900px) {
-    position: fixed;
     z-index: 1000;
 
     div.menu {
       width: calc(100% - 89px);
       border-bottom: 1px solid ${theme.colors.black};
       background-color: white;
+      position: unset;
 
       button.buttonMenu {
         display: none;

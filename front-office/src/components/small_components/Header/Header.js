@@ -52,9 +52,9 @@ const Header = () => {
           <li><NavLink exact to="/catalogue">catalogue des produits</NavLink></li>
           <li><a href="#"><NavLink exact to="/planning">planning</NavLink></a></li>
           <li><NavLink exact to="/qui-sommes-nous">qui sommes-nous ?</NavLink></li>
-          {/* <li><a href="#">recettes</a></li> */}
-          {/* <li><a href="#">ma liste de courses</a></li> */}
-          {/* <li><a href="#">connexion</a></li> */}
+          {/* <li><a href="#">recettes</a></li>
+          <li><a href="#">ma liste de courses</a></li>
+          <li><a href="#">connexion</a></li> */}
         </ul>
       </nav>
 

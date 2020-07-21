@@ -92,6 +92,49 @@ const HeaderStyled = styled.header`
       }
     }
   }
+
+  // DESKTOP SCREEN
+
+  @media (min-width: 900px) {
+    position: fixed;
+    z-index: 1000;
+
+    div.menu {
+      width: calc(100% - 89px);
+      border-bottom: 1px solid ${theme.colors.black};
+      background-color: white;
+
+      button.buttonMenu {
+        display: none;
+      }
+
+      nav.closedMenu {
+        display: block;
+
+        ul {
+          margin: 0;
+          display: flex;
+          justify-content: right;
+          flex-wrap: wrap;
+          padding: 0 1em;
+
+          li {
+            margin: 1em;
+
+            a {
+              color: ${theme.colors.black};
+              text-decoration: none;
+
+              :hover {
+                text-decoration: underline;
+              }
+            }
+          }
+        }
+
+      }
+    }
+  }
   
 `;
 

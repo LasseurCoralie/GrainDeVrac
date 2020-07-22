@@ -9,6 +9,10 @@ const PlanningStyled = styled.div`
     border-collapse: collapse;;
   }
 
+  table.desktop-version {
+    display: none;
+  }
+
   table {
     width: 100%;
     margin: 2em 0;
@@ -48,6 +52,29 @@ const PlanningStyled = styled.div`
       font-family: ${theme.fonts.special};
       font-weight: bold;
     }
+  }
+
+  @media (min-width: 900px) {
+
+    section#planning-zn {}
+    table.desktop-version {
+      display: table;
+
+      tr.part-day, tr.part-day th.empty-cell {
+        border-left: 1px solid white;
+        border-right: 1px solid white;
+
+        th.empty-cell {
+          text-transform: uppercase;
+        }
+      }
+    }
+
+    table.mobile-version {
+      display: none;
+    }
+
+    
   }
 `;
 

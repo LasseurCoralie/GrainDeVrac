@@ -167,6 +167,33 @@ const HomePageStyled = styled.div`
       }
 
     }
+
+    section#highlighted-products-zn {
+      div.product-zn {
+        display: flex;
+        justify-content: center;
+        max-width: 100%;
+        margin-left: -1em;
+
+        img, div.txt-zn {
+          max-width: 400px;
+          height: 100%;
+        }
+
+        img {
+          z-index: 500;
+        }
+
+        div.txt-zn {
+          padding: 1em 2em 1em 3em;
+          margin: 2em -2em 0;
+
+          h3.product-title {
+            margin-top: 0;
+          }
+        }
+      }
+    }
   }
 `;
 

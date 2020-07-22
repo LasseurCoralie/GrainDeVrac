@@ -40,7 +40,7 @@ const HomePage = () => {
           <img src={process.env.PUBLIC_URL + '/img/lentilles-corail.jpg'} alt="lentilles corail"/>
           <div className="txt-zn">
             <h3 className="product-title">Lentilles corail</h3>
-            <p className="product-content">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quibusdam, voluptates dignissimos! Eum necessitatibus sapiente minima eos error doloremque quod voluptatum!</p>
+            <p className="product-content">Cette légumineuse rose saumon originaire d'Asie est aujourd'hui cultivée sur le pourtour Méditerranéen et se consomme toute l'année </p>
             <p className="bio">Bio</p>
             <p className="origin">Origine : Bidule-Chouette-les-Pins (44)</p>
             <p className="price">4,50 €/kg</p>
@@ -52,7 +52,7 @@ const HomePage = () => {
       </section>
 
       <section id="contact-zn">
-        <h2 className="title">Une question ? <br />Un commentaire ? <br />Une suggestion ?</h2>
+        <h2 className="title">Une question ? Un commentaire ? Une suggestion ?</h2>
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Exercitationem blanditiis fugit assumenda alias? Iusto ex deleniti optio id accusantium perspiciatis, numquam aut quia. Voluptatem saepe ducimus, exercitationem repellendus dignissimos iusto beatae mollitia provident reprehenderit laborum culpa rem officiis minima. Asperiores!</p>
         <NavLink className="navlink-button" exact to="/contact">
           <Button content="Contactez-nous" link="/contact" />

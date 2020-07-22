@@ -22,8 +22,8 @@ const FooterStyled = styled.footer`
       flex: 1;
     }
   }
-
-  div>img {
+  
+  div>a>img {
     max-width: 100px;
     margin: 0 1em;
   }
@@ -33,9 +33,17 @@ const FooterStyled = styled.footer`
     border-right: 1px solid white;
   }
 
+  ul.brand-info {
+    text-align: right;
+  }
+
+  ul.social-media {
+    text-align: left;
+  }
+
   ul {
     list-style: none;
-    text-align: left;
+    text-align:
     margin: 0;
     padding: 0;
 

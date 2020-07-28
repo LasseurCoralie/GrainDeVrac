@@ -54,7 +54,7 @@ class CityController extends AbstractController
     }
 
         /**
-     * @Route("/home/villes/ajouter-ville", name="city.newCity")
+     * @Route("/home/producteurs/ajouter-ville", name="city.producteurs.newCity")
      */
 
     public function newCity(Request $request): Response
@@ -70,7 +70,7 @@ class CityController extends AbstractController
            $em = $this->getDoctrine()->getManager();
            $em->persist($city);
            $em->flush();
-           return $this->redirectToRoute("calendar");
+           return $this->redirectToRoute("producer");
        }
 
         return $this->render('pages/backOffice/calendar/calendarNewCity.html.twig', [

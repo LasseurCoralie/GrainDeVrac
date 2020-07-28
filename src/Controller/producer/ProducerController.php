@@ -5,6 +5,7 @@ namespace App\Controller\producer;
 use App\Entity\Role;
 use App\Entity\User;
 use App\Form\NewProducerdType;
+use App\Form\ProducerType;
 use App\Controller\users\UsersController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -68,7 +69,7 @@ class ProducerController extends AbstractController
      }
 
     /**
-     * @Route("/producers/delete/{id}", name="producers.delete", methods="DELETE")
+     * @Route("/producteurs/delete/{id}", name="producers.delete", methods="DELETE")
      * @return \Symfony\Component\HttpFoundation\Response
      */
 
@@ -81,6 +82,36 @@ class ProducerController extends AbstractController
         }
         
         return $this->redirectToRoute('producer');
+    }
+
+
+        /**
+     * @Route("/producteurs/edit/{id}", name="producer.edit", methods="POST|GET")
+     * @param Date $date
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
+
+    public function editProducer(Request $request, User $user): Response
+    {
+
+        $form = $this->createForm(ProducerType::class, $user);
+
+        $form->handleRequest($request);
+
+        if($form->isSubmitted() && $form->isValid()){
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($user);
+            $em->flush();
+            return $this->redirectToRoute('producer');
+        }
+
+        return $this->render('pages/backOffice/producers/editProducers.html.twig', [
+            'form' => $form->createView(),
+            'current_menu' => 'home',
+            'current_subMenu' => 'calendar',
+            'title' => 'Editer la date',
+            'pageStyle' => 'newDateForm'
+        ]);
     }
 
 }

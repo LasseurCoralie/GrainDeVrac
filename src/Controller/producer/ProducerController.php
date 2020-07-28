@@ -23,7 +23,7 @@ class ProducerController extends AbstractController
     public function showAll(Request $request, UsersController $usersCont): Response
     {
 
-        $producers = $usersCont->findAll();
+        $producers = $usersCont->findAllProducer();
 
         return $this->render('pages/backOffice/producers/producers.html.twig', [
             'title' => 'Liste des producteurs',

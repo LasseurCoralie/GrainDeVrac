@@ -13,19 +13,6 @@
                     {{ form_row(form.firstName) }}
                 </div>
 
-                <div class="adress">
-                    {{ form_row(form.adress) }}
-                </div>
-
-                <div class="city">
-                    {{ form_row(form.city) }}
-                    <div class="button-newCity"><a href="/home/producteurs/ajouter-ville">Ajouter une ville à la liste</a></div>
-                </div>
-
-                <div class="country">
-                    {{ form_row(form.country) }}
-                </div>
-
                 <div class="mail">
                     {{ form_row(form.mail) }}
                 </div>
@@ -33,14 +20,6 @@
                 <div class="phone">
                     {{ form_row(form.phone) }}
                 </div>
-
-                {# <div class="mute">
-                    {{ form_row(form.mute) }}
-                </div> #}
-
-                {# <div class="role">
-                    {{ form_row(form.role) }}
-                </div> #}
 
                 {{ form_widget(form) }}
                 <button type="submit">Valider les modifications</button>

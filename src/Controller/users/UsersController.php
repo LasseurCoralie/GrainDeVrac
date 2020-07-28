@@ -29,9 +29,17 @@ class UsersController extends AbstractController
     public function findAllProducer()
     {
         $repository = $this->getDoctrine()->getRepository(User::class);
-        $producers = $repository->findBy(['role'=>'1']);
+        $producers = $repository->findBy(['role'=>'2']);
 
         return $producers;
+    }
+
+    public function findAdmin()
+    {
+        $repository = $this->getDoctrine()->getRepository(User::class);
+        $admin = $repository->findBy(['role'=>'1']);
+
+        return $admin[0];
     }
 
 }

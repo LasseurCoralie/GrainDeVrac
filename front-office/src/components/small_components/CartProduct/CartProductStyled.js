@@ -73,6 +73,7 @@ const CartProductStyled = styled.div`
         max-width: 100%;
       }
     }
+    
   }
 `;
 

@@ -30,7 +30,7 @@ const Catalog = () => {
     <CatalogStyled>
       <PageTitle title="Catalogue" content="Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi facilis in vel. Consequuntur, iure consectetur?" />
       <div className="sort-bar">
-          <p className="sort-bar--title" onClick={handleClickSortMenu}>Trier les produits</p>
+        <p className="sort-bar--title" onClick={handleClickSortMenu}>Trier les produits</p>
         <ul className="sort-bar--list hidden-list">
           <li className="sort-bar--element">
             <input type="radio" name="catalog-sort" id="alphabet-sort" />

@@ -29,7 +29,7 @@ const Footer = () => (
         </ul>
       </div>
     </div>
-    <p>&copy; Copyright 2020 - Grain de Vrac - Tous droits réservés <br />Conception et réalisation : <a href="#">Mathieu Chamoulaud</a> & <a href="#">Coralie Lasseur</a></p>
+    <p>&copy; Copyright 2020 - Grain de Vrac - Tous droits réservés  -  Conception et réalisation : <a href="#">Mathieu Chamoulaud</a> & <a href="#">Coralie Lasseur</a></p>
   </FooterStyled>
 );
 

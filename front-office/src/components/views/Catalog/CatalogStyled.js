@@ -68,6 +68,28 @@ const CatalogStyled = styled.div`
       justify-content: center;
       flex-wrap: wrap;
     }
+
+    div.sort-bar {
+      p.sort-bar--title {
+        display: none;
+      }
+
+      ul.hidden-list {
+        display: block;
+      }
+
+      ul.sort-bar--list {
+        font-size: 1rem;
+        display: flex;
+        justify-content: center;
+        align-items: baseline;
+
+        li.sort-bar--element {
+          margin: 1em;
+        }
+
+      }
+    }
   }
 `;
 

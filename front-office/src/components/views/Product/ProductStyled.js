@@ -108,6 +108,35 @@ const ProductStyled = styled.div`
       }
     }
   }
+
+  @media (min-width: 900px) {
+    div.fildAriane {
+      margin: -.5em 7em;
+      justify-content: left;
+    }
+
+    div.product-zn {
+      margin-top: 1em;
+      display: flex;
+      justify-content: space-between;
+
+      img, div.content-zn {
+        width: 48%;
+      }
+
+      img {
+        object-fit: cover;
+      }
+
+      div.content-zn {
+        div.header {
+          h3, p.price {
+            margin-top: 0;
+          }
+        }
+      }
+    }
+  }
 `;
 
 

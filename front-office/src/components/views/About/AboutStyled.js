@@ -27,7 +27,7 @@ const AboutStyled = styled.div`
    width: 100%; 
   }
 
-  @media (min-width: 900px) {
+  @media (min-width: 1100px) {
 
     div.first-paragraph {
       display: flex;

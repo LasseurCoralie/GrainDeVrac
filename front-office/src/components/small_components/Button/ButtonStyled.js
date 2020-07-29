@@ -17,7 +17,7 @@ const ButtonStyled = styled.div`
 
   }
 
-  @media (min-width: 900px) {
+  @media (min-width: 1100px) {
     button {
 
       transition: all .5s;

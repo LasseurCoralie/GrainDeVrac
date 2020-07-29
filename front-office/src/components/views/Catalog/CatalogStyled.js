@@ -62,7 +62,7 @@ const CatalogStyled = styled.div`
     }
   }
 
-  @media (min-width: 900px) {
+  @media (min-width: 1100px) {
     div.product-zn {
       display: flex;
       justify-content: center;

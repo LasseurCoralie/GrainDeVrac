@@ -17,7 +17,7 @@ const GTCStyled = styled.div`
     text-align: left;
   }
 
-  @media (min-width: 900px) {
+  @media (min-width: 1100px) {
     margin-right: 6em;
     margin-left: 6em;
   }

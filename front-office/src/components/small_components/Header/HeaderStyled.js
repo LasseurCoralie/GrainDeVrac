@@ -95,7 +95,7 @@ const HeaderStyled = styled.header`
 
   // DESKTOP SCREEN
 
-  @media (min-width: 900px) {
+  @media (min-width: 1100px) {
     z-index: 1000;
 
     div.menu {
@@ -124,9 +124,26 @@ const HeaderStyled = styled.header`
             a {
               color: ${theme.colors.black};
               text-decoration: none;
+              position: relative;
+
+              &:before {
+                content: '';
+                position: absolute;
+                width: 0px;
+                height: 5px;
+                background-color: ${theme.colors.purple};
+                margin-top: .5em;
+                bottom: -5px;
+                transition: all .5s;
+              }
 
               :hover {
-                text-decoration: underline;
+
+                color: ${theme.colors.purple};
+                
+                &:before {
+                  width: 100%;
+                }
               }
             }
           }

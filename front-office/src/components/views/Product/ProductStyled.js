@@ -109,7 +109,7 @@ const ProductStyled = styled.div`
     }
   }
 
-  @media (min-width: 900px) {
+  @media (min-width: 1100px) {
     div.fildAriane {
       margin: -.5em 7em;
       justify-content: left;

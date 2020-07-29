@@ -65,7 +65,7 @@ const CartProductStyled = styled.div`
 
   }
 
-  @media (min-width: 900px) {
+  @media (min-width: 1100px) {
     max-width: 350px;
 
     div.img {

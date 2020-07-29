@@ -54,7 +54,7 @@ const PlanningStyled = styled.div`
     }
   }
 
-  @media (min-width: 900px) {
+  @media (min-width: 1100px) {
 
     section#planning-zn {}
     table.desktop-version {

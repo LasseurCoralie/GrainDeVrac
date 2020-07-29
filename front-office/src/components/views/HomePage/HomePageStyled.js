@@ -146,7 +146,7 @@ const HomePageStyled = styled.div`
     }
   }
 
-  @media (min-width: 900px) {
+  @media (min-width: 1100px) {
     section#intro-zn {
       background: url(/img/grain-de-vrac-broderie-hp-desktop.jpg);
       background-size: cover;
@@ -159,7 +159,7 @@ const HomePageStyled = styled.div`
       div.intro-zn--text-zn {
         width: 40%;
         position: relative;
-        margin-right: 2em;
+        margin-right: -.5em;
 
         a.navlink-button {
           bottom: -8em;

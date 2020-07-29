@@ -64,6 +64,16 @@ const CartProductStyled = styled.div`
     }
 
   }
+
+  @media (min-width: 900px) {
+    max-width: 350px;
+
+    div.img {
+      img {
+        max-width: 100%;
+      }
+    }
+  }
 `;
 
 export default CartProductStyled;

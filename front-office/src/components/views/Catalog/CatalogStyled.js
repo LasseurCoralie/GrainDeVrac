@@ -61,6 +61,14 @@ const CatalogStyled = styled.div`
       }
     }
   }
+
+  @media (min-width: 900px) {
+    div.product-zn {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+  }
 `;
 
 export default CatalogStyled;

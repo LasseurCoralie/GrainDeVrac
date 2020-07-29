@@ -4,6 +4,8 @@ import theme from '../../../theme/theme';
 const AboutStyled = styled.div`
   margin: 0 1em;
   text-align: center;
+  margin-bottom: 4em;
+
 
   h2{
     margin: 1em auto;
@@ -26,8 +28,6 @@ const AboutStyled = styled.div`
   }
 
   @media (min-width: 900px) {
-
-    margin-bottom: 4em;
 
     div.first-paragraph {
       display: flex;

@@ -116,7 +116,7 @@ const ProductStyled = styled.div`
     }
 
     div.product-zn {
-      margin-top: 1em;
+      margin: 1em 3em 3em;
       display: flex;
       justify-content: space-between;
 

@@ -2,6 +2,7 @@ import React from 'react';
 
 // == Components
 import Button from '../../small_components/Button/Button';
+import PageTitle from '../../small_components/PageTitle/PageTitle';
 
 // == Style
 import AboutStyled from './AboutStyled';
@@ -10,9 +11,9 @@ const About = () => {
   return (
     <AboutStyled>
       <div className="first-paragraph">
-        <img src={process.env.PUBLIC_URL + '/img/market-place.jpg'} alt="marché avec caisses de fruits et légumes"/>
-        <h2 className="title">Qui sommes-nous ?</h2>
-        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vitae sapiente vero odit tempora molestias, ut accusantium molestiae nam cupiditate pariatur obcaecati blanditiis placeat hic ex! Earum, necessitatibus! Nemo doloribus illum autem. Eos, eveniet pariatur eaque dolor quis aspernatur iste sed error doloremque perspiciatis assumenda laboriosam a quam. Cupiditate assumenda numquam quis eos eaque ullam beatae, recusandae molestias nulla voluptatem. Necessitatibus natus dolore nemo itaque perferendis officia, perspiciatis error, quos repellendus nisi exercitationem, sequi labore sit enim tenetur quaerat nobis. Obcaecati adipisci dicta minus error facere ullam quaerat nihil earum vel possimus voluptatem iure cupiditate asperiores, consequatur explicabo sequi unde illo recusandae tenetur commodi dignissimos placeat. Inventore commodi dolor qui, accusantium quasi iste ad distinctio sequi debitis possimus, voluptatum odio? Repellat sint blanditiis, repellendus, quibusdam explicabo error quia assumenda ipsum obcaecati in temporibus consequuntur culpa. Laudantium assumenda inventore, doloremque corporis distinctio facere, cupiditate repellendus repellat laboriosam qui corrupti facilis quia aperiam.</p>
+        <PageTitle title="Qui sommes-nous ?" content="Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores alias ex ipsam tenetur facilis unde." />
+        <img className="first-paragraph--img" src={process.env.PUBLIC_URL + '/img/market-place.jpg'} alt="marché avec caisses de fruits et légumes"/>
+        <p class="first-paragraph--content">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vitae sapiente vero odit tempora molestias, ut accusantium molestiae nam cupiditate pariatur obcaecati blanditiis placeat hic ex! Earum, necessitatibus! Nemo doloribus illum autem. Eos, eveniet pariatur eaque dolor quis aspernatur iste sed error doloremque perspiciatis assumenda laboriosam a quam. Cupiditate assumenda numquam quis eos eaque ullam beatae, recusandae molestias nulla voluptatem. Necessitatibus natus dolore nemo itaque perferendis officia, perspiciatis error, quos repellendus nisi exercitationem, sequi labore sit enim tenetur quaerat nobis. Obcaecati adipisci dicta minus error facere ullam quaerat nihil earum vel possimus voluptatem iure cupiditate asperiores, consequatur explicabo sequi unde illo recusandae tenetur commodi dignissimos placeat. Inventore commodi dolor qui, accusantium quasi iste ad distinctio sequi debitis possimus, voluptatum odio? Repellat sint blanditiis, repellendus, quibusdam explicabo error quia assumenda ipsum obcaecati in temporibus consequuntur culpa. Laudantium assumenda inventore, doloremque corporis distinctio facere, cupiditate repellendus repellat laboriosam qui corrupti facilis quia aperiam.</p>
       </div>
       <div className="second-paragraph">
         <img src={process.env.PUBLIC_URL + '/img/lentilles-corail.jpg'} alt="lentilles corail en vrac dans un sac en toile"/>

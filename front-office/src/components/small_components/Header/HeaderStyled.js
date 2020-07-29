@@ -1,8 +1,9 @@
 import styled from 'styled-components';
 import theme from '../../../theme/theme';
 
+
 const HeaderStyled = styled.header`
-  
+
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -129,20 +130,21 @@ const HeaderStyled = styled.header`
               &:before {
                 content: '';
                 position: absolute;
-                width: 0px;
-                height: 5px;
+                width: 100%;
+                height: 2px;
                 background-color: ${theme.colors.purple};
                 margin-top: .5em;
-                bottom: -5px;
-                transition: all .5s;
+                bottom: 0px;
+                opacity: 0;
+                transition: all .3s;
               }
 
               :hover {
-
                 color: ${theme.colors.purple};
                 
                 &:before {
-                  width: 100%;
+                  bottom: -5px;
+                  opacity: 1;
                 }
               }
             }

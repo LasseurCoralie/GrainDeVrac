@@ -1,9 +1,4 @@
-.main {
-    margin: 32px;
-    overflow: auto;
-    height: 60vh;
-    padding-bottom: 110px;
-}
+
 
 .main > div:last-child {
     margin-bottom: 110px;

@@ -11,8 +11,16 @@
     </head>
     <body>
         {% block navBar %}{% endblock %}
-        {% block bodyTitle %}{% endblock %}
-        {% block body %}
+
+        <div class="mainWrapper">
+            <div class="bodyContent">
+                {% block bodyTitle %}{% endblock %}
+                <div class="placeHolderWrapp">
+                    {# <div class="navPlaceHolder"></div> #}
+                    {% block body %}
+                <div>
+            </div>
+        </div>
         {% endblock %}
             <script src="{{ asset('script/app.js') }}"></script>
         {% block javascripts %}{% endblock %}

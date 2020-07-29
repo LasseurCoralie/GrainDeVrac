@@ -193,6 +193,14 @@ const HomePageStyled = styled.div`
           }
         }
       }
+
+      button {
+        
+        :hover {
+          background-color: ${theme.colors.purple};
+          color: white;
+        }
+      }
     }
   }
 `;

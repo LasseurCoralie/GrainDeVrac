@@ -14,6 +14,21 @@ const ButtonStyled = styled.div`
     border-radius: 8px;
     text-decoration: none;
     cursor: pointer;
+
+  }
+
+  @media (min-width: 900px) {
+    button {
+
+      transition: all .5s;
+      transition-timing-function: cubic-bezier(.17,.84,.44,1);
+
+      :hover {
+        background-color: ${theme.colors.purple};
+        transform: scale(1.1, 1.1);
+      }
+
+    }
   }
 `;
 

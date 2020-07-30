@@ -7,7 +7,6 @@ import PageTitle from '../../small_components/PageTitle/PageTitle';
 
 // == Style
 import GTCStyled from './GTCStyled';
-import Axios from 'axios';
 
 const GTC = () => {
 

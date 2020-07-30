@@ -6,26 +6,43 @@ import HeaderStyled from './HeaderStyled';
 
 const Header = () => {
   let menuOpen = false;
+  console.log(menuOpen);
 
   const handleClickMenu = () => {
+    
     const menuList = document.querySelector('.navMenu');
     const button = document.querySelector('.buttonMenu');
     const spanButton = document.querySelector('.squares-menu');
     const logoImg = document.querySelector('.logo');
     
+
+
     if(!menuOpen) {
       menuList.classList = 'navMenu openMenu';
       button.style.border = '1px solid rgb(238, 123, 0)';
       spanButton.style.transform = 'rotate(45deg)';
       logoImg.style.border = '1px solid rgb(238, 123, 0)';
       menuOpen = true;
+      console.log(menuOpen);
+
     } 
+    // else {
+    //   menuList.classList = 'navMenu closedMenu';
+    //   button.style.border = '1px solid rgb(22, 14, 45)';
+    //   spanButton.style.transform = 'rotate(0deg)';
+    //   logoImg.style.border = '1px solid rgb(22, 14, 45)';
+    //   menuOpen = false;
+    // }
     else {
-      menuList.classList = 'navMenu closedMenu';
-      button.style.border = '1px solid rgb(22, 14, 45)';
-      spanButton.style.transform = 'rotate(0deg)';
-      logoImg.style.border = '1px solid rgb(22, 14, 45)';
-      menuOpen = false;
+      document.addEventListener('click', () => {
+        menuList.classList = 'navMenu closedMenu';
+        button.style.border = '1px solid rgb(22, 14, 45)';
+        spanButton.style.transform = 'rotate(0deg)';
+        logoImg.style.border = '1px solid rgb(22, 14, 45)';
+        menuOpen = false;
+        console.log(menuOpen);
+  
+      })
     }
   };
 

@@ -47,9 +47,14 @@ class DatasPage
      */
     private $updated_at;
 
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $page;
+
     public function __construct()
     {
-        $this->created_at = new \DateTime();
+    $this->created_at = new \DateTime();
     }
 
     public function getId(): ?int
@@ -125,6 +130,18 @@ class DatasPage
     public function setUpdatedAt(?\DateTimeInterface $updated_at): self
     {
         $this->updated_at = $updated_at;
+
+        return $this;
+    }
+
+    public function getPage(): ?string
+    {
+        return $this->page;
+    }
+
+    public function setPage(?string $page): self
+    {
+        $this->page = $page;
 
         return $this;
     }

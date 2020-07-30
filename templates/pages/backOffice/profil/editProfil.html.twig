@@ -1,0 +1,29 @@
+{% extends 'pages/backOffice/templateBackOffice.html.twig' %}
+
+{% block body %}
+    <div class="main">
+        <div class="editForm">
+            {{ form_start(form) }}
+
+                <div class="name">
+                    {{ form_row(form.name) }}
+                </div>
+
+                <div class="firstName">
+                    {{ form_row(form.firstName) }}
+                </div>
+
+                <div class="mail">
+                    {{ form_row(form.mail) }}
+                </div>
+
+                <div class="phone">
+                    {{ form_row(form.phone) }}
+                </div>
+
+                {{ form_widget(form) }}
+                <button type="submit">Valider les modifications</button>
+            {{ form_end(form) }}
+        </div>
+    </div>
+{% endblock %}

@@ -2,10 +2,10 @@
 
 namespace App\Entity;
 
+
 use App\Repository\DateRepository;
-use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * @ORM\Entity(repositoryClass=DateRepository::class)
@@ -25,24 +25,41 @@ class Date
     private $date;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="datetime")
      */
     private $startHour;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="datetime")
      */
     private $endHour;
 
     /**
-     * @ORM\OneToMany(targetEntity=city::class, mappedBy="date")
+     * @ORM\Column(type="datetime")
      */
-    private $city;
+    private $created_at;
+
+    /**
+     * @ORM\Column(type="datetime", nullable=true)
+     */
+    private $updated_at;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=Mode::class)
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $mode;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=City::class)
+     */
+    private $City;
 
 
     public function __construct()
     {
         $this->city = new ArrayCollection();
+        $this->created_at = new \DateTime();
     }
 
     public function getId(): ?int
@@ -62,57 +79,75 @@ class Date
         return $this;
     }
 
-    public function getStartHour(): ?int
+    public function getStartHour(): ?\DateTimeInterface
     {
         return $this->startHour;
     }
 
-    public function setStartHour(int $startHour): self
+    public function setStartHour(\DateTimeInterface $startHour): self
     {
         $this->startHour = $startHour;
 
         return $this;
     }
 
-    public function getEndHour(): ?int
+    public function getEndHour(): ?\DateTimeInterface
     {
         return $this->endHour;
     }
 
-    public function setEndHour(int $endHour): self
+    public function setEndHour(\DateTimeInterface $endHour): self
     {
         $this->endHour = $endHour;
 
         return $this;
     }
 
-    /**
-     * @return Collection|city[]
-     */
-    public function getCity(): Collection
+    public function getCreatedAt(): ?\DateTimeInterface
     {
-        return $this->city;
+        return $this->created_at;
     }
 
-    public function addCity(city $city): self
+    public function setCreatedAt(\DateTimeInterface $created_at): self
     {
-        if (!$this->city->contains($city)) {
-            $this->city[] = $city;
-            $city->setDate($this);
-        }
+        $this->created_at = $created_at;
 
         return $this;
     }
 
-    public function removeCity(city $city): self
+    public function getUpdatedAt(): ?\DateTimeInterface
     {
-        if ($this->city->contains($city)) {
-            $this->city->removeElement($city);
-            // set the owning side to null (unless already changed)
-            if ($city->getDate() === $this) {
-                $city->setDate(null);
-            }
-        }
+        return $this->updated_at;
+    }
+
+    public function setUpdatedAt(?\DateTimeInterface $updated_at): self
+    {
+        $this->updated_at = $updated_at;
+
+        return $this;
+    }
+
+
+    public function getMode(): ?mode
+    {
+        return $this->mode;
+    }
+
+    public function setMode(?mode $mode): self
+    {
+        $this->mode = $mode;
+
+        return $this;
+    }
+
+    public function getCity(): ?City
+    {
+        return $this->City;
+    }
+
+    public function setCity(?City $City): self
+    {
+        $this->City = $City;
 
         return $this;
     }

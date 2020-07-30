@@ -29,16 +29,6 @@ class City
      */
     private $department;
 
-    /**
-     * @ORM\ManyToOne(targetEntity=Date::class, inversedBy="city")
-     */
-    private $date;
-
-    /**
-     * @ORM\OneToMany(targetEntity=User::class, mappedBy="city")
-     */
-    private $users;
-
     public function __construct()
     {
         $this->users = new ArrayCollection();
@@ -73,46 +63,4 @@ class City
         return $this;
     }
 
-    public function getDate(): ?Date
-    {
-        return $this->date;
-    }
-
-    public function setDate(?Date $date): self
-    {
-        $this->date = $date;
-
-        return $this;
-    }
-
-    /**
-     * @return Collection|User[]
-     */
-    public function getUsers(): Collection
-    {
-        return $this->users;
-    }
-
-    public function addUser(User $user): self
-    {
-        if (!$this->users->contains($user)) {
-            $this->users[] = $user;
-            $user->setCity($this);
-        }
-
-        return $this;
-    }
-
-    public function removeUser(User $user): self
-    {
-        if ($this->users->contains($user)) {
-            $this->users->removeElement($user);
-            // set the owning side to null (unless already changed)
-            if ($user->getCity() === $this) {
-                $user->setCity(null);
-            }
-        }
-
-        return $this;
-    }
 }

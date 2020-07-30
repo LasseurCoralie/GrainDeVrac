@@ -1,0 +1,26 @@
+{% extends 'pages/backOffice/templateBackOffice.html.twig' %}
+
+{% block body %}
+    <div class="main">
+
+        <div class="buttonAddNewDate"><a href="{{ path('catalog.newProduct') }}"><button>Ajouter un nouveau produit</button></a></div>
+
+        {% for data in datas %}
+            <div class="formCard">
+                <div class="product-name">
+                    <div>{{ data.name }}</div>
+                </div>
+                <div class="row action">
+                    <div><a href="{{ path('products.edit', {id: data.id}) }}">modifier</a></div>
+                    <div>
+                        <form onsubmit="return confirm('Etes vous sur de supprimer ce produit?')" action="{{path('product.delete', {id: data.id}) }}" method="post">
+                            <input type="hidden" name="_method" value="DELETE">
+                            <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ data.id) }}" >
+                            <button>suprimer</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}

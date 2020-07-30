@@ -2,13 +2,13 @@
 
 namespace App\Entity;
 
+use App\Repository\ModeRepository;
 use Doctrine\ORM\Mapping as ORM;
-use App\Repository\RoleRepository;
 
 /**
- * @ORM\Entity(repositoryClass=RoleRepository::class)
+ * @ORM\Entity(repositoryClass=ModeRepository::class)
  */
-class Role
+class Mode
 {
     /**
      * @ORM\Id()
@@ -20,28 +20,22 @@ class Role
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $role;
-
-
-    public function __construct()
-    {
-    }
+    private $mode;
 
     public function getId(): ?int
     {
         return $this->id;
     }
 
-    public function getRole(): ?string
+    public function getMode(): ?string
     {
-        return $this->role;
+        return $this->mode;
     }
 
-    public function setRole(string $role): self
+    public function setMode(string $mode): self
     {
-        $this->role = $role;
+        $this->mode = $mode;
 
         return $this;
     }
-
 }

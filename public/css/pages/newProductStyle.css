@@ -1,0 +1,44 @@
+.main > div:last-child {
+    margin-bottom: 110px;
+}
+
+.name, .price, .image, .bio {
+    margin-bottom: 32px;
+}
+
+
+html body div.main div.editForm form div.bio div div#product_bio{
+    flex-direction: row;
+}
+
+.bio input {
+    margin-right: 16px;
+}
+
+#product_bio_1 {
+    margin-left: 32px;
+}
+
+html body div.main div.editForm form div.availability div div#product_availability {
+    flex-direction: row;
+    margin-bottom: 16px;
+}
+
+.availability input {
+    margin-right: 16px;
+}
+
+#product_availability_1 {
+    margin-left: 32px;
+}
+
+
+/* <div>
+    <label class="required">Bio ?</label>
+    <div id="product_bio">
+        <input type="radio" id="product_bio_0" name="product[bio]" required="required" value="1" />
+        <label for="product_bio_0" class="required">Oui</label>
+        <input type="radio" id="product_bio_1" name="product[bio]" required="required" value="0" />
+        <label for="product_bio_1" class="required">Non</label>
+    </div>
+</div> */

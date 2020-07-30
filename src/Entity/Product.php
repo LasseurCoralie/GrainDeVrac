@@ -20,7 +20,7 @@ class Product
     private $id;
 
     /**
-     * @ORM\ManyToOne(targetEntity=user::class, inversedBy="products")
+     * @ORM\ManyToOne(targetEntity=User::class)
      * @ORM\JoinColumn(nullable=false)
      */
     private $producer;
@@ -66,7 +66,7 @@ class Product
     private $higlighted;
 
     /**
-     * @ORM\ManyToMany(targetEntity=recipe::class, inversedBy="products")
+     * @ORM\ManyToMany(targetEntity=Recipe::class, inversedBy="products")
      */
     private $recipe;
 
@@ -79,6 +79,7 @@ class Product
     {
         $this->recipe = new ArrayCollection();
         $this->users = new ArrayCollection();
+        $this->setHiglighted(false);
     }
 
 

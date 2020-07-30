@@ -2,13 +2,19 @@
 
 namespace App\Entity;
 
-use App\Repository\UserRepository;
-use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\Collection;
+use Doctrine\Common\Collections\ArrayCollection;
+use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 /**
- * @ORM\Entity(repositoryClass=UserRepository::class)
+ * @ORM\Entity(repositoryClass="App\Repository\UserRepository")
+ *  *  * @UniqueEntity(
+ *     fields={"mail"},
+ *     errorPath="mail",
+ *     message="ATTENTION: Cette email est déjà utilisé! Les modifications on été annulés"
+ * )
  */
 class User
 {
@@ -36,14 +42,13 @@ class User
     private $adress;
 
     /**
-     * @ORM\ManyToOne(targetEntity=city::class, inversedBy="users")
+     * @ORM\ManyToOne(targetEntity=City::class)
      * @ORM\JoinColumn(nullable=false)
      */
     private $city;
 
     /**
-     * @ORM\ManyToOne(targetEntity=role::class, inversedBy="users")
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\ManyToOne(targetEntity=Role::class)
      */
     private $role;
 
@@ -54,11 +59,15 @@ class User
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\Regex("/^(0|\+33)[1-9]([-. ]?[0-9]{2}){4}$/")
      */
     private $phone;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\Email(
+     *     message = "{{ value }} n'est pas une adresse mail valide",
+     * )
      */
     private $mail;
 
@@ -68,24 +77,17 @@ class User
     private $mute;
 
     /**
-     * @ORM\OneToMany(targetEntity=Product::class, mappedBy="producer", orphanRemoval=true)
-     */
-    private $products;
-
-    /**
-     * @ORM\ManyToMany(targetEntity=recipe::class, inversedBy="usersFavorites")
+     * @ORM\ManyToMany(targetEntity=Recipe::class, inversedBy="usersFavorites")
      */
     private $favoriteRecipe;
 
     /**
-     * @ORM\ManyToMany(targetEntity=product::class, inversedBy="users")
+     * @ORM\ManyToMany(targetEntity=Product::class, inversedBy="users")
      */
     private $productList;
 
     public function __construct()
     {
-        $this->role = new ArrayCollection();
-        $this->products = new ArrayCollection();
         $this->favoriteRecipe = new ArrayCollection();
         $this->productList = new ArrayCollection();
     }
@@ -144,12 +146,12 @@ class User
         return $this;
     }
 
-    public function getRole(): ?role
+    public function getRole(): ?Role
     {
         return $this->role;
     }
 
-    public function setRole(?role $role): self
+    public function setRole(?Role $role): self
     {
         $this->role = $role;
 
@@ -204,36 +206,6 @@ class User
         return $this;
     }
 
-    /**
-     * @return Collection|Product[]
-     */
-    public function getProducts(): Collection
-    {
-        return $this->products;
-    }
-
-    public function addProduct(Product $product): self
-    {
-        if (!$this->products->contains($product)) {
-            $this->products[] = $product;
-            $product->setProducer($this);
-        }
-
-        return $this;
-    }
-
-    public function removeProduct(Product $product): self
-    {
-        if ($this->products->contains($product)) {
-            $this->products->removeElement($product);
-            // set the owning side to null (unless already changed)
-            if ($product->getProducer() === $this) {
-                $product->setProducer(null);
-            }
-        }
-
-        return $this;
-    }
 
     /**
      * @return Collection|recipe[]

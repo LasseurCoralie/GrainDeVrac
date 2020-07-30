@@ -132,6 +132,15 @@
 | cityId | INT | NOT NULL, UNSIGNED | City's id where the evenement gone's |
 | created_at | TIMESTAMP | NOT NULL, DEFAULT CURRENT_TIMESTAMP, | created date |
 | updated_at | TIMESTAMP | NULL | created upDate |
+| mode | INT | NOT NULL | livraisons / marchée... |
+
+## mode (`mode`)
+
+|name|Type| Specificités |Description|
+|-|-|-|-|
+| id | INT | PRIMARY KEY, NOT NULL, UNSIGNED, AUTO_INCREMENT | number id |
+| mode | VARCHAR(255) | NOT NULL | mode of delivery |
+
 
 
 ## city (`city`)

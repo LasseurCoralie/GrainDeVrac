@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+{% block title %} {% include "pages/backOffice/title.html.twig" %} {% endblock %}
+
+{% block stylesheets %}
+    {% if pageStyle is defined %}
+        <link rel="stylesheet" href="{{ asset('css/pages/' ~ pageStyle ~ '.css') }}" /> 
+    {% endif %}
+{% endblock %}
+
+{% block navBar %} {% include "pages/backOffice/nav/navBar.html.twig" %} {% endblock %}
+{% block bodyTitle %} {% include "pages/backOffice/bodyTitle.html.twig" %} {% endblock %}

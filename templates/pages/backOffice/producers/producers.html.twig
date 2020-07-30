@@ -1,0 +1,28 @@
+{% extends 'pages/backOffice/templateBackOffice.html.twig' %}
+
+{% block body %}
+    <div class="main">
+
+        <div class="buttonAddNewDate"><a href="{{ path('producer.newProducer') }}"><button>Ajouter un nouveau producteur</button></a></div>
+
+        {% for data in datas %}
+            <div class="formCard">
+                <div class="product-name">
+                    <div>{{ data.firstName }} {{ data.name }}</div>
+                </div>
+                <div class="row action">
+                    <div><a href="{{ path('producer.edit', {id: data.id}) }}">modifier</a></div>
+                    <div>
+                        <form onsubmit="return confirm('Etes vous sur de supprimer ce producteur?')" action="{{path('producers.delete', {id: data.id}) }}" method="post">
+                            <input type="hidden" name="_method" value="DELETE">
+                            <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ data.id) }}" >
+                            <button>suprimer</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+
+
+{% endblock %}

@@ -1,5 +1,7 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
+import routeName from '../../../routeName';
+import axios from 'axios';
 
 // == Compononents
 import Button from '../../small_components/Button/Button';
@@ -9,6 +11,32 @@ import Planning from '../../small_components/Planning/Planning';
 import HomePageStyled from './HomePageStyled';
 
 const HomePage = () => {
+
+  console.log(routeName); // routeName est la 1re partie de la route qui sera utilisée puis changée au moment du déploiement 
+
+  //const [slogan, setSlogan] = useState[""];
+
+  // useEffect( () => {
+  //   //Requête Axios
+  //   // setSlogan(laReponse)
+  // })
+  const dataSlogan = "est une épicerie itinérante de vrac située dans les Landes. Retrouvez-nous sur un marché près de chez vous ou en livraison à votre porte !";
+
+  const [slogan, setSlogan] = useState(dataSlogan);
+
+  useEffect(() => {
+    axios({
+      method: 'get',
+      url: routeName + '/nomDeLaRoutePourSlogan'
+    })
+      .then((response) => {
+      setSlogan(response);
+    })
+      .catch((error) => {
+        console.log('Une erreur s\'est produite : ', error);
+      });
+  }, []);
+
   return (
     <HomePageStyled>
       <section id="intro-zn">
@@ -16,7 +44,8 @@ const HomePage = () => {
         {/* <img src={process.env.PUBLIC_URL + '/img/grain-de-vrac-broderie-hp.jpg'} alt="broderie du logo Grain de Vrac"/> */}
         <div className="intro-zn--text-zn">
           <h1>Grain de Vrac</h1>
-          <p>est une épicerie itinérante de vrac située dans les Landes. Retrouvez-nous sur un marché près de chez vous ou en livraison à votre porte !</p>
+          <p>{slogan}</p>
+          {/* <p>est une épicerie itinérante de vrac située dans les Landes. Retrouvez-nous sur un marché près de chez vous ou en livraison à votre porte !</p> */}
           <NavLink className="navlink-button" exact to="/qui-sommes-nous">
             <Button content="En savoir plus" />
           </NavLink>

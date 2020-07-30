@@ -13,7 +13,6 @@ const Header = () => {
     const spanButton = document.querySelector('.squares-menu');
     const logoImg = document.querySelector('.logo');
     
-    
     if(!menuOpen) {
       menuList.classList = 'navMenu openMenu';
       button.style.border = '1px solid rgb(238, 123, 0)';
@@ -50,7 +49,7 @@ const Header = () => {
         <ul>
           <li><NavLink exact to="/">accueil</NavLink></li>
           <li><NavLink exact to="/catalogue">catalogue des produits</NavLink></li>
-          <li><a href="#"><NavLink exact to="/planning">planning</NavLink></a></li>
+          <li><NavLink exact to="/planning">planning</NavLink></li>
           <li><NavLink exact to="/qui-sommes-nous">qui sommes-nous ?</NavLink></li>
           {/* <li><a href="#">recettes</a></li>
           <li><a href="#">ma liste de courses</a></li>

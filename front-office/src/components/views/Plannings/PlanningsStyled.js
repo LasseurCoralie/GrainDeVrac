@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import theme from '../../../theme/theme';
 
 const PlanningsStyled = styled.div`
   h2.title, p.sub-txt {

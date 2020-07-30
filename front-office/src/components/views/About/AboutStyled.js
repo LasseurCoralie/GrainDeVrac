@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import theme from '../../../theme/theme';
 
 const AboutStyled = styled.div`
   margin: 0 1em;

@@ -16,14 +16,14 @@ body {
     display: none;
 }
 
-header {
+.titleBar {
     padding: 32px;
     background-color: white;
     position: fixed;
     width: 100vw;
 }
 
-header h1 {
+.titleBar h1 {
     font-family: 'Oswald', sans-serif;
     font-size: 44px;
     text-transform: uppercase;
@@ -119,7 +119,7 @@ input[type=text]{
     }
 
 
-    header {
+    .titleBar {
         left: 300px;
         top: 5em;
     }

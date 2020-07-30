@@ -10,7 +10,7 @@ body {
     text-align: center;
 }
 
-header {
+.connect {
     position: relative;
     display: flex;
     align-items: center;
@@ -94,12 +94,13 @@ main form a{
 
     .wrapper{
         display: flex;
-        justify-content: space-between;
         height: 100vh;
         overflow: hidden;
+        width: 100vw;
+        justify-content: space-between;
     }
 
-    header {
+    .connect {
         position: relative;
         display: flex;
         align-items: center;

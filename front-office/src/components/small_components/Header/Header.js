@@ -25,24 +25,16 @@ const Header = () => {
       menuOpen = true;
       console.log(menuOpen);
 
-    } 
-    // else {
-    //   menuList.classList = 'navMenu closedMenu';
-    //   button.style.border = '1px solid rgb(22, 14, 45)';
-    //   spanButton.style.transform = 'rotate(0deg)';
-    //   logoImg.style.border = '1px solid rgb(22, 14, 45)';
-    //   menuOpen = false;
-    // }
+    }
     else {
-      document.addEventListener('click', () => {
+      document.onclick = function() {
         menuList.classList = 'navMenu closedMenu';
         button.style.border = '1px solid rgb(22, 14, 45)';
         spanButton.style.transform = 'rotate(0deg)';
         logoImg.style.border = '1px solid rgb(22, 14, 45)';
         menuOpen = false;
         console.log(menuOpen);
-  
-      })
+      }
     }
   };
 

@@ -110,7 +110,21 @@ input[type=text]{
     overflow: auto;
 }
 
+/* Message d'erreur lors de l'envoi du formulaire*/
+form div.mail div ul li {
+    position: fixed;
+    left: 26vw;
+    top:130px;
+    color: red;
+}
+
 @media (min-width:1100px){
+
+    /* Message d'erreur lors de l'envoi du formulaire*/
+    form div.mail div ul li {
+        left: 45vw;
+        top: 200px;
+    }
 
     .bodyContent {
         display: block;

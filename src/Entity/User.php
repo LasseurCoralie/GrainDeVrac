@@ -5,9 +5,16 @@ namespace App\Entity;
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\Common\Collections\ArrayCollection;
+use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\UserRepository")
+ *  *  * @UniqueEntity(
+ *     fields={"mail"},
+ *     errorPath="mail",
+ *     message="ATTENTION: Cette email est déjà utilisé! Les modifications on été annulés"
+ * )
  */
 class User
 {
@@ -52,11 +59,15 @@ class User
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\Regex("/^(0|\+33)[1-9]([-. ]?[0-9]{2}){4}$/")
      */
     private $phone;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\Email(
+     *     message = "{{ value }} n'est pas une adresse mail valide",
+     * )
      */
     private $mail;
 

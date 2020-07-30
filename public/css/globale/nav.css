@@ -126,6 +126,11 @@ nav .deskTopNav {
         border-right: solid 2px rgb(225, 219, 255);
     }
 
+    nav .linkList .linkListWrapper ul li {
+        padding-left: 0;
+        padding-bottom: 32px;
+    }
+
     nav ul{
         display: flex;
         flex-direction: column;

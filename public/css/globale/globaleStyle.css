@@ -62,7 +62,7 @@ input[type=submit]:hover, button:hover{
 
 .editForm label {
     margin-bottom: 16px;
-    font-size: 32px;
+    font-size: 16px;
 }
 
 .editForm form div > div{

@@ -14,12 +14,6 @@ const HomePage = () => {
 
   console.log(routeName); // routeName est la 1re partie de la route qui sera utilisée puis changée au moment du déploiement 
 
-  //const [slogan, setSlogan] = useState[""];
-
-  // useEffect( () => {
-  //   //Requête Axios
-  //   // setSlogan(laReponse)
-  // })
   const dataSlogan = "est une épicerie itinérante de vrac située dans les Landes. Retrouvez-nous sur un marché près de chez vous ou en livraison à votre porte !";
 
   const [slogan, setSlogan] = useState(dataSlogan);

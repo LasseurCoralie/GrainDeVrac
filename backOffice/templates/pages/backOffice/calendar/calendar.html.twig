@@ -4,7 +4,6 @@
     <div class="main">
 
         <div class="buttonAddNewDate"><a href="{{ path('calendar.newDate') }}"><button>Ajouter une nouvelle date</button></a></div>
-        {% if data is defined %}
             {% for data in datas %}
                 <div class="formCard">
                     <div class="row dateFormat">
@@ -27,6 +26,5 @@
                     </div>
                 </div>
             {% endfor %}
-        {% endif %}
     </div>
 {% endblock %}

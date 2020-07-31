@@ -25,7 +25,6 @@ class CalendarController extends AbstractController
         
         $date = $repository->findAll();
 
-
         return $this->render('pages/backOffice/calendar/calendar.html.twig', [
             'title' => 'Calendrier',
             'current_menu' => 'home',

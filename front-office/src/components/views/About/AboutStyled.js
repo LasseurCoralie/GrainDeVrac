@@ -26,6 +26,9 @@ const AboutStyled = styled.div`
 
   @media (min-width: 1100px) {
 
+    max-width: 1100px;
+    margin: 0 auto;
+
     div.first-paragraph {
       display: flex;
       flex-wrap: wrap;
@@ -40,7 +43,6 @@ const AboutStyled = styled.div`
 
       img.first-paragraph--img {
         object-fit: cover;
-        margin-left: -1em;
       }
 
       p.first-paragraph--content {

@@ -23,7 +23,7 @@ class CalendarController extends AbstractController
 
         $repository = $this->getDoctrine()->getRepository(Date::class);
         
-        $datas_page = $repository->findAll();
+        $date = $repository->findAll();
 
 
         return $this->render('pages/backOffice/calendar/calendar.html.twig', [
@@ -31,7 +31,7 @@ class CalendarController extends AbstractController
             'current_menu' => 'home',
             'current_subMenu' => 'calendar',
             'pageStyle' => 'imputFormStyle',
-            'datas' => $datas_page
+            'datas' => $date
         ]);
     }
 

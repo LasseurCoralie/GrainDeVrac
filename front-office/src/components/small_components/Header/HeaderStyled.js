@@ -36,7 +36,7 @@ const HeaderStyled = styled.header`
       display: none;
     }
 
-    nav.openMenu {
+    nav.navMenu {
       display: block;
       background-color: ${theme.colors.orange};
       width: 100vw;
@@ -92,6 +92,15 @@ const HeaderStyled = styled.header`
         }
       }
     }
+
+    button.ouverture {
+      border: 1px solid ${theme.colors.orange};
+
+      span.squares-menu {
+        transform: rotate(45deg);
+      }
+    }
+
   }
 
   // DESKTOP SCREEN
@@ -109,7 +118,7 @@ const HeaderStyled = styled.header`
         display: none;
       }
 
-      nav.closedMenu {
+      nav.navMenu {
         display: block;
 
         ul {

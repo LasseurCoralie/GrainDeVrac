@@ -62,7 +62,7 @@ const PlanningStyled = styled.div`
 
     section#planning-zn {}
     table.desktop-version {
-      max-width: 1024px;
+      max-width: 1100px;
       margin: 0 auto 3em;
       display: table;
 

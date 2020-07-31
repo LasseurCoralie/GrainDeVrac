@@ -4,8 +4,9 @@ const AboutStyled = styled.div`
   text-align: center;
   margin-bottom: 4em;
   padding: 0 1em;
-  h2{
-    margin: 1em auto;
+
+  h2 {
+    margin: 1em 3em;
   }
   div p {
     text-align: left;

@@ -13,8 +13,6 @@ class DataHomePageType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
 
-        dump($builder);
-
         $builder
             ->add('content', null, [
                 'label' => 'Modifier le contenu'

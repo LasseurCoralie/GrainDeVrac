@@ -4,28 +4,27 @@
     <div class="main">
 
         <div class="buttonAddNewDate"><a href="{{ path('calendar.newDate') }}"><button>Ajouter une nouvelle date</button></a></div>
-
-        {% for data in datas %}
-            <div class="formCard">
-                <div class="row dateFormat">
-                    <div>{{ data.date.format('d-m-Y') }}</div>
-                    <div>{{ data.startHour.format('H:i')}} - {{data.endHour.format('H:i')}}</div>
-                </div>
-                <div class="row delivery">
-                    <div>{{data.mode.mode}}</div>
-                    <div>{{data.city.name}}</div>
-                </div>
-                <div class="row action">
-                    <div><a href="{{ path('calendar.editDate', {id: data.id}) }}">modifier</a></div>
-                    <div>
-                        <form onsubmit="return confirm('Etes vous sur de supprimer cette date?')" action="{{path('calendar.delete', {id: data.id}) }}" method="post">
-                            <input type="hidden" name="_method" value="DELETE">
-                            <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ data.id) }}" >
-                            <button>suprimer</button>
-                        </form>
+            {% for data in datas %}
+                <div class="formCard">
+                    <div class="row dateFormat">
+                        <div>{{ data.date.format('d-m-Y') }}</div>
+                        <div>{{ data.startHour.format('H:i')}} - {{data.endHour.format('H:i')}}</div>
+                    </div>
+                    <div class="row delivery">
+                        <div>{{data.mode.mode}}</div>
+                        <div>{{data.city.name}}</div>
+                    </div>
+                    <div class="row action">
+                        <div><a href="{{ path('calendar.editDate', {id: data.id}) }}">modifier</a></div>
+                        <div>
+                            <form onsubmit="return confirm('Etes vous sur de supprimer cette date?')" action="{{path('calendar.delete', {id: data.id}) }}" method="post">
+                                <input type="hidden" name="_method" value="DELETE">
+                                <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ data.id) }}" >
+                                <button>suprimer</button>
+                            </form>
+                        </div>
                     </div>
                 </div>
-            </div>
-        {% endfor %}
+            {% endfor %}
     </div>
 {% endblock %}

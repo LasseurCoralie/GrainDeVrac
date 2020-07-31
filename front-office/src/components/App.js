@@ -19,7 +19,6 @@ const App = () => {
 
   const [menuBurger, setMenuBurger] = useState(false);
 
-
   const handleClickClose = (evt) => {
 
     // Pour fermer le menu quand on clique sur la page
@@ -27,6 +26,8 @@ const App = () => {
       setMenuBurger(false)
     }
 
+    console.log(!menuBurger);
+    // Gestion de l'ouverture et de la fermeture du menu
     if (evt.target.classList[1] === "burgerMenu") {
       if (!menuBurger) {
         setMenuBurger(true);
@@ -36,11 +37,17 @@ const App = () => {
     }
   }
 
+  if (window.innerWidth > 1099 && !menuBurger) {
+    setMenuBurger(true);
+  }
+
+  console.log(menuBurger, window.innerWidth);
+
   return(
     <div onClick={handleClickClose}>
       <GlobalStyle />
       <main className="main-content">
-        <Header menuBurger={menuBurger} setMenuBurger={setMenuBurger} /> 
+        <Header menuBurger={menuBurger} /> 
         <Switch>
           <Route exact path="/" component={HomePage} />
           <Route exact path='/catalogue' component={Catalog} />

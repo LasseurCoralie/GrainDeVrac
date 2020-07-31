@@ -56,10 +56,6 @@ const HeaderStyled = styled.header`
           a {
             text-decoration: none;
             color: white;
-
-            :hover {
-              text-decoration: underline;
-            }
           }
         }
       }
@@ -119,6 +115,7 @@ const HeaderStyled = styled.header`
       }
 
       nav.navMenu {
+        background-color: white;
         display: block;
 
         ul {
@@ -129,12 +126,13 @@ const HeaderStyled = styled.header`
           padding: 0 1em;
 
           li {
-            margin: 1em;
+            margin: .5em;
 
             a {
               color: ${theme.colors.black};
               text-decoration: none;
               position: relative;
+              font-size: 1rem;
 
               &:before {
                 content: '';

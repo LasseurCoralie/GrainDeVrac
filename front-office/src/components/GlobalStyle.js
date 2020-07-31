@@ -22,8 +22,8 @@ const GlobalStyle = createGlobalStyle`
   h2.title {
     color: ${theme.colors.orange};
     text-transform: uppercase;
-    font-size: 24px;
-    line-height: 1.2em;
+    font-size: 2rem;
+    line-height: 1.2rem;
   }
 
   a, button {

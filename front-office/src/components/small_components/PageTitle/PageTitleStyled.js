@@ -11,6 +11,10 @@ const PageTitleStyled = styled.div`
     font-style: italic;
     line-height: 1.3em;
   }
+
+  @media (min-width: 1100px) {
+    margin-top: 5em;
+  }
 `;
 
 export default PageTitleStyled;

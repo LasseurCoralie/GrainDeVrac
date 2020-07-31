@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom';
 // == Import Style
 import HeaderStyled from './HeaderStyled';
 
-const Header = ({ menuBurger, setMenuBurger }) => {
+const Header = ({ menuBurger }) => {
 
   let animation = "";
   
@@ -13,36 +13,8 @@ const Header = ({ menuBurger, setMenuBurger }) => {
   }else {
     animation = "fermeture";
   }
-  
-  const handleClickMenu = () => {
 
-    const menuList = document.querySelector('nav.navMenu');
-    const button = document.querySelector('button.buttonMenu');
-    const spanButton = document.querySelector('span.squares-menu');
-    const logoImg = document.querySelector('div.logo');
-
-    const closeBurgerMenu = () => {
-      const menuList = document.querySelector('nav.navMenu');
-      const button = document.querySelector('button.buttonMenu');
-      const spanButton = document.querySelector('span.squares-menu');
-      const logoImg = document.querySelector('div.logo');
-  
-      menuList.classList = 'navMenu closedMenu';
-      button.style.border = '1px solid rgb(22, 14, 45)';
-      spanButton.style.transform = 'rotate(0deg)';
-      logoImg.style.border = '1px solid rgb(22, 14, 45)';  
-      setMenuBurger(false);
-    };
-    
-    if(!menuBurger) {
-      menuList.classList = 'navMenu openMenu';
-      button.style.border = '1px solid rgb(238, 123, 0)';
-      spanButton.style.transform = 'rotate(45deg)';
-      logoImg.style.border = '1px solid rgb(238, 123, 0)';
-      setMenuBurger(true);
-    }
-
-  };
+  console.log(window.innerWidth);
 
   return (
   <HeaderStyled>

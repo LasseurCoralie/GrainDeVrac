@@ -1,11 +1,9 @@
 import styled from 'styled-components';
 
 const AboutStyled = styled.div`
-  margin: 0 1em;
   text-align: center;
   margin-bottom: 4em;
-
-
+  padding: 0 1em;
   h2{
     margin: 1em auto;
   }

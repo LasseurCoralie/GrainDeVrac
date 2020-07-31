@@ -146,7 +146,7 @@ const HeaderStyled = styled.header`
                 transition: all .3s;
               }
 
-              :hover {
+              &:hover, &:active {
                 color: ${theme.colors.purple};
                 
                 &:before {

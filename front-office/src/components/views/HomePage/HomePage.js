@@ -74,7 +74,7 @@ const HomePage = () => {
 
       <section id="contact-zn">
         <h2 className="title">Une question ? Un commentaire ? Une suggestion ?</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Exercitationem blanditiis fugit assumenda alias? Iusto ex deleniti optio id accusantium perspiciatis, numquam aut quia. Voluptatem saepe ducimus, exercitationem repellendus dignissimos iusto beatae mollitia provident reprehenderit laborum culpa rem officiis minima. Asperiores!</p>
+        <p>Vous avez une questions sur nos produits ou leur originie ? Vous aimeriez savoir si vous pouvez apporter vos propres contenants ou si Grain de Vrac peut vous en vendre.<br />Vous souhaitez nous témoigner votre amour ? Cliquez sur le bouton ci-dessous pour nous envoyer vos demandes ou vos mots doux.</p>
         <NavLink className="navlink-button" exact to="/contact">
           <Button content="Contactez-nous" link="/contact" />
         </NavLink>

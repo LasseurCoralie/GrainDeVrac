@@ -1,0 +1,44 @@
+@font-face {
+    font-family: "oswaldSemiBold";
+    src: url("/assets/fonts/Oswald-SemiBold.ttf"); 
+}
+
+@font-face {
+    font-family: "oswaldRegular";
+    src: url("/assets/fonts/Oswald-Regular.ttf"); 
+}
+
+@font-face {
+    font-family: "oswaldMedium";     
+    src: url("/assets/fonts/Oswald-Medium.ttf"); 
+}
+
+@font-face {
+    font-family: "latoBold";     
+    src: url("/assets/fonts/Lato-Bold.ttf"); 
+}
+
+@font-face {
+    font-family: "latoRegular";     
+    src: url("/assets/fonts/Lato-Regular.ttf"); 
+}
+
+.typo_OSB{
+    font-family: "oswaldSemiBold", sans-serif;
+}
+
+.typo_OR{
+    font-family: "oswaldRegular", sans-serif;
+}
+
+.typo_OM{
+    font-family: "oswaldMedium", sans-serif;
+}
+
+.typo_LB{
+    font-family: "latoBold", sans-serif;
+}
+
+.typo_LR{
+    font-family: "latoRegular", sans-serif;
+}

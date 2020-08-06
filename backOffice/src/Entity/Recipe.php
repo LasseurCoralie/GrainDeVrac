@@ -27,7 +27,7 @@ class Recipe
     /**
      * @ORM\Column(type="text")
      */
-    private $shortDescription;
+    private $short_description;
 
     /**
      * @ORM\Column(type="text")
@@ -35,47 +35,45 @@ class Recipe
     private $description;
 
     /**
-     * @ORM\ManyToOne(targetEntity=IndicativePrice::class, inversedBy="recipes")
-     * @ORM\JoinColumn(nullable=false)
-     */
-    private $indicativePrice;
-
-    /**
-     * @ORM\ManyToOne(targetEntity=Difficulty::class, inversedBy="recipes")
-     * @ORM\JoinColumn(nullable=false)
-     */
-    private $difficulty;
-
-    /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $saison;
 
     /**
-     * @ORM\OneToMany(targetEntity=Step::class, mappedBy="recipe", orphanRemoval=true)
+     * @ORM\ManyToOne(targetEntity=IndicativePrice::class)
+     * @ORM\JoinColumn(nullable=false)
      */
-    private $steps;
+    private $indicative_price;
 
     /**
-     * @ORM\ManyToMany(targetEntity=User::class, mappedBy="favoriteRecipe")
+     * @ORM\ManyToOne(targetEntity=Difficulty::class)
+     * @ORM\JoinColumn(nullable=false)
      */
-    private $usersFavorites;
+    private $difficulty;
 
     /**
-     * @ORM\OneToMany(targetEntity=Ingredient::class, mappedBy="recipe", orphanRemoval=true)
+     * @ORM\Column(type="datetime")
      */
-    private $ingredients;
+    private $created_at;
 
     /**
-     * @ORM\ManyToMany(targetEntity=Product::class, mappedBy="recipe")
+     * @ORM\Column(type="datetime", nullable=true)
+     */
+    private $updated_at;
+
+    /**
+     * @ORM\ManyToMany(targetEntity=User::class, mappedBy="FavoriteRecipe")
+     */
+    private $users;
+
+    /**
+     * @ORM\ManyToMany(targetEntity=Product::class, inversedBy="recipes")
      */
     private $products;
 
     public function __construct()
     {
-        $this->steps = new ArrayCollection();
-        $this->usersFavorites = new ArrayCollection();
-        $this->ingredients = new ArrayCollection();
+        $this->users = new ArrayCollection();
         $this->products = new ArrayCollection();
     }
 
@@ -98,12 +96,12 @@ class Recipe
 
     public function getShortDescription(): ?string
     {
-        return $this->shortDescription;
+        return $this->short_description;
     }
 
-    public function setShortDescription(string $shortDescription): self
+    public function setShortDescription(string $short_description): self
     {
-        $this->shortDescription = $shortDescription;
+        $this->short_description = $short_description;
 
         return $this;
     }
@@ -120,30 +118,6 @@ class Recipe
         return $this;
     }
 
-    public function getIndicativePrice(): ?indicativePrice
-    {
-        return $this->indicativePrice;
-    }
-
-    public function setIndicativePrice(?indicativePrice $indicativePrice): self
-    {
-        $this->indicativePrice = $indicativePrice;
-
-        return $this;
-    }
-
-    public function getDifficulty(): ?difficulty
-    {
-        return $this->difficulty;
-    }
-
-    public function setDifficulty(?difficulty $difficulty): self
-    {
-        $this->difficulty = $difficulty;
-
-        return $this;
-    }
-
     public function getSaison(): ?string
     {
         return $this->saison;
@@ -156,33 +130,50 @@ class Recipe
         return $this;
     }
 
-    /**
-     * @return Collection|Step[]
-     */
-    public function getSteps(): Collection
+    public function getIndicativePrice(): ?IndicativePrice
     {
-        return $this->steps;
+        return $this->indicative_price;
     }
 
-    public function addStep(Step $step): self
+    public function setIndicativePrice(?IndicativePrice $indicative_price): self
     {
-        if (!$this->steps->contains($step)) {
-            $this->steps[] = $step;
-            $step->setRecipe($this);
-        }
+        $this->indicative_price = $indicative_price;
 
         return $this;
     }
 
-    public function removeStep(Step $step): self
+    public function getDifficulty(): ?Difficulty
     {
-        if ($this->steps->contains($step)) {
-            $this->steps->removeElement($step);
-            // set the owning side to null (unless already changed)
-            if ($step->getRecipe() === $this) {
-                $step->setRecipe(null);
-            }
-        }
+        return $this->difficulty;
+    }
+
+    public function setDifficulty(?Difficulty $difficulty): self
+    {
+        $this->difficulty = $difficulty;
+
+        return $this;
+    }
+
+    public function getCreatedAt(): ?\DateTimeInterface
+    {
+        return $this->created_at;
+    }
+
+    public function setCreatedAt(\DateTimeInterface $created_at): self
+    {
+        $this->created_at = $created_at;
+
+        return $this;
+    }
+
+    public function getUpdatedAt(): ?\DateTimeInterface
+    {
+        return $this->updated_at;
+    }
+
+    public function setUpdatedAt(?\DateTimeInterface $updated_at): self
+    {
+        $this->updated_at = $updated_at;
 
         return $this;
     }
@@ -190,57 +181,26 @@ class Recipe
     /**
      * @return Collection|User[]
      */
-    public function getUsersFavorites(): Collection
+    public function getUsers(): Collection
     {
-        return $this->usersFavorites;
+        return $this->users;
     }
 
-    public function addUsersFavorite(User $usersFavorite): self
+    public function addUser(User $user): self
     {
-        if (!$this->usersFavorites->contains($usersFavorite)) {
-            $this->usersFavorites[] = $usersFavorite;
-            $usersFavorite->addFavoriteRecipe($this);
+        if (!$this->users->contains($user)) {
+            $this->users[] = $user;
+            $user->addFavoriteRecipe($this);
         }
 
         return $this;
     }
 
-    public function removeUsersFavorite(User $usersFavorite): self
+    public function removeUser(User $user): self
     {
-        if ($this->usersFavorites->contains($usersFavorite)) {
-            $this->usersFavorites->removeElement($usersFavorite);
-            $usersFavorite->removeFavoriteRecipe($this);
-        }
-
-        return $this;
-    }
-
-    /**
-     * @return Collection|Ingredient[]
-     */
-    public function getIngredients(): Collection
-    {
-        return $this->ingredients;
-    }
-
-    public function addIngredient(Ingredient $ingredient): self
-    {
-        if (!$this->ingredients->contains($ingredient)) {
-            $this->ingredients[] = $ingredient;
-            $ingredient->setRecipe($this);
-        }
-
-        return $this;
-    }
-
-    public function removeIngredient(Ingredient $ingredient): self
-    {
-        if ($this->ingredients->contains($ingredient)) {
-            $this->ingredients->removeElement($ingredient);
-            // set the owning side to null (unless already changed)
-            if ($ingredient->getRecipe() === $this) {
-                $ingredient->setRecipe(null);
-            }
+        if ($this->users->contains($user)) {
+            $this->users->removeElement($user);
+            $user->removeFavoriteRecipe($this);
         }
 
         return $this;
@@ -258,7 +218,6 @@ class Recipe
     {
         if (!$this->products->contains($product)) {
             $this->products[] = $product;
-            $product->addRecipe($this);
         }
 
         return $this;
@@ -268,7 +227,6 @@ class Recipe
     {
         if ($this->products->contains($product)) {
             $this->products->removeElement($product);
-            $product->removeRecipe($this);
         }
 
         return $this;

@@ -2,25 +2,25 @@
 
 namespace App\Repository;
 
-use App\Entity\Date;
+use App\Entity\DataPage;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
- * @method Date|null find($id, $lockMode = null, $lockVersion = null)
- * @method Date|null findOneBy(array $criteria, array $orderBy = null)
- * @method Date[]    findAll()
- * @method Date[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
+ * @method DataPage|null find($id, $lockMode = null, $lockVersion = null)
+ * @method DataPage|null findOneBy(array $criteria, array $orderBy = null)
+ * @method DataPage[]    findAll()
+ * @method DataPage[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
-class DateRepository extends ServiceEntityRepository
+class DataPageRepository extends ServiceEntityRepository
 {
     public function __construct(ManagerRegistry $registry)
     {
-        parent::__construct($registry, Date::class);
+        parent::__construct($registry, DataPage::class);
     }
 
     // /**
-    //  * @return Date[] Returns an array of Date objects
+    //  * @return DataPage[] Returns an array of DataPage objects
     //  */
     /*
     public function findByExampleField($value)
@@ -37,7 +37,7 @@ class DateRepository extends ServiceEntityRepository
     */
 
     /*
-    public function findOneBySomeField($value): ?Date
+    public function findOneBySomeField($value): ?DataPage
     {
         return $this->createQueryBuilder('d')
             ->andWhere('d.exampleField = :val')

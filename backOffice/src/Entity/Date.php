@@ -2,10 +2,8 @@
 
 namespace App\Entity;
 
-
 use App\Repository\DateRepository;
 use Doctrine\ORM\Mapping as ORM;
-use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * @ORM\Entity(repositoryClass=DateRepository::class)
@@ -25,14 +23,26 @@ class Date
     private $date;
 
     /**
-     * @ORM\Column(type="datetime")
+     * @ORM\Column(type="time")
      */
-    private $startHour;
+    private $start_hour;
 
     /**
-     * @ORM\Column(type="datetime")
+     * @ORM\Column(type="time")
      */
-    private $endHour;
+    private $end_hour;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=Mode::class)
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $deliveryMode;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=City::class)
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $city;
 
     /**
      * @ORM\Column(type="datetime")
@@ -44,21 +54,8 @@ class Date
      */
     private $updated_at;
 
-    /**
-     * @ORM\ManyToOne(targetEntity=Mode::class)
-     * @ORM\JoinColumn(nullable=false)
-     */
-    private $mode;
-
-    /**
-     * @ORM\ManyToOne(targetEntity=City::class)
-     */
-    private $City;
-
-
     public function __construct()
     {
-        $this->city = new ArrayCollection();
         $this->created_at = new \DateTime();
     }
 
@@ -81,24 +78,48 @@ class Date
 
     public function getStartHour(): ?\DateTimeInterface
     {
-        return $this->startHour;
+        return $this->start_hour;
     }
 
-    public function setStartHour(\DateTimeInterface $startHour): self
+    public function setStartHour(\DateTimeInterface $start_hour): self
     {
-        $this->startHour = $startHour;
+        $this->start_hour = $start_hour;
 
         return $this;
     }
 
     public function getEndHour(): ?\DateTimeInterface
     {
-        return $this->endHour;
+        return $this->end_hour;
     }
 
-    public function setEndHour(\DateTimeInterface $endHour): self
+    public function setEndHour(\DateTimeInterface $end_hour): self
     {
-        $this->endHour = $endHour;
+        $this->end_hour = $end_hour;
+
+        return $this;
+    }
+
+    public function getDeliveryMode(): ?Mode
+    {
+        return $this->deliveryMode;
+    }
+
+    public function setDeliveryMode(?Mode $deliveryMode): self
+    {
+        $this->deliveryMode = $deliveryMode;
+
+        return $this;
+    }
+
+    public function getCity(): ?City
+    {
+        return $this->city;
+    }
+
+    public function setCity(?City $city): self
+    {
+        $this->city = $city;
 
         return $this;
     }
@@ -126,30 +147,4 @@ class Date
 
         return $this;
     }
-
-
-    public function getMode(): ?mode
-    {
-        return $this->mode;
-    }
-
-    public function setMode(?mode $mode): self
-    {
-        $this->mode = $mode;
-
-        return $this;
-    }
-
-    public function getCity(): ?City
-    {
-        return $this->City;
-    }
-
-    public function setCity(?City $City): self
-    {
-        $this->City = $City;
-
-        return $this;
-    }
-
 }

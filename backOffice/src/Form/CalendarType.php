@@ -33,11 +33,13 @@ class CalendarType extends AbstractType
             ])
             ->add('city', EntityType::class, [
                 'class' => City::class,
-                'choice_label' => 'name'
+                'choice_label' => 'name',
+                'label' => 'Ville',
             ])
-            ->add('mode', EntityType::class, [
+            ->add('deliveryMode', EntityType::class, [
                 'class' => Mode::class,
                 'choice_label' => 'mode',
+                'label' => 'Mode de livraison'
             ])
         ;
     }

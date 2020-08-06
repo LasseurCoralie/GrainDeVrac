@@ -23,8 +23,7 @@ class Ingredient
     private $name;
 
     /**
-     * @ORM\ManyToOne(targetEntity=recipe::class, inversedBy="ingredients")
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\ManyToOne(targetEntity=Recipe::class)
      */
     private $recipe;
 
@@ -45,12 +44,12 @@ class Ingredient
         return $this;
     }
 
-    public function getRecipe(): ?recipe
+    public function getRecipe(): ?Recipe
     {
         return $this->recipe;
     }
 
-    public function setRecipe(?recipe $recipe): self
+    public function setRecipe(?Recipe $recipe): self
     {
         $this->recipe = $recipe;
 

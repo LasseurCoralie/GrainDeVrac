@@ -20,12 +20,6 @@ class Product
     private $id;
 
     /**
-     * @ORM\ManyToOne(targetEntity=User::class)
-     * @ORM\JoinColumn(nullable=false)
-     */
-    private $producer;
-
-    /**
      * @ORM\Column(type="string", length=255)
      */
     private $name;
@@ -33,7 +27,7 @@ class Product
     /**
      * @ORM\Column(type="text")
      */
-    private $shortDescription;
+    private $short_description;
 
     /**
      * @ORM\Column(type="text")
@@ -66,38 +60,40 @@ class Product
     private $higlighted;
 
     /**
-     * @ORM\ManyToMany(targetEntity=Recipe::class, inversedBy="products")
+     * @ORM\ManyToOne(targetEntity=User::class)
+     * @ORM\JoinColumn(nullable=false)
      */
-    private $recipe;
+    private $producer;
 
     /**
-     * @ORM\ManyToMany(targetEntity=User::class, mappedBy="productList")
+     * @ORM\Column(type="datetime")
+     */
+    private $created_at;
+
+    /**
+     * @ORM\Column(type="datetime", nullable=true)
+     */
+    private $updated_at;
+
+    /**
+     * @ORM\ManyToMany(targetEntity=User::class, mappedBy="MyCart")
      */
     private $users;
 
+    /**
+     * @ORM\ManyToMany(targetEntity=Recipe::class, mappedBy="products")
+     */
+    private $recipes;
+
     public function __construct()
     {
-        $this->recipe = new ArrayCollection();
         $this->users = new ArrayCollection();
-        $this->setHiglighted(false);
+        $this->recipes = new ArrayCollection();
     }
-
 
     public function getId(): ?int
     {
         return $this->id;
-    }
-
-    public function getProducer(): ?user
-    {
-        return $this->producer;
-    }
-
-    public function setProducer(?user $producer): self
-    {
-        $this->producer = $producer;
-
-        return $this;
     }
 
     public function getName(): ?string
@@ -114,12 +110,12 @@ class Product
 
     public function getShortDescription(): ?string
     {
-        return $this->shortDescription;
+        return $this->short_description;
     }
 
-    public function setShortDescription(string $shortDescription): self
+    public function setShortDescription(string $short_description): self
     {
-        $this->shortDescription = $shortDescription;
+        $this->short_description = $short_description;
 
         return $this;
     }
@@ -196,28 +192,38 @@ class Product
         return $this;
     }
 
-    /**
-     * @return Collection|recipe[]
-     */
-    public function getRecipe(): Collection
+    public function getProducer(): ?User
     {
-        return $this->recipe;
+        return $this->producer;
     }
 
-    public function addRecipe(recipe $recipe): self
+    public function setProducer(?User $producer): self
     {
-        if (!$this->recipe->contains($recipe)) {
-            $this->recipe[] = $recipe;
-        }
+        $this->producer = $producer;
 
         return $this;
     }
 
-    public function removeRecipe(recipe $recipe): self
+    public function getCreatedAt(): ?\DateTimeInterface
     {
-        if ($this->recipe->contains($recipe)) {
-            $this->recipe->removeElement($recipe);
-        }
+        return $this->created_at;
+    }
+
+    public function setCreatedAt(\DateTimeInterface $created_at): self
+    {
+        $this->created_at = $created_at;
+
+        return $this;
+    }
+
+    public function getUpdatedAt(): ?\DateTimeInterface
+    {
+        return $this->updated_at;
+    }
+
+    public function setUpdatedAt(?\DateTimeInterface $updated_at): self
+    {
+        $this->updated_at = $updated_at;
 
         return $this;
     }
@@ -234,7 +240,7 @@ class Product
     {
         if (!$this->users->contains($user)) {
             $this->users[] = $user;
-            $user->addProductList($this);
+            $user->addMyCart($this);
         }
 
         return $this;
@@ -244,10 +250,37 @@ class Product
     {
         if ($this->users->contains($user)) {
             $this->users->removeElement($user);
-            $user->removeProductList($this);
+            $user->removeMyCart($this);
         }
 
         return $this;
     }
 
+    /**
+     * @return Collection|Recipe[]
+     */
+    public function getRecipes(): Collection
+    {
+        return $this->recipes;
+    }
+
+    public function addRecipe(Recipe $recipe): self
+    {
+        if (!$this->recipes->contains($recipe)) {
+            $this->recipes[] = $recipe;
+            $recipe->addProduct($this);
+        }
+
+        return $this;
+    }
+
+    public function removeRecipe(Recipe $recipe): self
+    {
+        if ($this->recipes->contains($recipe)) {
+            $this->recipes->removeElement($recipe);
+            $recipe->removeProduct($this);
+        }
+
+        return $this;
+    }
 }

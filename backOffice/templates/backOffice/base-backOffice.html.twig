@@ -1,0 +1,7 @@
+{% extends 'base.html.twig' %}
+{% block stylesheets %} <link rel="stylesheet" href="{{ asset('css/styleBackOffice.css') }}" /> {% endblock %}
+{% block body %}
+    {% block nav %}{% endblock %}
+    {% block title %}{% include "backOffice/title-backOffice.html.twig" %}{% endblock %}
+    {% block content %}{% endblock %}
+{% endblock %}

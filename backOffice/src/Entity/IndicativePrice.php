@@ -3,8 +3,6 @@
 namespace App\Entity;
 
 use App\Repository\IndicativePriceRepository;
-use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -22,62 +20,21 @@ class IndicativePrice
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $indicativePrice;
-
-    /**
-     * @ORM\OneToMany(targetEntity=Recipe::class, mappedBy="indicativePrice")
-     */
-    private $recipes;
-
-    public function __construct()
-    {
-        $this->recipes = new ArrayCollection();
-    }
+    private $level;
 
     public function getId(): ?int
     {
         return $this->id;
     }
 
-    public function getIndicativePrice(): ?string
+    public function getLevel(): ?string
     {
-        return $this->indicativePrice;
+        return $this->level;
     }
 
-    public function setIndicativePrice(string $indicativePrice): self
+    public function setLevel(string $level): self
     {
-        $this->indicativePrice = $indicativePrice;
-
-        return $this;
-    }
-
-    /**
-     * @return Collection|Recipe[]
-     */
-    public function getRecipes(): Collection
-    {
-        return $this->recipes;
-    }
-
-    public function addRecipe(Recipe $recipe): self
-    {
-        if (!$this->recipes->contains($recipe)) {
-            $this->recipes[] = $recipe;
-            $recipe->setIndicativePrice($this);
-        }
-
-        return $this;
-    }
-
-    public function removeRecipe(Recipe $recipe): self
-    {
-        if ($this->recipes->contains($recipe)) {
-            $this->recipes->removeElement($recipe);
-            // set the owning side to null (unless already changed)
-            if ($recipe->getIndicativePrice() === $this) {
-                $recipe->setIndicativePrice(null);
-            }
-        }
+        $this->level = $level;
 
         return $this;
     }

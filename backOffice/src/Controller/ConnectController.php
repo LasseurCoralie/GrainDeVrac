@@ -16,6 +16,6 @@ class ConnectController extends AbstractController
 
     public function index(): Response
     {
-        return $this->render('pages/connect/connect.html.twig');
+        return $this->render('connect/connect.html.twig');
     }
 } 

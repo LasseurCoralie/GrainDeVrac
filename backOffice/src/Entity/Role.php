@@ -2,8 +2,8 @@
 
 namespace App\Entity;
 
-use Doctrine\ORM\Mapping as ORM;
 use App\Repository\RoleRepository;
+use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity(repositoryClass=RoleRepository::class)
@@ -22,11 +22,6 @@ class Role
      */
     private $role;
 
-
-    public function __construct()
-    {
-    }
-
     public function getId(): ?int
     {
         return $this->id;
@@ -43,5 +38,4 @@ class Role
 
         return $this;
     }
-
 }

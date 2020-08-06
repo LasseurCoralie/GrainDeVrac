@@ -3,8 +3,6 @@
 namespace App\Entity;
 
 use App\Repository\CityRepository;
-use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -27,12 +25,7 @@ class City
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $department;
-
-    public function __construct()
-    {
-        $this->users = new ArrayCollection();
-    }
+    private $departement;
 
     public function getId(): ?int
     {
@@ -51,16 +44,15 @@ class City
         return $this;
     }
 
-    public function getDepartment(): ?string
+    public function getDepartement(): ?string
     {
-        return $this->department;
+        return $this->departement;
     }
 
-    public function setDepartment(string $department): self
+    public function setDepartement(string $departement): self
     {
-        $this->department = $department;
+        $this->departement = $departement;
 
         return $this;
     }
-
 }

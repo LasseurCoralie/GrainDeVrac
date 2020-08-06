@@ -2,19 +2,13 @@
 
 namespace App\Entity;
 
-use Doctrine\ORM\Mapping as ORM;
-use Doctrine\Common\Collections\Collection;
+use App\Repository\UserRepository;
 use Doctrine\Common\Collections\ArrayCollection;
-use Symfony\Component\Validator\Constraints as Assert;
-use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+use Doctrine\Common\Collections\Collection;
+use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity(repositoryClass="App\Repository\UserRepository")
- *  *  * @UniqueEntity(
- *     fields={"mail"},
- *     errorPath="mail",
- *     message="ATTENTION: Cette email est déjà utilisé! Les modifications on été annulés"
- * )
+ * @ORM\Entity(repositoryClass=UserRepository::class)
  */
 class User
 {
@@ -24,7 +18,6 @@ class User
      * @ORM\Column(type="integer")
      */
     private $id;
-
 
     /**
      * @ORM\Column(type="string", length=255)
@@ -42,34 +35,14 @@ class User
     private $adress;
 
     /**
-     * @ORM\ManyToOne(targetEntity=City::class)
-     * @ORM\JoinColumn(nullable=false)
-     */
-    private $city;
-
-    /**
-     * @ORM\ManyToOne(targetEntity=Role::class)
-     */
-    private $role;
-
-    /**
      * @ORM\Column(type="string", length=255)
-     */
-    private $country;
-
-    /**
-     * @ORM\Column(type="string", length=255)
-     * @Assert\Regex("/^(0|\+33)[1-9]([-. ]?[0-9]{2}){4}$/")
      */
     private $phone;
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @Assert\Email(
-     *     message = "{{ value }} n'est pas une adresse mail valide",
-     * )
      */
-    private $mail;
+    private $email;
 
     /**
      * @ORM\Column(type="boolean")
@@ -77,26 +50,47 @@ class User
     private $mute;
 
     /**
-     * @ORM\ManyToMany(targetEntity=Recipe::class, inversedBy="usersFavorites")
+     * @ORM\ManyToOne(targetEntity=City::class)
+     * @ORM\JoinColumn(nullable=false)
      */
-    private $favoriteRecipe;
+    private $city;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=Role::class)
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $role;
+
+    /**
+     * @ORM\Column(type="datetime")
+     */
+    private $created_at;
+
+    /**
+     * @ORM\Column(type="datetime", nullable=true)
+     */
+    private $updated_at;
 
     /**
      * @ORM\ManyToMany(targetEntity=Product::class, inversedBy="users")
      */
-    private $productList;
+    private $MyCart;
+
+    /**
+     * @ORM\ManyToMany(targetEntity=Recipe::class, inversedBy="users")
+     */
+    private $FavoriteRecipe;
 
     public function __construct()
     {
-        $this->favoriteRecipe = new ArrayCollection();
-        $this->productList = new ArrayCollection();
+        $this->MyCart = new ArrayCollection();
+        $this->FavoriteRecipe = new ArrayCollection();
     }
 
     public function getId(): ?int
     {
         return $this->id;
     }
-
 
     public function getName(): ?string
     {
@@ -134,12 +128,48 @@ class User
         return $this;
     }
 
-    public function getCity(): ?city
+    public function getPhone(): ?string
+    {
+        return $this->phone;
+    }
+
+    public function setPhone(string $phone): self
+    {
+        $this->phone = $phone;
+
+        return $this;
+    }
+
+    public function getEmail(): ?string
+    {
+        return $this->email;
+    }
+
+    public function setEmail(string $email): self
+    {
+        $this->email = $email;
+
+        return $this;
+    }
+
+    public function getMute(): ?bool
+    {
+        return $this->mute;
+    }
+
+    public function setMute(bool $mute): self
+    {
+        $this->mute = $mute;
+
+        return $this;
+    }
+
+    public function getCity(): ?City
     {
         return $this->city;
     }
 
-    public function setCity(?city $city): self
+    public function setCity(?City $city): self
     {
         $this->city = $city;
 
@@ -158,102 +188,77 @@ class User
         return $this;
     }
 
-    public function getCountry(): ?string
+    public function getCreatedAt(): ?\DateTimeInterface
     {
-        return $this->country;
+        return $this->created_at;
     }
 
-    public function setCountry(string $country): self
+    public function setCreatedAt(\DateTimeInterface $created_at): self
     {
-        $this->country = $country;
+        $this->created_at = $created_at;
 
         return $this;
     }
 
-    public function getPhone(): ?string
+    public function getUpdatedAt(): ?\DateTimeInterface
     {
-        return $this->phone;
+        return $this->updated_at;
     }
 
-    public function setPhone(string $phone): self
+    public function setUpdatedAt(?\DateTimeInterface $updated_at): self
     {
-        $this->phone = $phone;
+        $this->updated_at = $updated_at;
 
         return $this;
     }
-
-    public function getMail(): ?string
-    {
-        return $this->mail;
-    }
-
-    public function setMail(string $mail): self
-    {
-        $this->mail = $mail;
-
-        return $this;
-    }
-
-    public function getMute(): ?bool
-    {
-        return $this->mute;
-    }
-
-    public function setMute(bool $mute): self
-    {
-        $this->mute = $mute;
-
-        return $this;
-    }
-
 
     /**
-     * @return Collection|recipe[]
+     * @return Collection|Product[]
+     */
+    public function getMyCart(): Collection
+    {
+        return $this->MyCart;
+    }
+
+    public function addMyCart(Product $myCart): self
+    {
+        if (!$this->MyCart->contains($myCart)) {
+            $this->MyCart[] = $myCart;
+        }
+
+        return $this;
+    }
+
+    public function removeMyCart(Product $myCart): self
+    {
+        if ($this->MyCart->contains($myCart)) {
+            $this->MyCart->removeElement($myCart);
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Recipe[]
      */
     public function getFavoriteRecipe(): Collection
     {
-        return $this->favoriteRecipe;
+        return $this->FavoriteRecipe;
     }
 
-    public function addFavoriteRecipe(recipe $favoriteRecipe): self
+    public function addFavoriteRecipe(Recipe $favoriteRecipe): self
     {
-        if (!$this->favoriteRecipe->contains($favoriteRecipe)) {
-            $this->favoriteRecipe[] = $favoriteRecipe;
+        if (!$this->FavoriteRecipe->contains($favoriteRecipe)) {
+            $this->FavoriteRecipe[] = $favoriteRecipe;
         }
 
         return $this;
     }
 
-    public function removeFavoriteRecipe(recipe $favoriteRecipe): self
+    public function removeFavoriteRecipe(Recipe $favoriteRecipe): self
     {
-        if ($this->favoriteRecipe->contains($favoriteRecipe)) {
-            $this->favoriteRecipe->removeElement($favoriteRecipe);
-        }
-
-        return $this;
-    }
-
-    /**
-     * @return Collection|product[]
-     */
-    public function getProductList(): Collection
-    {
-        return $this->productList;
-    }
-
-    public function addProductList(product $productList): self
-    {
-        if (!$this->productList->contains($productList)) {
-            $this->productList[] = $productList;
-        }
-
-        return $this;
-    }
-
-    public function removeProductList(product $productList): self
-    {
-        if ($this->productList->contains($productList)) {
-            $this->productList->removeElement($productList);
+        if ($this->FavoriteRecipe->contains($favoriteRecipe)) {
+            $this->FavoriteRecipe->removeElement($favoriteRecipe);
         }
 
         return $this;

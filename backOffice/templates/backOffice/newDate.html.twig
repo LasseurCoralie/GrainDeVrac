@@ -1,0 +1,28 @@
+{% extends 'backOffice/nav-backOffice/nav-backOffice.html.twig' %}
+
+{% block content %}
+    <main class="backOffice-main">
+        <div class="editForm">
+            {{ form_start(form) }}
+                <div class="mode rowEdit">
+                    {{ form_row(form.deliveryMode)}}
+                </div>
+                <div class="date rowEdit">
+                    {{ form_row(form.date)}}
+                </div>
+                <div class="hourSelector rowEdit">
+                    {{ form_row(form.startHour)}}
+                </div>
+                <div class="hourSelector rowEdit">
+                    {{ form_row(form.endHour)}}
+                </div>
+                <div class="city rowEdit">
+                    {{ form_row(form.city)}}
+                    <div class="button button-new"><a href="/home/calendrier/ajouter-ville">Ajouter une ville à la liste</a></div>
+                </div>
+                {{ form_widget(form) }}
+                <button type="submit">Valider la date</button>
+            {{ form_end(form) }}
+        </div>
+    </main> 
+{% endblock %}

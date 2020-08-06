@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Grain de Vrac-Admin{% endblock %}</title>
+        <link rel="stylesheet" href="{{ asset('css/reset.css') }}" />
+        <link rel="stylesheet" href="{{ asset('css/styleGlobal.css') }}" />
+        <link rel="stylesheet" href="{{ asset('css/typos.css')}}" />
+        <link rel="stylesheet" href="{{ asset('css/styleNav.css') }}" /> 
+        {% block stylesheets %}{% endblock %}
+    </head>
+    <body>
+        {% block body %}{% endblock %}
+        {% block javascripts %}{% endblock %}
+    </body>
+</html>

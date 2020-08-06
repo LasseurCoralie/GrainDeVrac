@@ -7,30 +7,32 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
-use App\Entity\DataPage;
+use App\Entity\Date;
 
-class DataPageController extends AbstractController
+class DateController extends AbstractController
 {
 
     /**
-     * @Route("/api/dataPage", name="dataPageApi")
+     * @Route("/api/date", name="dateApi")
      * @param Request $request
      */
 
      public function index(): Response
      {
 
-        $repository = $this->getDoctrine()->getRepository(DataPage::class);
-        $datas_page = $repository->findAll();
+        $repository = $this->getDoctrine()->getRepository(Date::class);
+        $date = $repository->findAll();
 
         $json = [];
 
-        foreach( $datas_page as $value){
+        foreach( $date as $value){
            $json[] = [
                'id' => $value->getId(),
-               'type' => $value->getType(),
-               'content' => $value->getContent(),
-               'upDate' => $value->getUpdateAt()
+               'date' => $value->getDate(),
+               'startHour' => $value->getStartHour(),
+               'endHour' => $value->getEndHour(),
+               'deliveryMode' => $value->getDeliveryMode()->getMode(),
+               'city'=> $value->getCity()->getName(),
             ];
         }
 

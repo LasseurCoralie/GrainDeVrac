@@ -19,7 +19,7 @@ const HomePage = () => {
   useEffect(() => {
     axios({
       method: 'get',
-      url: routeName + '/nomDeLaRoutePourSlogan'
+      url: routeName + '/dataPage'
     })
       .then((response) => {
       setSlogan(response);

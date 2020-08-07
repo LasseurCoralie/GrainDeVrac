@@ -12,9 +12,10 @@ import HomePageStyled from './HomePageStyled';
 
 const HomePage = () => {
 
-  const dataSlogan = "est une épicerie itinérante de vrac située dans les Landes. Retrouvez-nous sur un marché près de chez vous ou en livraison à votre porte !";
+  // const dataSlogan = "est une épicerie itinérante de vrac située dans les Landes. Retrouvez-nous sur un marché près de chez vous ou en livraison à votre porte !";
 
-  const [slogan, setSlogan] = useState(dataSlogan);
+  // const [slogan, setSlogan] = useState(dataSlogan);
+  const [dataPage, setDatapage] = useState([]);
 
   useEffect(() => {
     axios({
@@ -22,13 +23,15 @@ const HomePage = () => {
       url: routeName + 'dataPage'
     })
       .then((response) => {
-      console.log(response);
-      setSlogan(response);
+      console.log(response.data);
+      setDatapage(response.data);
     })
       .catch((error) => {
         console.log('Une erreur s\'est produite : ', error);
       });
   }, []);
+
+  console.log(dataPage);
 
   return (
     <HomePageStyled>
@@ -37,7 +40,7 @@ const HomePage = () => {
         {/* <img src={process.env.PUBLIC_URL + '/img/grain-de-vrac-broderie-hp.jpg'} alt="broderie du logo Grain de Vrac"/> */}
         <div className="intro-zn--text-zn">
           <h1>Grain de Vrac</h1>
-          <p>{slogan}</p>
+          <p>{dataPage.length > 0 ? dataPage[0].content : ""}</p>
           {/* <p>est une épicerie itinérante de vrac située dans les Landes. Retrouvez-nous sur un marché près de chez vous ou en livraison à votre porte !</p> */}
           <NavLink className="navlink-button" exact to="/qui-sommes-nous">
             <Button content="En savoir plus" />
@@ -47,7 +50,7 @@ const HomePage = () => {
       </section>
 
       <section id="special-alert-zn">
-        <p>Covid-19 : La préparation de vos commandes est faite dans le stricte respect des consignes sanitaires</p>
+        <p>{dataPage.length > 0 ? dataPage[1].content : ""}</p>
       </section>
 
       <section id="planning-zn">

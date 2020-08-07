@@ -6,11 +6,10 @@ import Planning from '../../small_components/Planning/Planning';
 import PlanningTitle from '../../small_components/PlanningTitle/PlanningTitle';
 
 // == Style
-import PlanningsStyled from './PlanningsStyled';
 
 const Plannings = () => {
   return (
-    <PlanningsStyled>
+    <div>
       <PageTitle title="Planning des marchés et des livraisons" content="Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore dignissimos optio ducimus consequatur animi ab." />
       <section id="currentWeek">
         <PlanningTitle  week="Semaine en cours" startingDate="14/07" endingDate="21/07" />
@@ -29,7 +28,7 @@ const Plannings = () => {
         <Planning />
       </section>
       
-    </PlanningsStyled>
+    </div>
   );
 };
 

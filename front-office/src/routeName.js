@@ -1,3 +1,3 @@
-const serverRoute = 'la première partie de ma route en back';
+const serverRoute = 'http://admingraindevrac.mathieuchamoulaud.com/api/';
 
 export default serverRoute;

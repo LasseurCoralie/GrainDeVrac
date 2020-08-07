@@ -62,6 +62,10 @@ const CatalogStyled = styled.div`
     }
   }
 
+  div.product-zn {
+    padding-bottom: 4em;
+  }
+
   @media (min-width: 1100px) {
     div.product-zn {
       display: flex;

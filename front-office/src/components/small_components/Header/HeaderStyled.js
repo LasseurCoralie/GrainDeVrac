@@ -36,7 +36,7 @@ const HeaderStyled = styled.header`
       display: none;
     }
 
-    nav.openMenu {
+    nav.navMenu {
       display: block;
       background-color: ${theme.colors.orange};
       width: 100vw;
@@ -56,10 +56,6 @@ const HeaderStyled = styled.header`
           a {
             text-decoration: none;
             color: white;
-
-            :hover {
-              text-decoration: underline;
-            }
           }
         }
       }
@@ -92,6 +88,15 @@ const HeaderStyled = styled.header`
         }
       }
     }
+
+    button.ouverture {
+      border: 1px solid ${theme.colors.orange};
+
+      span.squares-menu {
+        transform: rotate(45deg);
+      }
+    }
+
   }
 
   // DESKTOP SCREEN
@@ -109,7 +114,8 @@ const HeaderStyled = styled.header`
         display: none;
       }
 
-      nav.closedMenu {
+      nav.navMenu {
+        background-color: white;
         display: block;
 
         ul {
@@ -120,12 +126,13 @@ const HeaderStyled = styled.header`
           padding: 0 1em;
 
           li {
-            margin: 1em;
+            margin: .5em;
 
             a {
               color: ${theme.colors.black};
               text-decoration: none;
               position: relative;
+              font-size: 1rem;
 
               &:before {
                 content: '';
@@ -139,7 +146,7 @@ const HeaderStyled = styled.header`
                 transition: all .3s;
               }
 
-              :hover {
+              &:hover, &:active {
                 color: ${theme.colors.purple};
                 
                 &:before {

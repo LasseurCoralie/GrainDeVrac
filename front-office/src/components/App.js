@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 import { Route, Switch } from 'react-router-dom';
 
 // == Import components
@@ -15,11 +15,39 @@ import Footer from './small_components/Footer/Footer';
 // == Import Style
 import GlobalStyle from './GlobalStyle';
 
-const App = () => (
-    <div>
+const App = () => {
+
+  const [menuBurger, setMenuBurger] = useState(false);
+
+  const handleClickClose = (evt) => {
+
+    // Pour fermer le menu quand on clique sur la page
+    if (menuBurger === true) {
+      setMenuBurger(false)
+    }
+
+    console.log(!menuBurger);
+    // Gestion de l'ouverture et de la fermeture du menu
+    if (evt.target.classList[1] === "burgerMenu") {
+      if (!menuBurger) {
+        setMenuBurger(true);
+      } else {
+        setMenuBurger(false);
+      }
+    }
+  }
+
+  if (window.innerWidth > 1099 && !menuBurger) {
+    setMenuBurger(true);
+  }
+
+  console.log(menuBurger, window.innerWidth);
+
+  return(
+    <div onClick={handleClickClose}>
       <GlobalStyle />
       <main className="main-content">
-        <Header /> 
+        <Header menuBurger={menuBurger} /> 
         <Switch>
           <Route exact path="/" component={HomePage} />
           <Route exact path='/catalogue' component={Catalog} />
@@ -32,6 +60,7 @@ const App = () => (
         <Footer />
       </main>
     </div>
-);
+  )
+};
 
 export default App;

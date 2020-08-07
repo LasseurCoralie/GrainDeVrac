@@ -21,6 +21,7 @@ const ProductStyled = styled.div`
   }
   div.product-zn {
     margin: 0 1em 3em;
+    padding-bottom: 4em;
 
     img {
       width: 100%;
@@ -111,7 +112,7 @@ const ProductStyled = styled.div`
 
   @media (min-width: 1100px) {
     div.fildAriane {
-      margin: -.5em 7em;
+      margin: 3em 7em 1em;
       justify-content: left;
     }
 

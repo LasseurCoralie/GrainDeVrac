@@ -13,7 +13,11 @@ const PlanningStyled = styled.div`
     display: none;
   }
 
-  table {
+  table.desktop-version, table.mobile-version {
+    margin-bottom: 3em;
+  }
+
+  table{
     width: 100%;
     margin: 2em 0;
 
@@ -58,6 +62,8 @@ const PlanningStyled = styled.div`
 
     section#planning-zn {}
     table.desktop-version {
+      max-width: 1100px;
+      margin: 0 auto 3em;
       display: table;
 
       tr.part-day, tr.part-day th.empty-cell {

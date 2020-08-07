@@ -1,13 +1,12 @@
 import styled from 'styled-components';
 
 const AboutStyled = styled.div`
-  margin: 0 1em;
   text-align: center;
   margin-bottom: 4em;
+  padding: 0 1em;
 
-
-  h2{
-    margin: 1em auto;
+  h2 {
+    margin: 1em 3em;
   }
   div p {
     text-align: left;
@@ -28,6 +27,9 @@ const AboutStyled = styled.div`
 
   @media (min-width: 1100px) {
 
+    max-width: 1100px;
+    margin: 0 auto;
+
     div.first-paragraph {
       display: flex;
       flex-wrap: wrap;
@@ -42,7 +44,6 @@ const AboutStyled = styled.div`
 
       img.first-paragraph--img {
         object-fit: cover;
-        margin-left: -1em;
       }
 
       p.first-paragraph--content {

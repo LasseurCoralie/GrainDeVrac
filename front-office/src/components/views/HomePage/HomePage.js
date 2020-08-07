@@ -12,14 +12,6 @@ import HomePageStyled from './HomePageStyled';
 
 const HomePage = () => {
 
-  console.log(routeName); // routeName est la 1re partie de la route qui sera utilisée puis changée au moment du déploiement 
-
-  //const [slogan, setSlogan] = useState[""];
-
-  // useEffect( () => {
-  //   //Requête Axios
-  //   // setSlogan(laReponse)
-  // })
   const dataSlogan = "est une épicerie itinérante de vrac située dans les Landes. Retrouvez-nous sur un marché près de chez vous ou en livraison à votre porte !";
 
   const [slogan, setSlogan] = useState(dataSlogan);
@@ -27,7 +19,7 @@ const HomePage = () => {
   useEffect(() => {
     axios({
       method: 'get',
-      url: routeName + '/nomDeLaRoutePourSlogan'
+      url: routeName + '/dataPage'
     })
       .then((response) => {
       setSlogan(response);
@@ -82,7 +74,7 @@ const HomePage = () => {
 
       <section id="contact-zn">
         <h2 className="title">Une question ? Un commentaire ? Une suggestion ?</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Exercitationem blanditiis fugit assumenda alias? Iusto ex deleniti optio id accusantium perspiciatis, numquam aut quia. Voluptatem saepe ducimus, exercitationem repellendus dignissimos iusto beatae mollitia provident reprehenderit laborum culpa rem officiis minima. Asperiores!</p>
+        <p>Vous avez une questions sur nos produits ou leur originie ? Vous aimeriez savoir si vous pouvez apporter vos propres contenants ou si Grain de Vrac peut vous en vendre.<br />Vous souhaitez nous témoigner votre amour ? Cliquez sur le bouton ci-dessous pour nous envoyer vos demandes ou vos mots doux.</p>
         <NavLink className="navlink-button" exact to="/contact">
           <Button content="Contactez-nous" link="/contact" />
         </NavLink>

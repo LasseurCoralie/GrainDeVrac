@@ -22,6 +22,7 @@ const HomePage = () => {
       url: routeName + '/dataPage'
     })
       .then((response) => {
+      console.log(response);
       setSlogan(response);
     })
       .catch((error) => {

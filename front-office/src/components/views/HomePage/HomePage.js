@@ -19,7 +19,7 @@ const HomePage = () => {
   useEffect(() => {
     axios({
       method: 'get',
-      url: routeName + '/dataPage'
+      url: routeName + 'dataPage'
     })
       .then((response) => {
       console.log(response);

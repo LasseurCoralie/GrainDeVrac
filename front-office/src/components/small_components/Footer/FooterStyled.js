@@ -7,8 +7,7 @@ const FooterStyled = styled.footer`
   text-align: center;
   font-size: .9em;
   margin: 0;
-  padding: 1.5em;
-  padding-bottom: .5em;
+  padding: 1.5em .5em .5em;
   
   div{
     display: flex;

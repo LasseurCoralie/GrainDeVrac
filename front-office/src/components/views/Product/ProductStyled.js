@@ -21,7 +21,6 @@ const ProductStyled = styled.div`
   }
   div.product-zn {
     margin: 0 1em 3em;
-    padding-bottom: 4em;
 
     img {
       width: 100%;
@@ -117,7 +116,8 @@ const ProductStyled = styled.div`
     }
 
     div.product-zn {
-      margin: 1em 3em 3em;
+      max-width: 1100px;
+      margin: 1em auto;
       display: flex;
       justify-content: space-between;
 

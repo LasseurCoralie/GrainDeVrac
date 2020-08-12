@@ -146,6 +146,10 @@ const HomePageStyled = styled.div`
     }
   }
 
+  //////////////////////////////////////////
+  //////////////// DESKTOP /////////////////
+  //////////////////////////////////////////
+
   @media (min-width: 1100px) {
     section#intro-zn {
       background: url(/img/grain-de-vrac-broderie-hp-desktop.jpg);
@@ -165,10 +169,35 @@ const HomePageStyled = styled.div`
           bottom: -8em;
         }
       }
+    }
 
+    section#planning-zn {
+      position: relative;
+      z-index: 2;
+      max-width: 1100px;
+      margin: 2em auto;
+      padding: 0 2em;
+      box-shadow: 0px 10px 7px 0px rgba(0,0,0,0.25);
+      background-color: white;
+
+      h2.title {
+        margin-top: 3em;
+        margin-bottom: 2em;
+      }
+
+      button {
+        margin-bottom: 5em;
+      }
     }
 
     section#highlighted-products-zn {
+
+      margin-top: -10em;
+
+      h2.title {
+        padding-top: 7em;
+            }
+
       div.product-zn {
         display: flex;
         justify-content: center;
@@ -193,6 +222,10 @@ const HomePageStyled = styled.div`
           }
         }
       }
+          a.navlink-button {
+            margin-top: 4em;
+            margin-bottom: 5em;
+          }
 
       button {
         
@@ -200,6 +233,13 @@ const HomePageStyled = styled.div`
           background-color: ${theme.colors.purple};
           color: white;
         }
+      }
+    }
+
+    section#contact-zn {
+      a.navlink-button {
+        margin-bottom: 4em; 
+
       }
     }
   }

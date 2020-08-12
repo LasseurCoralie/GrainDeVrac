@@ -158,7 +158,7 @@ const HomePageStyled = styled.div`
       height: 80vh;
       display: flex;
       align-items: center;
-      justify-content: right;
+      justify-content: flex-end;
 
       div.intro-zn--text-zn {
         width: 40%;

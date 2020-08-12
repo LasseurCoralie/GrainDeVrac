@@ -1,4 +1,4 @@
-import React, { useRef, useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { Route, Switch } from 'react-router-dom';
 
 // == Import components
@@ -47,16 +47,18 @@ const App = () => {
     <div onClick={handleClickClose}>
       <GlobalStyle />
       <main className="main-content">
-        <Header menuBurger={menuBurger} /> 
-        <Switch>
-          <Route exact path="/" component={HomePage} />
-          <Route exact path='/catalogue' component={Catalog} />
-          <Route exact path='/planning' component={Plannings} />
-          <Route exact path='/catalogue/product' component={Product} />
-          <Route exact path='/qui-sommes-nous' component={About} />
-          <Route exact path="/contact" component={Contact} />
-          <Route exact path='/cgv' component={GTC} />
-        </Switch>
+        <Header menuBurger={menuBurger} />
+        <div className="content">
+          <Switch>
+            <Route exact path="/" component={HomePage} />
+            <Route exact path='/catalogue' component={Catalog} />
+            <Route exact path='/planning' component={Plannings} />
+            <Route exact path='/catalogue/product' component={Product} />
+            <Route exact path='/qui-sommes-nous' component={About} />
+            <Route exact path="/contact" component={Contact} />
+            <Route exact path='/cgv' component={GTC} />
+          </Switch>
+        </div>
         <Footer />
       </main>
     </div>

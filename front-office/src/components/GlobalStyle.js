@@ -21,15 +21,21 @@ const GlobalStyle = createGlobalStyle`
     margin: 0;
     padding: 0;
     position: relative;
-    padding-bottom: 220px;
     box-sizing: border-box;
-      
-      footer {
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        right: 0;
+
+    main.main-content {
+      display: flex;
+      flex-direction: column;
+      height: 100vh;
+
+      div.content {
+        flex: 1 0 auto;
       }
+
+      footer {
+        flex-shrink: 0;
+      }
+    }
   }
 
 

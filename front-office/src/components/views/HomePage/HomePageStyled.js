@@ -174,7 +174,7 @@ const HomePageStyled = styled.div`
     section#planning-zn {
       position: relative;
       z-index: 2;
-      max-width: 1100px;
+      max-width: 1050px;
       margin: 2em auto;
       padding: 0 2em;
       box-shadow: 0px 10px 7px 0px rgba(0,0,0,0.25);

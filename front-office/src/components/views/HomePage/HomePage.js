@@ -55,7 +55,7 @@ const HomePage = () => {
 
       <section id="planning-zn">
         <h2 className="title">Planning des marchés et des livraisons de la semaine</h2>
-        <Planning className="caca" />
+        <Planning />
         <Button content="Voir les semaines suivantes" link="/planning" />
       </section>
 

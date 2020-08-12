@@ -121,7 +121,7 @@ const HeaderStyled = styled.header`
         ul {
           margin: 0;
           display: flex;
-          justify-content: right;
+          justify-content: flex-end;
           flex-wrap: wrap;
           padding: 0 1em;
 

@@ -8,6 +8,11 @@ const FooterStyled = styled.footer`
   font-size: .9em;
   margin: 0;
   padding: 1.5em .5em .5em;
+
+  div.content-footer {
+    margin: 0 auto;
+    max-width: 600px;
+  }
   
   div{
     display: flex;
@@ -70,14 +75,6 @@ const FooterStyled = styled.footer`
       :hover {
         text-decoration: underline;
       }
-    }
-  }
-
-  @media (min-width: 1100px) {
-    div.content-footer {
-      margin: 0 auto;
-      max-width: 600px;
-
     }
   }
 `;

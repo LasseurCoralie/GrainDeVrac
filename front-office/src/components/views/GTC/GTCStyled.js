@@ -13,8 +13,9 @@ const GTCStyled = styled.div`
   }
 
   @media (min-width: 1100px) {
-    margin-right: 6em;
-    margin-left: 6em;
+    max-width: 1100px;
+    margin: 0 auto;
+
   }
   
 `;

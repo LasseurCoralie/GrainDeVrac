@@ -6,7 +6,7 @@ import FooterStyled from './FooterStyled';
 
 const Footer = () => (
   <FooterStyled>
-    <div>
+    <div className="content-footer">
       <div>
         <ul className="brand-info">
           <li><NavLink exact to="/qui-sommes-nous">Qui sommes-nous ?</NavLink></li>

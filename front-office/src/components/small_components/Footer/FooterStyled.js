@@ -72,6 +72,14 @@ const FooterStyled = styled.footer`
       }
     }
   }
+
+  @media (min-width: 1100px) {
+    div.content-footer {
+      margin: 0 auto;
+      max-width: 600px;
+
+    }
+  }
 `;
 
 export default FooterStyled;

@@ -15,7 +15,7 @@ class CalendarController extends AbstractController
     private $menu = 'home';
 
     /**
-     * @Route("/home/calendrier", name="calendar")
+     * @Route("/admin/home/calendrier", name="calendar")
      * @param Request $request
      */
 
@@ -42,7 +42,7 @@ class CalendarController extends AbstractController
     }
 
      /**
-     * @Route("/home/calendrier/nouvelle-date", name="calendar.newDate")
+     * @Route("/admin/home/calendrier/nouvelle-date", name="calendar.newDate")
      * @param Date $date
      * @return \Symfony\Component\HttpFoundation\Response
      */
@@ -75,7 +75,7 @@ class CalendarController extends AbstractController
     }
 
             /**
-     * @Route("/home/calendrier/date/edit/{id}", name="calendar.editDate", methods="POST|GET")
+     * @Route("/admin/home/calendrier/date/edit/{id}", name="calendar.editDate", methods="POST|GET")
      * @param Date $date
      * @return \Symfony\Component\HttpFoundation\Response
      */
@@ -105,7 +105,7 @@ class CalendarController extends AbstractController
     }
 
       /**
-     * @Route("/home/calendrier/date/edit/{id}", name="calendar.delete", methods="DELETE")
+     * @Route("/admin/home/calendrier/date/edit/{id}", name="calendar.delete", methods="DELETE")
      * @param Date $date
      * @return \Symfony\Component\HttpFoundation\Response
      */

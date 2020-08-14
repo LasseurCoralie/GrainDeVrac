@@ -15,8 +15,19 @@ class HomeController extends AbstractController
 
    private $menu = 'home';
 
+
+   /**
+    * @Route("/", name="co")
+    */
+
+    public function co()
+    {
+      return $this->redirectToRoute('home');
+
+    }
+
     /**
-     * @Route("/home", name="home")
+     * @Route("/admin/home", name="home")
      * @param Request $request
      */
 
@@ -36,7 +47,7 @@ class HomeController extends AbstractController
      }
 
      /**
-     * @Route("/home/qui-sommes-nous", name="about")
+     * @Route("/admin/home/qui-sommes-nous", name="about")
      * @param Request $request
      */
 
@@ -55,7 +66,7 @@ class HomeController extends AbstractController
     }
 
       /**
-     * @Route("/home/mentions-legales", name="cgu")
+     * @Route("/admin/home/mentions-legales", name="cgu")
      * @param Request $request
      */
 
@@ -75,7 +86,7 @@ class HomeController extends AbstractController
 
 
     /**
-     * @Route("home/homepage/edit/{id}", name="home.edit")
+     * @Route("/admin/home/homepage/edit/{id}", name="home.edit")
      * @param Request $request
      * @param DataPage $datas_page
      */

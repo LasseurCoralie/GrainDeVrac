@@ -13,7 +13,7 @@
 
         <ul class="iconWrapper">
             <li class="{% if menu is defined and menu == 'home'%}iconActive{% endif %}">
-                <a href='/home'>
+                <a href='{{path('home')}}'>
                     <span class="linkNav">Gestion site</span>
                     <img src="{{ asset('assets/icons/Icon-globe.svg')}}" alt="icone home">
                 </a>

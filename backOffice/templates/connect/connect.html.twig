@@ -15,12 +15,18 @@
         <main class="connect-main">
             <h2>Connexion</h2>
 
-            <form methode="post" action="{{path('home')}}" >
-                <label for="email">Adresse e-mail</label>
-                    <input type="email" id="email" name="email" placeholder="entrez votre addresse e-mail"></input>
+            {% if error %}
+
+            <div>{{ error }}</div>
+
+            {% endif %}
+
+            <form methode="post" action="{{path('app_login')}}" >
+                <label for="username">Adresse e-mail</label>
+                    <input type="text" id="username" name="_username" placeholder="entrez votre identifiant" value="{{ last_username }}"></input>
                 
                 <label for="password">Mot de passe</label>
-                    <input type="password" id="password" name="password" placeholder="entrez votre mot de passe"></input>
+                    <input type="password" id="password" name="_password" placeholder="entrez votre mot de passe"></input>
                 
 
                 <a href="/mot-de-passe-oublie">mot de passe oublié ?</a>
